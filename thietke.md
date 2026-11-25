@@ -2,7 +2,7 @@
 
 > **Dự án:** Hệ thống Multi-Agent hỗ trợ giáo viên thiết kế hoạt động giảng dạy bám sát đề cương, giáo trình và tối ưu theo trình độ phân hóa lớp học (Môn Tin học THPT)  
 > **Phạm vi MVP:** Chủ đề F – Lập trình Python (Bộ SGK/SBT *Tin học 10 Kết nối tri thức với cuộc sống*, Bài 16 – 29), xuất giáo án chuẩn Phụ lục IV – Công văn 5512/BGDĐT-GDTrH kèm trích dẫn SGK và 3 Phiếu học tập phân hóa theo Bloom.  
-> **Tài liệu Kế hoạch triển khai:** [ke_hoach.md](file:///d:/Learn NLP/NLP_Multi_Agent/ke_hoach.md)
+> **Tài liệu Kế hoạch triển khai:** [ke_hoach.md](./ke_hoach.md)
 
 ---
 

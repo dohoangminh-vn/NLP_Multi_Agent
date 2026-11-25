@@ -5,13 +5,13 @@
 **Thời gian thực hiện:** **4 tuần** (tổ chức phát triển song song theo mô hình *Mock-Driven + Contract-First* để triệt tiêu thời gian chờ phụ thuộc giữa 5 thành viên).
 
 > **Lưu ý quản trị đầu dự án:** Trước khi chốt triển khai Tuần 1, Nhóm trưởng (TV1) xác nhận chính thức với Giảng viên môn Xử lý ngôn ngữ tự nhiên (NLP) về quy định sĩ số nhóm (5 thành viên) và minh bạch **bảng tỷ lệ % đóng góp (tổng = 100%)** giữa các thành viên trong hồ sơ nộp cuối kỳ.  
-> 📌 **Tài liệu Thiết kế Kỹ thuật & Biểu đồ tách riêng:** Toàn bộ sơ đồ thiết kế chi tiết (Use Case, Kiến trúc LangGraph 6 node, Tuần tự E2E, Hợp đồng Pydantic Class Diagram) được lưu trữ tại file: **[Tài liệu Thiết kế Hệ thống (thietke.md)](file:///d:/Learn NLP/NLP_Multi_Agent/thietke.md)**.
+> 📌 **Tài liệu Thiết kế Kỹ thuật & Biểu đồ tách riêng:** Toàn bộ sơ đồ thiết kế chi tiết (Use Case, Kiến trúc LangGraph 6 node, Tuần tự E2E, Hợp đồng Pydantic Class Diagram) được lưu trữ tại file: **[Tài liệu Thiết kế Hệ thống (thietke.md)](./thietke.md)**.
 
 ---
 
 ## **1. Tổng quan Nghiệp vụ & Ca sử dụng (Use Cases)**
 
-> 📘 **Xem biểu đồ Use Case trực quan:** Xem sơ đồ Mermaid và tương tác tác nhân chi tiết tại [Mục 1.1 - thietke.md](file:///d:/Learn NLP/NLP_Multi_Agent/thietke.md#11-biểu-đồ-use-case-tổng-thể).
+> 📘 **Xem biểu đồ Use Case trực quan:** Xem sơ đồ Mermaid và tương tác tác nhân chi tiết tại [Mục 1.1 - thietke.md](./thietke.md#11-biểu-đồ-use-case-tổng-thể).
 
 Hệ thống phục vụ 3 nhóm tác nhân chính: **Giáo viên Tin học THPT** (người dùng cuối tạo giáo án và phiếu học tập), **Nhóm Nghiên cứu / Evaluator** (quản lý ingest dữ liệu và chạy benchmark ablation tự động), và **Giáo viên / Chuyên gia chấm mù** (đánh giá Human Evaluation).
 
@@ -33,9 +33,9 @@ Hệ thống phục vụ 3 nhóm tác nhân chính: **Giáo viên Tin học THPT
 ## **2. Tổng quan Kiến trúc Hệ thống Multi-Agent**
 
 > 📘 **Xem biểu đồ Kiến trúc, Tuần tự & Lớp chi tiết:**  
-> - **Biểu đồ Kiến trúc LangGraph 6 node:** Xem tại [Mục 2.1 - thietke.md](file:///d:/Learn NLP/NLP_Multi_Agent/thietke.md#21-biểu-đồ-kiến-trúc-langgraph--hybrid-rag--hitl--guardrails)  
-> - **Biểu đồ Tuần tự Kịch bản Demo E2E:** Xem tại [Mục 3.1 - thietke.md](file:///d:/Learn NLP/NLP_Multi_Agent/thietke.md#31-biểu-đồ-tuần-tự-kịch-bản-e2e-ví-dụ-bài-20-câu-lệnh-lặp-for)  
-> - **Biểu đồ Hợp đồng Dữ liệu Pydantic:** Xem tại [Mục 4.1 - thietke.md](file:///d:/Learn NLP/NLP_Multi_Agent/thietke.md#41-biểu-đồ-hợp-đồng-dữ-liệu-pydantic-srcschemaspy)
+> - **Biểu đồ Kiến trúc LangGraph 6 node:** Xem tại [Mục 2.1 - thietke.md](./thietke.md#21-biểu-đồ-kiến-trúc-langgraph--hybrid-rag--hitl--guardrails)  
+> - **Biểu đồ Tuần tự Kịch bản Demo E2E:** Xem tại [Mục 3.1 - thietke.md](./thietke.md#31-biểu-đồ-tuần-tự-kịch-bản-e2e-ví-dụ-bài-20-câu-lệnh-lặp-for)  
+> - **Biểu đồ Hợp đồng Dữ liệu Pydantic:** Xem tại [Mục 4.1 - thietke.md](./thietke.md#41-biểu-đồ-hợp-đồng-dữ-liệu-pydantic-srcschemaspy)
 
 ### **Nguyên lý Hoạt động Cốt lõi của Hệ thống:**
 1. **Song song hóa Đầu vào (Parallel Input):** Khởi chạy đồng thời `Curriculum Retriever` (truy xuất học liệu qua Vietnamese Hybrid RAG với bộ lọc `bai_so <= k`) và `Class Profiler` (ánh xạ phân hóa theo thang Bloom, năng lực `NLa–NLc` và quỹ thời gian).
