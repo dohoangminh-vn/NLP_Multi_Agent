@@ -1,0 +1,365 @@
+{
+  "version": "1.0",
+  "curriculum_source": "Chương trình GDPT môn Tin học 2018 (Thông tư 32/2018/TT-BGDĐT, trang 947 & 983)",
+  "textbook_source": "SGK Tin học 10 - Kết nối tri thức với cuộc sống (Chủ đề F, Bài 16-29)",
+  "topic": "Chủ đề F: Giải quyết vấn đề với sự trợ giúp của máy tính",
+  "competencies": {
+    "NLa": "Sử dụng và quản lí các phương tiện công nghệ thông tin và truyền thông",
+    "NLb": "Ứng xử phù hợp trong môi trường số",
+    "NLc": "Giải quyết vấn đề với sự hỗ trợ của công nghệ thông tin và truyền thông",
+    "NLd": "Ứng dụng công nghệ thông tin và truyền thông trong học và tự học",
+    "NLe": "Hợp tác trong môi trường số"
+  },
+  "lessons": [
+    {
+      "bai_so": 16,
+      "ten_bai": "Ngôn ngữ lập trình bậc cao và Python",
+      "sgk_page_start": 87,
+      "sgk_page_end": 91,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B16.YC1",
+          "description": "Biết được khái niệm ngôn ngữ lập trình bậc cao và ưu điểm của Python trong giải quyết bài toán trên máy tính.",
+          "competency_codes": ["NLa", "NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["ngôn ngữ lập trình bậc cao", "Python", "chương trình máy tính", "thông dịch"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B16.YC2",
+          "description": "Phân biệt và sử dụng được chế độ gõ lệnh trực tiếp và chế độ soạn thảo trong môi trường lập trình Python.",
+          "competency_codes": ["NLa", "NLc"],
+          "bloom_levels": ["Hiểu", "Vận dụng"],
+          "keywords": ["chế độ gõ lệnh trực tiếp", "chế độ soạn thảo", "IDE", "print"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 17,
+      "ten_bai": "Biến và lệnh gán",
+      "sgk_page_start": 92,
+      "sgk_page_end": 97,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B17.YC1",
+          "description": "Hiểu được khái niệm biến, quy tắc đặt tên biến hợp lệ và thực hiện được lệnh gán trong Python.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["biến", "lệnh gán", "tên biến", "từ khóa"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B17.YC2",
+          "description": "Viết và thực hiện được biểu thức số học với các toán tử cơ bản để tính toán giá trị và gán cho biến.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng"],
+          "keywords": ["biểu thức", "toán tử", "phép chia nguyên", "phép chia dư"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 18,
+      "ten_bai": "Các lệnh vào ra đơn giản",
+      "sgk_page_start": 98,
+      "sgk_page_end": 101,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B18.YC1",
+          "description": "Sử dụng được các câu lệnh vào - ra chuẩn (input, print) và nhận biết được các kiểu dữ liệu cơ bản (int, float, str).",
+          "competency_codes": ["NLa", "NLc"],
+          "bloom_levels": ["Hiểu", "Vận dụng"],
+          "keywords": ["input", "print", "vào ra đơn giản", "kiểu dữ liệu cơ bản", "int", "float"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B18.YC2",
+          "description": "Thực hiện được chuyển đổi kiểu dữ liệu (ép kiểu) khi nhập dữ liệu từ bàn phím để giải quyết bài toán đơn giản.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Vận dụng"],
+          "keywords": ["chuyển đổi kiểu", "ép kiểu", "type", "str", "int", "float"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 19,
+      "ten_bai": "Câu lệnh điều kiện If",
+      "sgk_page_start": 102,
+      "sgk_page_end": 105,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B19.YC1",
+          "description": "Hiểu và viết được biểu thức lôgic sử dụng các phép so sánh và toán tử lôgic (and, or, not).",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["biểu thức lôgic", "bool", "phép so sánh", "and", "or", "not"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B19.YC2",
+          "description": "Viết và thực hiện được chương trình sử dụng cấu trúc điều khiển rẽ nhánh if và if-else để giải quyết bài toán phân nhánh.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng", "Phân tích"],
+          "keywords": ["câu lệnh rẽ nhánh", "câu lệnh if", "if-else", "điều kiện"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 20,
+      "ten_bai": "Câu lệnh lặp For",
+      "sgk_page_start": 106,
+      "sgk_page_end": 108,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B20.YC1",
+          "description": "Hiểu được cấu trúc lặp với số lần biết trước for kết hợp hàm range() trong Python.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["câu lệnh lặp", "for", "range", "vòng lặp biết trước số lần"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B20.YC2",
+          "description": "Viết và thực hiện được chương trình sử dụng câu lệnh lặp for (kết hợp rẽ nhánh if) giải các bài toán tính tổng, đếm hoặc kiểm tra.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng", "Phân tích"],
+          "keywords": ["vòng lặp for", "tính tổng", "biến đếm", "thực hiện lặp"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 21,
+      "ten_bai": "Câu lệnh lặp While",
+      "sgk_page_start": 109,
+      "sgk_page_end": 111,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B21.YC1",
+          "description": "Hiểu được cơ chế hoạt động của câu lệnh lặp với điều kiện while và nhận biết nguy cơ lặp vô hạn.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["câu lệnh while", "lặp với số lần chưa biết trước", "điều kiện dừng"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B21.YC2",
+          "description": "Lựa chọn và viết được chương trình sử dụng lệnh while phù hợp cho bài toán lặp chưa biết trước số lần.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng", "Phân tích"],
+          "keywords": ["while", "break", "continue", "lặp theo điều kiện"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 22,
+      "ten_bai": "Kiểu dữ liệu danh sách",
+      "sgk_page_start": 112,
+      "sgk_page_end": 115,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B22.YC1",
+          "description": "Khởi tạo được kiểu dữ liệu danh sách (list), truy cập phần tử theo chỉ số và xác định độ dài danh sách bằng len().",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["danh sách", "list", "chỉ số", "len", "mảng một chiều"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B22.YC2",
+          "description": "Duyệt các phần tử của danh sách bằng vòng lặp for và cập nhật giá trị phần tử trong bài toán cơ bản.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Vận dụng"],
+          "keywords": ["duyệt danh sách", "for", "chỉ số phần tử", "cập nhật danh sách"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 23,
+      "ten_bai": "Một số lệnh làm việc với dữ liệu danh sách",
+      "sgk_page_start": 116,
+      "sgk_page_end": 119,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B23.YC1",
+          "description": "Sử dụng được toán tử in và các phương thức thao tác danh sách (append, clear, insert, remove) để xử lí dữ liệu.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Hiểu", "Vận dụng"],
+          "keywords": ["toán tử in", "append", "insert", "remove", "clear", "danh sách"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B23.YC2",
+          "description": "Viết được chương trình giải quyết bài toán thực tế trên dãy số lưu trữ bằng danh sách.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng", "Phân tích"],
+          "keywords": ["xử lí danh sách", "tìm kiếm", "lọc phần tử", "thêm phần tử"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 24,
+      "ten_bai": "Xâu kí tự",
+      "sgk_page_start": 120,
+      "sgk_page_end": 123,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B24.YC1",
+          "description": "Hiểu được xâu kí tự (str) là dãy các kí tự, truy cập từng kí tự qua chỉ số và tính chất bất biến của xâu.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["xâu kí tự", "str", "chỉ số kí tự", "len"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B24.YC2",
+          "description": "Thực hiện được duyệt xâu kí tự bằng vòng lặp for và toán tử in để kiểm tra, đếm kí tự.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Vận dụng"],
+          "keywords": ["duyệt xâu", "xâu kí tự", "đếm kí tự", "toán tử in"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 25,
+      "ten_bai": "Một số lệnh làm việc với xâu kí tự",
+      "sgk_page_start": 124,
+      "sgk_page_end": 127,
+      "ct2018_subtopic": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B25.YC1",
+          "description": "Sử dụng được các phương thức xử lí xâu phổ biến (find, split, join) để tìm xâu con và tách/ghép xâu.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Hiểu", "Vận dụng"],
+          "keywords": ["xâu con", "find", "split", "join", "xử lí xâu"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B25.YC2",
+          "description": "Viết được chương trình chuẩn hóa, tách từ hoặc phân tích dữ liệu văn bản đơn giản từ xâu kí tự.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng", "Phân tích"],
+          "keywords": ["tách xâu", "nối xâu", "tìm vị trí xâu con", "chuẩn hóa xâu"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 26,
+      "ten_bai": "Hàm trong Python",
+      "sgk_page_start": 128,
+      "sgk_page_end": 131,
+      "ct2018_subtopic": "Chương trình con",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B26.YC1",
+          "description": "Biết sử dụng một số hàm thiết kế sẵn trong thư viện chuẩn Python và hiểu khái niệm chương trình con (hàm).",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["chương trình con", "hàm thiết kế sẵn", "thư viện chuẩn"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B26.YC2",
+          "description": "Tự định nghĩa được hàm bằng từ khóa def (có hoặc không có giá trị trả về return) và gọi hàm trong chương trình.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng"],
+          "keywords": ["hàm", "def", "return", "gọi hàm"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 27,
+      "ten_bai": "Tham số của hàm",
+      "sgk_page_start": 132,
+      "sgk_page_end": 136,
+      "ct2018_subtopic": "Chương trình con",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B27.YC1",
+          "description": "Phân biệt được tham số và đối số của hàm, hiểu cơ chế truyền giá trị khi gọi hàm.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["tham số", "đối số", "truyền tham số", "chương trình con"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B27.YC2",
+          "description": "Viết được chương trình con có tham số biểu diễn một thuật toán đơn giản và sử dụng hàm này trong chương trình chính.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng", "Phân tích"],
+          "keywords": ["hàm có tham số", "thuật toán đơn giản", "tái sử dụng mã"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 28,
+      "ten_bai": "Phạm vi của biến",
+      "sgk_page_start": 137,
+      "sgk_page_end": 141,
+      "ct2018_subtopic": "Chương trình con",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B28.YC1",
+          "description": "Phân biệt được biến cục bộ (khai báo trong hàm) và biến toàn cục (khai báo ngoài hàm), hiểu phạm vi hoạt động của biến.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu"],
+          "keywords": ["phạm vi biến", "biến cục bộ", "biến toàn cục", "global"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B28.YC2",
+          "description": "Đọc hiểu và viết được chương trình có sử dụng hàm tránh xung đột phạm vi biến giữa hàm và chương trình chính.",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Vận dụng", "Phân tích"],
+          "keywords": ["đọc hiểu chương trình", "phạm vi biến", "hàm"],
+          "ct2018_page": 983
+        }
+      ]
+    },
+    {
+      "bai_so": 29,
+      "ten_bai": "Nhận biết lỗi chương trình",
+      "sgk_page_start": 142,
+      "sgk_page_end": 145,
+      "ct2018_subtopic": "Giải quyết bài toán bằng lập trình",
+      "yccd_items": [
+        {
+          "yccd_id": "F10.B29.YC1",
+          "description": "Nhận biết và phân biệt được các loại lỗi thường gặp trong chương trình Python: lỗi cú pháp, lỗi ngoại lệ (runtime) và lỗi ngữ nghĩa (logic).",
+          "competency_codes": ["NLc"],
+          "bloom_levels": ["Nhớ", "Hiểu", "Phân tích"],
+          "keywords": ["lỗi cú pháp", "lỗi ngoại lệ", "lỗi ngữ nghĩa", "SyntaxError", "traceback"],
+          "ct2018_page": 983
+        },
+        {
+          "yccd_id": "F10.B29.YC2",
+          "description": "Đọc hiểu thông báo lỗi, thực hiện kiểm thử và gỡ lỗi được chương trình đơn giản.",
+          "competency_codes": ["NLc", "NLd"],
+          "bloom_levels": ["Vận dụng", "Đánh giá"],
+          "keywords": ["gỡ lỗi", "kiểm thử", "try-except", "debug"],
+          "ct2018_page": 983
+        }
+      ]
+    }
+  ]
+}
