@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "scope": "Chủ đề F - Giải quyết vấn đề với sự trợ giúp của máy tính (Lập trình Python, Bài 16-29, Tin học 10 KNTT)",
+  "documents": [
+    {
+      "doc_id": "ct2018_tin_hoc_10",
+      "doc_type": "ct2018",
+      "doc_name": "Chương trình GDPT 2018 môn Tin học (Thông tư 32/2018/TT-BGDĐT)",
+      "filename": "Thông-tư-32-2018-TT-BGDĐT.pdf",
+      "page_range": {
+        "start_page": 939,
+        "end_page": 994
+      },
+      "notes": "Phần Chương trình môn Tin học (NLa-NLe và YCCĐ Lớp 10 Chủ đề F tại các trang 939-994 trong tổng số 1555 trang)."
+    },
+    {
+      "doc_id": "sgk_tin10_kntt",
+      "doc_type": "sgk",
+      "doc_name": "SGK Tin học 10 - Kết nối tri thức với cuộc sống",
+      "filename": "sgk-tin-hoc-10-kntt.pdf",
+      "page_range": {
+        "start_page": 86,
+        "end_page": 148
+      },
+      "notes": "Chủ đề F (Bài 16 đến Bài 29, Lập trình Python) nằm trong khoảng trang PDF 86-148 trên tổng số 170 trang."
+    },
+    {
+      "doc_id": "sbt_tin10_kntt",
+      "doc_type": "sbt",
+      "doc_name": "SBT Tin học 10 - Kết nối tri thức với cuộc sống",
+      "filename": "SBT Tin học 10 - Kết Nối Tri Thức.pdf",
+      "page_range": {
+        "start_page": 1,
+        "end_page": 150
+      },
+      "notes": "Sách bài tập Tin học 10 KNTT (150 trang); sẽ lọc theo Chủ đề F (Bài 16-29) trong bước Docling parsing."
+    }
+  ]
+}
