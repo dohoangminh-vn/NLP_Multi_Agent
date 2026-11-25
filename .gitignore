@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Environment
+.env
+.env.local
+
+# Generated indexes & temporary artifacts
+data/indexes/*
+!data/indexes/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
