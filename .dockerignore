@@ -1,0 +1,6 @@
+.git
+**/__pycache__
+.pytest_cache
+mlruns
+eval/results
+data/raw_pdfs

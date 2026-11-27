@@ -1,0 +1,24 @@
+{
+ "critic_report": {
+  "is_passed": false,
+  "ast_violations": [
+   "Phiếu Đạt chuẩn – dòng 6: dùng `JoinedStr` (f-string) vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29.",
+   "Phiếu Nâng cao – dòng 2: dùng `ListComp` (list comprehension [... for ...]) vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29.",
+   "Phiếu Nâng cao – dòng 3: dùng hàm `max()` vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29."
+  ],
+  "sandbox_failures": [
+   "Phiếu Cơ bản – test #1: sai kết quả. Mong đợi: '15' | Nhận được: '10'",
+   "Phiếu Cơ bản – test #2: sai kết quả. Mong đợi: '1' | Nhận được: '0'",
+   "Phiếu Đạt chuẩn – test #1: sai kết quả. Mong đợi: '3' | Nhận được: 'Có 3 số'",
+   "Phiếu Đạt chuẩn – test #2 (biên): sai kết quả. Mong đợi: '0' | Nhận được: 'Có 0 số'",
+   "Phiếu Đạt chuẩn – test #3 (biên): sai kết quả. Mong đợi: '1' | Nhận được: 'Có 1 số'"
+  ],
+  "faithfulness_score": 0.0,
+  "citation_precision": 0.8333,
+  "yccd_coverage": 0.0,
+  "differentiation_score": 1.0,
+  "total_minutes_checked": 50,
+  "revision_instructions": "REVISION MODE – chỉ sửa các mục dưới đây, GIỮ NGUYÊN phần đã đạt.\n\n[1] VƯỢT PHẠM VI CÚ PHÁP (bắt buộc sửa solution_code, và starter_code tương ứng):\n  - Phiếu Đạt chuẩn – dòng 6: dùng `JoinedStr` (f-string) vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29. → Gợi ý: Dùng print(a, b, c) với nhiều tham số hoặc nối xâu bằng + và str().\n  - Phiếu Nâng cao – dòng 2: dùng `ListComp` (list comprehension [... for ...]) vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29. → Gợi ý: Chưa học danh sách: xử lý trực tiếp từng giá trị trong vòng lặp for (cộng dồn/đếm/so sánh), không tạo danh sách.\n  - Phiếu Nâng cao – dòng 3: dùng hàm `max()` vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29. → Gợi ý: Lưu giá trị lớn nhất vào 1 biến, cập nhật bằng if trong vòng lặp.\n\n[2] SANDBOX – solution_code chạy sai test_cases (sửa code hoặc expected_stdout cho đúng):\n  - Phiếu Cơ bản – test #1: sai kết quả. Mong đợi: '15' | Nhận được: '10'\n  - Phiếu Cơ bản – test #2: sai kết quả. Mong đợi: '1' | Nhận được: '0'\n  - Phiếu Đạt chuẩn – test #1: sai kết quả. Mong đợi: '3' | Nhận được: 'Có 3 số'\n  - Phiếu Đạt chuẩn – test #2 (biên): sai kết quả. Mong đợi: '0' | Nhận được: 'Có 0 số'\n  - Phiếu Đạt chuẩn – test #3 (biên): sai kết quả. Mong đợi: '1' | Nhận được: 'Có 1 số'\n\n[3] CẤU TRÚC 5512 / TRÍCH DẪN / PHÂN HOÁ:\n  - Tổng thời lượng 50 phút ≠ 45 phút; cân đối lại phút từng hoạt động ([5, 15, 20, 10]).\n  - Trích dẫn 'Vận dụng' → SGK Tin học 10 – Kết nối tri thức, Bài 22, tr.112 vượt phạm vi (Bài 22 > Bài 20)."
+ },
+ "iteration": 1
+}

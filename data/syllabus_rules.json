@@ -1,0 +1,512 @@
+{
+  "meta": {
+    "name": "Quy ước phạm vi cú pháp 3 tầng – SGK Tin học 10 Kết nối tri thức (Chủ đề F, Bài 16–29)",
+    "version": "1.1.0",
+    "owner": "TV4 – Khánh",
+    "source": "sgk-tin-hoc-10-kntt.pdf (Nhà xuất bản Giáo dục Việt Nam)",
+    "page_convention": "sgk_pages là SỐ TRANG IN trên sách (= số trang PDF − 1). Ví dụ Bài 20: trang in 105–107 = trang PDF 106–108.",
+    "cumulative": true,
+    "how_it_works": "Tập được phép của Bài k = hợp các 'unlock' của mọi bài có bai <= k. Mọi cấu trúc không nằm trong tập được phép là vượt phạm vi.",
+    "evidence_notes": [
+      "v1.1: đối chiếu bằng CODE THẬT trong SGK (sau khi sửa lớp text PDF – src/rag/pdf_unicode_fix.py, scripts kiểm: tests/test_syllabus_evidence.py).",
+      "Không xuất hiện trong code SGK Bài 16–29: try/except, lambda, pass, f-string, phép cắt [a:b] (từ Bài 31), +=, max(), sorted(), enumerate(), zip().",
+      "'elif' chỉ dùng từ Bài 30–31 → cảnh báo mềm. 'continue' chỉ có trong bảng từ khoá (Bài 17) – mở ở Bài 21 theo kế hoạch nhóm.",
+      "Bài 16 có chương trình mẫu dùng for/input/str để HS gõ thử – không coi là kiến thức được dạy ở Bài 16.",
+      "Mở thêm theo SGK: round (B19), chr (B21), abs/list/ord/divmod (B26 – Bảng 26.1), min + .upper/.lower (B27), .title (B28), sum (B29)."
+    ],
+    "hint_format": "revision_hints[key] là chuỗi, hoặc {'default': ..., 'before': {'<bài>': gợi ý dùng khi target_bai < bài}}"
+  },
+  "global": {
+    "always_allowed_nodes": [
+      "Module",
+      "Expr",
+      "Name",
+      "Constant",
+      "Call",
+      "Attribute",
+      "Load",
+      "Store",
+      "Del"
+    ],
+    "forbidden_imports": [
+      "os",
+      "sys",
+      "subprocess",
+      "socket",
+      "shutil",
+      "pathlib",
+      "ctypes",
+      "importlib",
+      "multiprocessing",
+      "threading",
+      "signal",
+      "pickle",
+      "marshal",
+      "builtins",
+      "io",
+      "inspect",
+      "gc",
+      "runpy",
+      "code",
+      "tempfile",
+      "glob",
+      "fcntl",
+      "resource",
+      "select",
+      "asyncio",
+      "http",
+      "urllib",
+      "requests",
+      "ftplib",
+      "smtplib",
+      "webbrowser",
+      "pty",
+      "posix",
+      "nt"
+    ],
+    "allowed_imports": [],
+    "always_forbidden_builtins": [
+      "open",
+      "eval",
+      "exec",
+      "compile",
+      "__import__",
+      "globals",
+      "locals",
+      "vars",
+      "getattr",
+      "setattr",
+      "delattr",
+      "breakpoint",
+      "exit",
+      "quit",
+      "help",
+      "memoryview"
+    ],
+    "soft_forbidden": {
+      "Elif": "SGK Bài 16–29 chỉ dạy if / if-else; 'elif' xuất hiện từ Bài 30. Nên viết if-else lồng nhau.",
+      "AugAssign": "SGK không dùng phép gán mở rộng (+=, -=...). Nên viết dạng đầy đủ: S = S + x.",
+      "Pass": "SGK không dạy lệnh 'pass'."
+    }
+  },
+  "lessons": [
+    {
+      "bai": 16,
+      "title": "Ngôn ngữ lập trình bậc cao và Python",
+      "sgk_pages": [
+        86,
+        90
+      ],
+      "summary": "Chế độ gõ lệnh/soạn thảo, lệnh print(), biểu thức số học (+, -, *, /, //, %, **).",
+      "unlock": {
+        "ast_nodes": [
+          "BinOp",
+          "UnaryOp",
+          "Add",
+          "Sub",
+          "Mult",
+          "Div",
+          "FloorDiv",
+          "Mod",
+          "Pow",
+          "USub",
+          "UAdd",
+          "keyword"
+        ],
+        "builtins": [
+          "print"
+        ],
+        "methods": []
+      }
+    },
+    {
+      "bai": 17,
+      "title": "Biến và lệnh gán",
+      "sgk_pages": [
+        91,
+        96
+      ],
+      "summary": "Biến, quy tắc đặt tên, lệnh gán, gán đồng thời nhiều biến (a, b = 1, 2).",
+      "unlock": {
+        "ast_nodes": [
+          "Assign",
+          "Tuple"
+        ],
+        "builtins": [],
+        "methods": []
+      }
+    },
+    {
+      "bai": 18,
+      "title": "Các lệnh vào ra đơn giản",
+      "sgk_pages": [
+        97,
+        100
+      ],
+      "summary": "input(), print(); kiểu int/float/str/bool; type(); chuyển đổi int(), float(), str().",
+      "unlock": {
+        "ast_nodes": [],
+        "builtins": [
+          "input",
+          "int",
+          "float",
+          "str",
+          "type",
+          "bool"
+        ],
+        "methods": []
+      }
+    },
+    {
+      "bai": 19,
+      "title": "Câu lệnh rẽ nhánh if",
+      "sgk_pages": [
+        101,
+        104
+      ],
+      "summary": "Biểu thức lôgic, phép so sánh, and/or/not, if và if-else. Lệnh round() làm tròn số thực.",
+      "unlock": {
+        "ast_nodes": [
+          "If",
+          "Compare",
+          "Eq",
+          "NotEq",
+          "Lt",
+          "LtE",
+          "Gt",
+          "GtE",
+          "BoolOp",
+          "And",
+          "Or",
+          "Not"
+        ],
+        "builtins": [
+          "round"
+        ],
+        "methods": []
+      }
+    },
+    {
+      "bai": 20,
+      "title": "Câu lệnh lặp for",
+      "sgk_pages": [
+        105,
+        107
+      ],
+      "summary": "Lệnh for với range(); lặp với số lần biết trước.",
+      "unlock": {
+        "ast_nodes": [
+          "For"
+        ],
+        "builtins": [
+          "range"
+        ],
+        "methods": []
+      }
+    },
+    {
+      "bai": 21,
+      "title": "Câu lệnh lặp while",
+      "sgk_pages": [
+        108,
+        110
+      ],
+      "summary": "Lệnh while với điều kiện; dừng vòng lặp bằng break. Lệnh chr(k) trả kí tự theo mã ASCII.",
+      "unlock": {
+        "ast_nodes": [
+          "While",
+          "Break",
+          "Continue"
+        ],
+        "builtins": [
+          "chr"
+        ],
+        "methods": []
+      }
+    },
+    {
+      "bai": 22,
+      "title": "Kiểu dữ liệu danh sách",
+      "sgk_pages": [
+        111,
+        114
+      ],
+      "summary": "Tạo danh sách [..], truy cập A[i], len(), del, phép +, duyệt bằng for + range(len(A)), lệnh append().",
+      "unlock": {
+        "ast_nodes": [
+          "List",
+          "Subscript",
+          "Delete"
+        ],
+        "builtins": [
+          "len"
+        ],
+        "methods": [
+          "append"
+        ]
+      }
+    },
+    {
+      "bai": 23,
+      "title": "Một số lệnh làm việc với dữ liệu danh sách",
+      "sgk_pages": [
+        115,
+        118
+      ],
+      "summary": "Toán tử in, duyệt 'for x in A'; các lệnh clear(), remove(), insert().",
+      "unlock": {
+        "ast_nodes": [
+          "In",
+          "NotIn"
+        ],
+        "builtins": [],
+        "methods": [
+          "clear",
+          "remove",
+          "insert"
+        ]
+      }
+    },
+    {
+      "bai": 24,
+      "title": "Xâu kí tự",
+      "sgk_pages": [
+        119,
+        122
+      ],
+      "summary": "Xâu kí tự, truy cập s[i], len(), duyệt xâu bằng for, toán tử in kiểm tra xâu con.",
+      "unlock": {
+        "ast_nodes": [],
+        "builtins": [],
+        "methods": []
+      }
+    },
+    {
+      "bai": 25,
+      "title": "Một số lệnh làm việc với xâu kí tự",
+      "sgk_pages": [
+        123,
+        126
+      ],
+      "summary": "Lệnh find() tìm xâu con, split() tách xâu, join() nối danh sách xâu.",
+      "unlock": {
+        "ast_nodes": [],
+        "builtins": [],
+        "methods": [
+          "find",
+          "split",
+          "join"
+        ]
+      }
+    },
+    {
+      "bai": 26,
+      "title": "Hàm trong Python",
+      "sgk_pages": [
+        127,
+        130
+      ],
+      "summary": "Hàm có sẵn, tự định nghĩa hàm bằng def, lệnh return. Bảng 26.1: abs, len, range, bool, float, list, round, chr, input, ord, str, divmod, int, print, type.",
+      "unlock": {
+        "ast_nodes": [
+          "FunctionDef",
+          "arguments",
+          "arg",
+          "Return"
+        ],
+        "builtins": [
+          "abs",
+          "list",
+          "ord",
+          "divmod"
+        ],
+        "methods": []
+      }
+    },
+    {
+      "bai": 27,
+      "title": "Tham số của hàm",
+      "sgk_pages": [
+        131,
+        135
+      ],
+      "summary": "Tham số (parameter) và đối số (argument), truyền giá trị qua đối số. Có dùng min(), s.upper(), s.lower().",
+      "unlock": {
+        "ast_nodes": [],
+        "builtins": [
+          "min"
+        ],
+        "methods": [
+          "upper",
+          "lower"
+        ]
+      }
+    },
+    {
+      "bai": 28,
+      "title": "Phạm vi của biến",
+      "sgk_pages": [
+        136,
+        140
+      ],
+      "summary": "Biến cục bộ, biến toàn cục, từ khoá global. Thực hành có Str.upper()/lower()/title().",
+      "unlock": {
+        "ast_nodes": [
+          "Global"
+        ],
+        "builtins": [],
+        "methods": [
+          "title"
+        ]
+      }
+    },
+    {
+      "bai": 29,
+      "title": "Nhận biết lỗi chương trình",
+      "sgk_pages": [
+        141,
+        144
+      ],
+      "summary": "Lỗi cú pháp, lỗi ngoại lệ (ZeroDivisionError, IndexError, NameError, TypeError, ValueError...), lỗi lôgic. Không dạy try/except. Luyện tập có dùng sum(A)/len(A).",
+      "unlock": {
+        "ast_nodes": [],
+        "builtins": [
+          "sum"
+        ],
+        "methods": []
+      }
+    }
+  ],
+  "display_names": {
+    "ListComp": "list comprehension [... for ...]",
+    "DictComp": "dict comprehension",
+    "SetComp": "set comprehension",
+    "GeneratorExp": "biểu thức generator (... for ...)",
+    "Lambda": "hàm lambda",
+    "IfExp": "biểu thức điều kiện một dòng (a if ... else b)",
+    "JoinedStr": "f-string",
+    "FormattedValue": "f-string",
+    "PercentFormat": "định dạng xâu bằng toán tử %",
+    "Slice": "phép cắt [a:b]",
+    "Dict": "kiểu dict {...}",
+    "Set": "kiểu set {...}",
+    "Try": "khối try/except",
+    "TryStar": "khối try/except*",
+    "ExceptHandler": "khối except",
+    "With": "khối with",
+    "ClassDef": "định nghĩa lớp (class)",
+    "Starred": "toán tử * giải nén",
+    "Assert": "lệnh assert",
+    "Raise": "lệnh raise",
+    "Is": "toán tử is",
+    "IsNot": "toán tử is not",
+    "NamedExpr": "toán tử gán := (walrus)",
+    "Nonlocal": "từ khoá nonlocal",
+    "Import": "lệnh import",
+    "ImportFrom": "lệnh from ... import",
+    "AugAssign": "phép gán mở rộng (+=, -=, ...)",
+    "Elif": "nhánh elif",
+    "Pass": "lệnh pass",
+    "If": "câu lệnh if",
+    "For": "vòng lặp for",
+    "While": "vòng lặp while",
+    "Break": "lệnh break",
+    "Continue": "lệnh continue",
+    "List": "kiểu danh sách [...]",
+    "Subscript": "truy cập chỉ số [i]",
+    "Delete": "lệnh del",
+    "In": "toán tử in",
+    "NotIn": "toán tử not in",
+    "FunctionDef": "định nghĩa hàm (def)",
+    "Return": "lệnh return",
+    "Global": "từ khoá global",
+    "Compare": "phép so sánh",
+    "BoolOp": "phép toán lôgic and/or",
+    "Not": "phép toán not",
+    "Assign": "lệnh gán",
+    "Tuple": "gán đồng thời nhiều biến / tuple",
+    "Yield": "yield",
+    "YieldFrom": "yield from",
+    "Await": "await",
+    "AsyncFunctionDef": "hàm async",
+    "AsyncFor": "async for",
+    "AsyncWith": "async with",
+    "Match": "câu lệnh match",
+    "BitAnd": "phép toán bit &",
+    "BitOr": "phép toán bit |",
+    "BitXor": "phép toán bit ^",
+    "Invert": "phép toán bit ~",
+    "LShift": "phép dịch bit <<",
+    "RShift": "phép dịch bit >>",
+    "MatMult": "phép nhân ma trận @"
+  },
+  "revision_hints": {
+    "ListComp": {
+      "default": "Dùng vòng lặp for và lệnh append() (từ Bài 22) để tạo danh sách.",
+      "before": {
+        "22": "Chưa học danh sách: xử lý trực tiếp từng giá trị trong vòng lặp for (cộng dồn/đếm/so sánh), không tạo danh sách."
+      }
+    },
+    "GeneratorExp": "Dùng vòng lặp for và biến cộng dồn/đếm.",
+    "Lambda": "Tách thành hàm def (từ Bài 26) hoặc viết trực tiếp biểu thức.",
+    "IfExp": "Viết thành câu lệnh if-else đầy đủ (Bài 19).",
+    "JoinedStr": "Dùng print(a, b, c) với nhiều tham số hoặc nối xâu bằng + và str().",
+    "PercentFormat": "Dùng print(a, b, c) với nhiều tham số hoặc nối xâu bằng + và str().",
+    "Slice": "Dùng vòng lặp for duyệt chỉ số để lấy từng phần tử/kí tự.",
+    "Try": "SGK không dạy try/except; kiểm tra điều kiện bằng if trước khi tính.",
+    "AugAssign": "Viết dạng đầy đủ: S = S + x.",
+    "Elif": "Viết thành if-else lồng nhau.",
+    "While": "Dùng vòng lặp for với range() (Bài 20).",
+    "FunctionDef": "Viết trực tiếp chương trình chính, không tách hàm (hàm học ở Bài 26).",
+    "List": "Dùng các biến đơn và vòng lặp; danh sách học ở Bài 22.",
+    "Subscript": "Truy cập chỉ số chỉ dùng được từ Bài 22 (danh sách) / Bài 24 (xâu).",
+    "In": "Duyệt bằng for i in range(len(A)) và so sánh từng phần tử.",
+    "Starred": "In từng phần tử bằng vòng lặp for.",
+    "Dict": "Dùng danh sách (Bài 22) thay cho dict.",
+    "Import": "Không dùng thư viện; tự viết bằng lệnh đã học (vd: căn bậc hai x ** 0.5).",
+    "sum": {
+      "default": "Cộng dồn bằng vòng for: S = 0; for x in A: S = S + x.",
+      "before": {
+        "22": "Cộng dồn trong vòng lặp: S = 0, mỗi lần lặp S = S + x."
+      }
+    },
+    "max": {
+      "default": "Tìm lớn nhất bằng vòng lặp và if.",
+      "before": {
+        "22": "Lưu giá trị lớn nhất vào 1 biến, cập nhật bằng if trong vòng lặp."
+      }
+    },
+    "min": {
+      "default": "Tìm nhỏ nhất bằng vòng lặp và if.",
+      "before": {
+        "22": "Lưu giá trị nhỏ nhất vào 1 biến, cập nhật bằng if trong vòng lặp."
+      }
+    },
+    "sorted": "Tự viết thuật toán sắp xếp bằng vòng lặp lồng nhau.",
+    "enumerate": {
+      "default": "Dùng for i in range(len(A)) rồi truy cập A[i].",
+      "before": {
+        "22": "Dùng biến chạy i của for i in range(...) làm chỉ số."
+      }
+    },
+    "zip": "Dùng for i in range(len(A)) để duyệt song song.",
+    "abs": "Dùng if x < 0: x = -x.",
+    "list": "Tạo danh sách rỗng bằng A = [] rồi append().",
+    "reversed": "Duyệt ngược bằng range(len(A) - 1, -1, -1).",
+    "map": "Dùng vòng lặp for và chuyển đổi từng phần tử.",
+    "len": "Đếm bằng vòng lặp (len() học ở Bài 22).",
+    "range": "Vòng lặp for/range học ở Bài 20.",
+    ".append": "Danh sách và append() học ở Bài 22.",
+    ".sort": "Tự viết thuật toán sắp xếp bằng vòng lặp lồng nhau.",
+    ".pop": "Dùng del A[i] (Bài 22).",
+    ".upper": "SGK không dạy upper(); duyệt từng kí tự nếu cần.",
+    ".lower": "SGK không dạy lower(); duyệt từng kí tự nếu cần.",
+    ".strip": "SGK không dạy strip(); dùng split() (Bài 25) nếu cần tách.",
+    ".replace": "Duyệt từng kí tự và tạo xâu mới bằng phép +.",
+    ".count": "Đếm bằng vòng lặp và biến đếm.",
+    ".index": "Dùng vòng lặp tìm vị trí (danh sách) hoặc find() (xâu, Bài 25).",
+    ".format": "Dùng print(a, b, c) với nhiều tham số.",
+    ".reverse": "Duyệt ngược bằng range(len(A) - 1, -1, -1).",
+    ".extend": "Dùng phép + giữa hai danh sách hoặc append() trong vòng lặp."
+  }
+}

@@ -1,0 +1,866 @@
+{
+ "_note": "MOCK – dựng từ fixture + Critic tất định, không phải kết quả LLM.",
+ "events": [
+  {
+   "event": "session",
+   "data": {
+    "thread_id": "mock-bai20",
+    "mock": true
+   },
+   "delay_ms": 0
+  },
+  {
+   "event": "node_start",
+   "data": {
+    "node": "retriever",
+    "label": "Curriculum Retriever"
+   },
+   "delay_ms": 100
+  },
+  {
+   "event": "node_start",
+   "data": {
+    "node": "profiler",
+    "label": "Class Profiler"
+   },
+   "delay_ms": 50
+  },
+  {
+   "event": "node_end",
+   "data": {
+    "node": "profiler",
+    "label": "Class Profiler",
+    "summary": {
+     "profile": {
+      "target_bai": 20,
+      "scope_mode": "45m_practice",
+      "target_minutes": 45,
+      "activities": [
+       {
+        "activity": "Khởi động",
+        "minutes": 5
+       },
+       {
+        "activity": "Hình thành kiến thức",
+        "minutes": 10
+       },
+       {
+        "activity": "Luyện tập",
+        "minutes": 20
+       },
+       {
+        "activity": "Vận dụng",
+        "minutes": 10
+       }
+      ],
+      "tiers": [
+       {
+        "tier": "Cơ bản",
+        "bloom": [
+         "Nhớ",
+         "Hiểu"
+        ],
+        "competencies": [
+         "NLa",
+         "NLc"
+        ],
+        "task_types": [
+         "Đọc hiểu code",
+         "Lập bảng trace giá trị biến",
+         "Điền khuyết 1–2 dòng (___)"
+        ],
+        "support": "Có code mẫu, gợi ý từng bước, ví dụ input/output cụ thể",
+        "ratio": 0.25,
+        "competency_text": [
+         "NLa: Sử dụng và quản lí các phương tiện công nghệ thông tin và truyền thông",
+         "NLc: Giải quyết vấn đề với sự hỗ trợ của công nghệ thông tin và truyền thông"
+        ]
+       },
+       {
+        "tier": "Đạt chuẩn",
+        "bloom": [
+         "Vận dụng"
+        ],
+        "competencies": [
+         "NLc"
+        ],
+        "task_types": [
+         "Tự viết chương trình giải bài toán chuẩn SGK"
+        ],
+        "support": "Có đặc tả input/output và 1 ví dụ",
+        "ratio": 0.5,
+        "competency_text": [
+         "NLc: Giải quyết vấn đề với sự hỗ trợ của công nghệ thông tin và truyền thông"
+        ]
+       },
+       {
+        "tier": "Nâng cao",
+        "bloom": [
+         "Phân tích",
+         "Sáng tạo"
+        ],
+        "competencies": [
+         "NLc",
+         "NLd"
+        ],
+        "task_types": [
+         "Xử lí trường hợp biên",
+         "Tìm và sửa lỗi lôgic",
+         "Cải tiến thuật toán trong phạm vi bài"
+        ],
+        "support": "Chỉ nêu yêu cầu, HS tự thiết kế test",
+        "ratio": 0.25,
+        "competency_text": [
+         "NLc: Giải quyết vấn đề với sự hỗ trợ của công nghệ thông tin và truyền thông",
+         "NLd: Ứng dụng công nghệ thông tin và truyền thông trong học và tự học"
+        ]
+       }
+      ],
+      "emphasis": "Lớp đại trà: cân bằng giữa làm mẫu và tự luyện tập.",
+      "lab_notes": [],
+      "general_competencies": [
+       "Tự chủ và tự học",
+       "Giao tiếp và hợp tác",
+       "Giải quyết vấn đề và sáng tạo"
+      ],
+      "qualities": [
+       "Chăm chỉ",
+       "Trách nhiệm",
+       "Trung thực"
+      ]
+     }
+    }
+   },
+   "delay_ms": 300
+  },
+  {
+   "event": "node_end",
+   "data": {
+    "node": "retriever",
+    "label": "Curriculum Retriever",
+    "summary": {
+     "n_chunks": 3,
+     "chunks": [
+      {
+       "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+       "bai_so": 20,
+       "section_title": "Lặp với số lần biết trước",
+       "page_number": 105,
+       "quoted_text": "Lặp với số lần biết trước"
+      },
+      {
+       "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+       "bai_so": 20,
+       "section_title": "Lệnh range()",
+       "page_number": 106,
+       "quoted_text": "Lệnh range()"
+      },
+      {
+       "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+       "bai_so": 20,
+       "section_title": "Luyện tập",
+       "page_number": 107,
+       "quoted_text": "Luyện tập"
+      }
+     ],
+     "rewrites": 0
+    }
+   },
+   "delay_ms": 700
+  },
+  {
+   "event": "node_start",
+   "data": {
+    "node": "outline_planner",
+    "label": "Outline Planner"
+   },
+   "delay_ms": 100
+  },
+  {
+   "event": "node_end",
+   "data": {
+    "node": "outline_planner",
+    "label": "Outline Planner",
+    "summary": {
+     "outline": {
+      "objective_summary": "Bài 20 – Câu lệnh lặp for: Biết được ý nghĩa của vùng giá trị tạo bởi lệnh range(); Biết được chức năng của lệnh lặp for và cách dùng trong Python",
+      "activity_titles": [
+       "Khởi động: Tình huống/bài toán gợi nhu cầu học câu lệnh lặp for",
+       "Hình thành kiến thức: Tìm hiểu câu lệnh lặp for qua ví dụ SGK",
+       "Luyện tập: Luyện tập câu lệnh lặp for với 3 phiếu phân hoá",
+       "Vận dụng: Vận dụng câu lệnh lặp for giải bài toán thực tế"
+      ],
+      "activity_minutes": [
+       5,
+       10,
+       20,
+       10
+      ],
+      "worksheet_goals": [
+       "Cơ bản (Nhớ/Hiểu): đọc hiểu, trace và điền khuyết code về câu lệnh lặp for",
+       "Đạt chuẩn (Vận dụng): tự viết chương trình chuẩn SGK dùng câu lệnh lặp for",
+       "Nâng cao (Phân tích/Sáng tạo): xử lí trường hợp biên / sửa lỗi lôgic với câu lệnh lặp for"
+      ],
+      "is_approved": false
+     }
+    }
+   },
+   "delay_ms": 600
+  },
+  {
+   "event": "hitl_required",
+   "data": {
+    "thread_id": "mock-bai20",
+    "outline": {
+     "objective_summary": "Bài 20 – Câu lệnh lặp for: Biết được ý nghĩa của vùng giá trị tạo bởi lệnh range(); Biết được chức năng của lệnh lặp for và cách dùng trong Python",
+     "activity_titles": [
+      "Khởi động: Tình huống/bài toán gợi nhu cầu học câu lệnh lặp for",
+      "Hình thành kiến thức: Tìm hiểu câu lệnh lặp for qua ví dụ SGK",
+      "Luyện tập: Luyện tập câu lệnh lặp for với 3 phiếu phân hoá",
+      "Vận dụng: Vận dụng câu lệnh lặp for giải bài toán thực tế"
+     ],
+     "activity_minutes": [
+      5,
+      10,
+      20,
+      10
+     ],
+     "worksheet_goals": [
+      "Cơ bản (Nhớ/Hiểu): đọc hiểu, trace và điền khuyết code về câu lệnh lặp for",
+      "Đạt chuẩn (Vận dụng): tự viết chương trình chuẩn SGK dùng câu lệnh lặp for",
+      "Nâng cao (Phân tích/Sáng tạo): xử lí trường hợp biên / sửa lỗi lôgic với câu lệnh lặp for"
+     ],
+     "is_approved": false
+    },
+    "target_minutes": 45,
+    "profile": {
+     "target_bai": 20,
+     "scope_mode": "45m_practice",
+     "target_minutes": 45,
+     "activities": [
+      {
+       "activity": "Khởi động",
+       "minutes": 5
+      },
+      {
+       "activity": "Hình thành kiến thức",
+       "minutes": 10
+      },
+      {
+       "activity": "Luyện tập",
+       "minutes": 20
+      },
+      {
+       "activity": "Vận dụng",
+       "minutes": 10
+      }
+     ],
+     "tiers": [
+      {
+       "tier": "Cơ bản",
+       "bloom": [
+        "Nhớ",
+        "Hiểu"
+       ],
+       "competencies": [
+        "NLa",
+        "NLc"
+       ],
+       "task_types": [
+        "Đọc hiểu code",
+        "Lập bảng trace giá trị biến",
+        "Điền khuyết 1–2 dòng (___)"
+       ],
+       "support": "Có code mẫu, gợi ý từng bước, ví dụ input/output cụ thể",
+       "ratio": 0.25,
+       "competency_text": [
+        "NLa: Sử dụng và quản lí các phương tiện công nghệ thông tin và truyền thông",
+        "NLc: Giải quyết vấn đề với sự hỗ trợ của công nghệ thông tin và truyền thông"
+       ]
+      },
+      {
+       "tier": "Đạt chuẩn",
+       "bloom": [
+        "Vận dụng"
+       ],
+       "competencies": [
+        "NLc"
+       ],
+       "task_types": [
+        "Tự viết chương trình giải bài toán chuẩn SGK"
+       ],
+       "support": "Có đặc tả input/output và 1 ví dụ",
+       "ratio": 0.5,
+       "competency_text": [
+        "NLc: Giải quyết vấn đề với sự hỗ trợ của công nghệ thông tin và truyền thông"
+       ]
+      },
+      {
+       "tier": "Nâng cao",
+       "bloom": [
+        "Phân tích",
+        "Sáng tạo"
+       ],
+       "competencies": [
+        "NLc",
+        "NLd"
+       ],
+       "task_types": [
+        "Xử lí trường hợp biên",
+        "Tìm và sửa lỗi lôgic",
+        "Cải tiến thuật toán trong phạm vi bài"
+       ],
+       "support": "Chỉ nêu yêu cầu, HS tự thiết kế test",
+       "ratio": 0.25,
+       "competency_text": [
+        "NLc: Giải quyết vấn đề với sự hỗ trợ của công nghệ thông tin và truyền thông",
+        "NLd: Ứng dụng công nghệ thông tin và truyền thông trong học và tự học"
+       ]
+      }
+     ],
+     "emphasis": "Lớp đại trà: cân bằng giữa làm mẫu và tự luyện tập.",
+     "lab_notes": [],
+     "general_competencies": [
+      "Tự chủ và tự học",
+      "Giao tiếp và hợp tác",
+      "Giải quyết vấn đề và sáng tạo"
+     ],
+     "qualities": [
+      "Chăm chỉ",
+      "Trách nhiệm",
+      "Trung thực"
+     ]
+    }
+   },
+   "delay_ms": 200
+  },
+  {
+   "event": "_resume_marker",
+   "data": {
+    "outline": {
+     "objective_summary": "Bài 20 – Câu lệnh lặp for: Biết được ý nghĩa của vùng giá trị tạo bởi lệnh range(); Biết được chức năng của lệnh lặp for và cách dùng trong Python",
+     "activity_titles": [
+      "Khởi động: Tình huống/bài toán gợi nhu cầu học câu lệnh lặp for",
+      "Hình thành kiến thức: Tìm hiểu câu lệnh lặp for qua ví dụ SGK",
+      "Luyện tập: Luyện tập câu lệnh lặp for với 3 phiếu phân hoá",
+      "Vận dụng: Vận dụng câu lệnh lặp for giải bài toán thực tế"
+     ],
+     "activity_minutes": [
+      5,
+      10,
+      20,
+      10
+     ],
+     "worksheet_goals": [
+      "Cơ bản (Nhớ/Hiểu): đọc hiểu, trace và điền khuyết code về câu lệnh lặp for",
+      "Đạt chuẩn (Vận dụng): tự viết chương trình chuẩn SGK dùng câu lệnh lặp for",
+      "Nâng cao (Phân tích/Sáng tạo): xử lí trường hợp biên / sửa lỗi lôgic với câu lệnh lặp for"
+     ],
+     "is_approved": true
+    }
+   },
+   "delay_ms": 0
+  },
+  {
+   "event": "node_start",
+   "data": {
+    "node": "detail_designer",
+    "label": "Detail & Worksheet Designer"
+   },
+   "delay_ms": 100
+  },
+  {
+   "event": "node_end",
+   "data": {
+    "node": "detail_designer",
+    "label": "Detail & Worksheet Designer",
+    "summary": {
+     "iteration": 1,
+     "n_activities": 4,
+     "n_worksheets": 3,
+     "revision": false
+    }
+   },
+   "delay_ms": 1200
+  },
+  {
+   "event": "node_start",
+   "data": {
+    "node": "critic",
+    "label": "AST + Sandbox + Critic"
+   },
+   "delay_ms": 100
+  },
+  {
+   "event": "critic",
+   "data": {
+    "node": "critic",
+    "status": "red",
+    "ast_violations": [
+     "Phiếu Đạt chuẩn – dòng 6: dùng `JoinedStr` (f-string) vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29.",
+     "Phiếu Nâng cao – dòng 2: dùng `ListComp` (list comprehension [... for ...]) vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29.",
+     "Phiếu Nâng cao – dòng 3: dùng hàm `max()` vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29."
+    ],
+    "sandbox_failures": [
+     "Phiếu Cơ bản – test #1: sai kết quả. Mong đợi: '15' | Nhận được: '10'",
+     "Phiếu Cơ bản – test #2: sai kết quả. Mong đợi: '1' | Nhận được: '0'",
+     "Phiếu Đạt chuẩn – test #1: sai kết quả. Mong đợi: '3' | Nhận được: 'Có 3 số'",
+     "Phiếu Đạt chuẩn – test #2 (biên): sai kết quả. Mong đợi: '0' | Nhận được: 'Có 0 số'",
+     "Phiếu Đạt chuẩn – test #3 (biên): sai kết quả. Mong đợi: '1' | Nhận được: 'Có 1 số'"
+    ],
+    "ast_pass": false,
+    "sandbox_pass": false,
+    "scores": {
+     "faithfulness": 0.0,
+     "citation_precision": 0.8333,
+     "yccd_coverage": 0.0,
+     "differentiation": 1.0,
+     "total_minutes": 50
+    },
+    "gate_failures": [
+     "AST: 3 vi phạm phạm vi cú pháp",
+     "Sandbox: 5 test lỗi",
+     "Thời lượng 50/45 phút",
+     "1 trích dẫn vượt bài"
+    ],
+    "warnings": [],
+    "iteration": 1
+   },
+   "delay_ms": 800
+  },
+  {
+   "event": "node_end",
+   "data": {
+    "node": "critic",
+    "label": "AST + Sandbox + Critic",
+    "summary": {
+     "node": "critic",
+     "status": "red",
+     "ast_violations": [
+      "Phiếu Đạt chuẩn – dòng 6: dùng `JoinedStr` (f-string) vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29.",
+      "Phiếu Nâng cao – dòng 2: dùng `ListComp` (list comprehension [... for ...]) vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29.",
+      "Phiếu Nâng cao – dòng 3: dùng hàm `max()` vượt phạm vi Bài 20 — chưa có trong SGK Bài 16–29."
+     ],
+     "sandbox_failures": [
+      "Phiếu Cơ bản – test #1: sai kết quả. Mong đợi: '15' | Nhận được: '10'",
+      "Phiếu Cơ bản – test #2: sai kết quả. Mong đợi: '1' | Nhận được: '0'",
+      "Phiếu Đạt chuẩn – test #1: sai kết quả. Mong đợi: '3' | Nhận được: 'Có 3 số'",
+      "Phiếu Đạt chuẩn – test #2 (biên): sai kết quả. Mong đợi: '0' | Nhận được: 'Có 0 số'",
+      "Phiếu Đạt chuẩn – test #3 (biên): sai kết quả. Mong đợi: '1' | Nhận được: 'Có 1 số'"
+     ],
+     "ast_pass": false,
+     "sandbox_pass": false,
+     "scores": {
+      "faithfulness": 0.0,
+      "citation_precision": 0.8333,
+      "yccd_coverage": 0.0,
+      "differentiation": 1.0,
+      "total_minutes": 50
+     },
+     "gate_failures": [
+      "AST: 3 vi phạm phạm vi cú pháp",
+      "Sandbox: 5 test lỗi",
+      "Thời lượng 50/45 phút",
+      "1 trích dẫn vượt bài"
+     ],
+     "warnings": [],
+     "iteration": 1
+    }
+   },
+   "delay_ms": 50
+  },
+  {
+   "event": "node_start",
+   "data": {
+    "node": "detail_designer",
+    "label": "Detail & Worksheet Designer (Revision Mode)"
+   },
+   "delay_ms": 100
+  },
+  {
+   "event": "node_end",
+   "data": {
+    "node": "detail_designer",
+    "label": "Detail & Worksheet Designer (Revision Mode)",
+    "summary": {
+     "iteration": 2,
+     "n_activities": 4,
+     "n_worksheets": 3,
+     "revision": true
+    }
+   },
+   "delay_ms": 1200
+  },
+  {
+   "event": "node_start",
+   "data": {
+    "node": "critic",
+    "label": "AST + Sandbox + Critic"
+   },
+   "delay_ms": 100
+  },
+  {
+   "event": "critic",
+   "data": {
+    "node": "critic",
+    "status": "green",
+    "ast_violations": [],
+    "sandbox_failures": [],
+    "ast_pass": true,
+    "sandbox_pass": true,
+    "scores": {
+     "faithfulness": 0.0,
+     "citation_precision": 1.0,
+     "yccd_coverage": 0.0,
+     "differentiation": 1.0,
+     "total_minutes": 45
+    },
+    "gate_failures": [],
+    "warnings": [],
+    "iteration": 2
+   },
+   "delay_ms": 800
+  },
+  {
+   "event": "node_end",
+   "data": {
+    "node": "critic",
+    "label": "AST + Sandbox + Critic",
+    "summary": {
+     "node": "critic",
+     "status": "green",
+     "ast_violations": [],
+     "sandbox_failures": [],
+     "ast_pass": true,
+     "sandbox_pass": true,
+     "scores": {
+      "faithfulness": 0.0,
+      "citation_precision": 1.0,
+      "yccd_coverage": 0.0,
+      "differentiation": 1.0,
+      "total_minutes": 45
+     },
+     "gate_failures": [],
+     "warnings": [],
+     "iteration": 2
+    }
+   },
+   "delay_ms": 50
+  },
+  {
+   "event": "node_end",
+   "data": {
+    "node": "export",
+    "label": "Export",
+    "summary": {
+     "ready": true
+    }
+   },
+   "delay_ms": 100
+  },
+  {
+   "event": "final",
+   "data": {
+    "thread_id": "mock-bai20",
+    "plan": {
+     "knowledge_goals": "Biết cú pháp và thực hiện được lệnh lặp for với range().",
+     "general_competencies": "Tự chủ và tự học; Giao tiếp và hợp tác; Giải quyết vấn đề và sáng tạo.",
+     "cs_competencies": "NLc: Giải quyết vấn đề với sự trợ giúp của máy tính.",
+     "qualities": "Chăm chỉ, trách nhiệm.",
+     "teaching_materials": "Phòng máy, Python IDLE, SGK/SBT Tin học 10, 3 phiếu học tập.",
+     "activities": [
+      {
+       "activity_name": "Khởi động",
+       "duration_minutes": 5,
+       "goal": "Nhận biết nhu cầu lặp",
+       "content": "Nội dung khởi động (dữ liệu mẫu)",
+       "expected_product": "Câu trả lời/chương trình của HS",
+       "step1_transfer": "GV chuyển giao nhiệm vụ",
+       "step2_execute": "HS thực hiện theo nhóm",
+       "step3_report": "Đại diện nhóm báo cáo, thảo luận",
+       "step4_conclude": "GV kết luận, chốt kiến thức",
+       "citations": [
+        {
+         "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+         "bai_so": 20,
+         "section_title": "Lặp với số lần biết trước",
+         "page_number": 105,
+         "quoted_text": "Lặp với số lần biết trước"
+        }
+       ]
+      },
+      {
+       "activity_name": "Hình thành kiến thức",
+       "duration_minutes": 15,
+       "goal": "Biết cú pháp for và range()",
+       "content": "Nội dung hình thành kiến thức (dữ liệu mẫu)",
+       "expected_product": "Câu trả lời/chương trình của HS",
+       "step1_transfer": "GV chuyển giao nhiệm vụ",
+       "step2_execute": "HS thực hiện theo nhóm",
+       "step3_report": "Đại diện nhóm báo cáo, thảo luận",
+       "step4_conclude": "GV kết luận, chốt kiến thức",
+       "citations": [
+        {
+         "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+         "bai_so": 20,
+         "section_title": "Lệnh for",
+         "page_number": 105,
+         "quoted_text": "Lệnh for"
+        },
+        {
+         "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+         "bai_so": 20,
+         "section_title": "Lệnh range()",
+         "page_number": 106,
+         "quoted_text": "Lệnh range()"
+        }
+       ]
+      },
+      {
+       "activity_name": "Luyện tập",
+       "duration_minutes": 15,
+       "goal": "Viết được chương trình dùng for",
+       "content": "Nội dung luyện tập (dữ liệu mẫu)",
+       "expected_product": "Câu trả lời/chương trình của HS",
+       "step1_transfer": "GV chuyển giao nhiệm vụ",
+       "step2_execute": "HS thực hiện theo nhóm",
+       "step3_report": "Đại diện nhóm báo cáo, thảo luận",
+       "step4_conclude": "GV kết luận, chốt kiến thức",
+       "citations": [
+        {
+         "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+         "bai_so": 20,
+         "section_title": "Luyện tập",
+         "page_number": 107,
+         "quoted_text": "Luyện tập"
+        }
+       ]
+      },
+      {
+       "activity_name": "Vận dụng",
+       "duration_minutes": 10,
+       "goal": "Vận dụng for giải bài toán thực tế",
+       "content": "Nội dung vận dụng (dữ liệu mẫu)",
+       "expected_product": "Câu trả lời/chương trình của HS",
+       "step1_transfer": "GV chuyển giao nhiệm vụ",
+       "step2_execute": "HS thực hiện theo nhóm",
+       "step3_report": "Đại diện nhóm báo cáo, thảo luận",
+       "step4_conclude": "GV kết luận, chốt kiến thức",
+       "citations": [
+        {
+         "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+         "bai_so": 20,
+         "section_title": "Vận dụng",
+         "page_number": 107,
+         "quoted_text": "Vận dụng"
+        }
+       ]
+      }
+     ],
+     "worksheets": [
+      {
+       "tier": "Cơ bản",
+       "bloom_level": "Nhớ/Hiểu",
+       "prompt_text": "Điền vào chỗ trống để tính tổng 1 + 2 + ... + n.",
+       "starter_code": "n = int(input())\nS = 0\nfor i in range(1, ___):\n    S = S + i\nprint(S)",
+       "solution_code": "n = int(input())\nS = 0\nfor i in range(1, n + 1):\n    S = S + i\nprint(S)",
+       "test_cases": [
+        {
+         "stdin_data": "5",
+         "expected_stdout": "15",
+         "is_edge_case": false
+        },
+        {
+         "stdin_data": "1",
+         "expected_stdout": "1",
+         "is_edge_case": false
+        },
+        {
+         "stdin_data": "0",
+         "expected_stdout": "0",
+         "is_edge_case": true
+        }
+       ]
+      },
+      {
+       "tier": "Đạt chuẩn",
+       "bloom_level": "Vận dụng",
+       "prompt_text": "Đếm các số từ 1 đến n chia hết cho 3.",
+       "starter_code": "n = int(input())\n# Viết tiếp chương trình\n",
+       "solution_code": "n = int(input())\ndem = 0\nfor i in range(1, n + 1):\n    if i % 3 == 0:\n        dem = dem + 1\nprint(dem)",
+       "test_cases": [
+        {
+         "stdin_data": "10",
+         "expected_stdout": "3",
+         "is_edge_case": false
+        },
+        {
+         "stdin_data": "2",
+         "expected_stdout": "0",
+         "is_edge_case": true
+        },
+        {
+         "stdin_data": "3",
+         "expected_stdout": "1",
+         "is_edge_case": true
+        }
+       ]
+      },
+      {
+       "tier": "Nâng cao",
+       "bloom_level": "Phân tích/Sáng tạo",
+       "prompt_text": "Nhập n rồi n số nguyên, in ra số lớn nhất (không dùng danh sách).",
+       "starter_code": "n = int(input())\n# Viết tiếp chương trình\n",
+       "solution_code": "n = int(input())\nlon_nhat = int(input())\nfor i in range(n - 1):\n    x = int(input())\n    if x > lon_nhat:\n        lon_nhat = x\nprint(lon_nhat)",
+       "test_cases": [
+        {
+         "stdin_data": "4\n3\n9\n-2\n5",
+         "expected_stdout": "9",
+         "is_edge_case": false
+        },
+        {
+         "stdin_data": "1\n-7",
+         "expected_stdout": "-7",
+         "is_edge_case": true
+        },
+        {
+         "stdin_data": "3\n-5\n-1\n-9",
+         "expected_stdout": "-1",
+         "is_edge_case": true
+        }
+       ]
+      }
+     ]
+    },
+    "critic_report": {
+     "is_passed": true,
+     "ast_violations": [],
+     "sandbox_failures": [],
+     "faithfulness_score": 0.0,
+     "citation_precision": 1.0,
+     "yccd_coverage": 0.0,
+     "differentiation_score": 1.0,
+     "total_minutes_checked": 45,
+     "revision_instructions": ""
+    },
+    "verification": [
+     {
+      "tier": "Cơ bản",
+      "worksheet": "Phiếu Cơ bản",
+      "ast_pass": true,
+      "ast_messages": [],
+      "ast_warnings": [],
+      "sandbox_pass": true,
+      "n_passed": 3,
+      "total": 3,
+      "cases": [
+       {
+        "index": 0,
+        "status": "PASS",
+        "stdin": "5",
+        "expected": "15",
+        "actual": "15\n",
+        "is_edge_case": false
+       },
+       {
+        "index": 1,
+        "status": "PASS",
+        "stdin": "1",
+        "expected": "1",
+        "actual": "1\n",
+        "is_edge_case": false
+       },
+       {
+        "index": 2,
+        "status": "PASS",
+        "stdin": "0",
+        "expected": "0",
+        "actual": "0\n",
+        "is_edge_case": true
+       }
+      ]
+     },
+     {
+      "tier": "Đạt chuẩn",
+      "worksheet": "Phiếu Đạt chuẩn",
+      "ast_pass": true,
+      "ast_messages": [],
+      "ast_warnings": [],
+      "sandbox_pass": true,
+      "n_passed": 3,
+      "total": 3,
+      "cases": [
+       {
+        "index": 0,
+        "status": "PASS",
+        "stdin": "10",
+        "expected": "3",
+        "actual": "3\n",
+        "is_edge_case": false
+       },
+       {
+        "index": 1,
+        "status": "PASS",
+        "stdin": "2",
+        "expected": "0",
+        "actual": "0\n",
+        "is_edge_case": true
+       },
+       {
+        "index": 2,
+        "status": "PASS",
+        "stdin": "3",
+        "expected": "1",
+        "actual": "1\n",
+        "is_edge_case": true
+       }
+      ]
+     },
+     {
+      "tier": "Nâng cao",
+      "worksheet": "Phiếu Nâng cao",
+      "ast_pass": true,
+      "ast_messages": [],
+      "ast_warnings": [],
+      "sandbox_pass": true,
+      "n_passed": 3,
+      "total": 3,
+      "cases": [
+       {
+        "index": 0,
+        "status": "PASS",
+        "stdin": "4\n3\n9\n-2\n5",
+        "expected": "9",
+        "actual": "9\n",
+        "is_edge_case": false
+       },
+       {
+        "index": 1,
+        "status": "PASS",
+        "stdin": "1\n-7",
+        "expected": "-7",
+        "actual": "-7\n",
+        "is_edge_case": true
+       },
+       {
+        "index": 2,
+        "status": "PASS",
+        "stdin": "3\n-5\n-1\n-9",
+        "expected": "-1",
+        "actual": "-1\n",
+        "is_edge_case": true
+       }
+      ]
+     }
+    ],
+    "iterations": 2
+   },
+   "delay_ms": 100
+  },
+  {
+   "event": "done",
+   "data": {},
+   "delay_ms": 0
+  }
+ ]
+}

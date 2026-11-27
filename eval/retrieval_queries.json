@@ -1,0 +1,572 @@
+{
+ "_meta": {
+  "source": "sgk_tin10_kntt_unicode.pdf",
+  "n": 45,
+  "gold": "trang (trang in) chứa gold_phrases trong Bài gold_bai"
+ },
+ "queries": [
+  {
+   "qid": "Q01",
+   "query": "Ngôn ngữ lập trình bậc cao là gì?",
+   "target_bai": 16,
+   "gold_bai": 16,
+   "gold_pages": [
+    87
+   ],
+   "gold_phrases": [
+    "Ngôn ngữ lập trình bậc cao có các câu lệnh"
+   ]
+  },
+  {
+   "qid": "Q02",
+   "query": "Chế độ gõ lệnh trực tiếp và chế độ soạn thảo chương trình Python khác nhau thế nào?",
+   "target_bai": 16,
+   "gold_bai": 16,
+   "gold_pages": [
+    86,
+    87,
+    88,
+    90
+   ],
+   "gold_phrases": [
+    "chế độ gõ lệnh trực tiếp"
+   ]
+  },
+  {
+   "qid": "Q03",
+   "query": "Lệnh print() trong Python có chức năng gì?",
+   "target_bai": 16,
+   "gold_bai": 16,
+   "gold_pages": [
+    89
+   ],
+   "gold_phrases": [
+    "lệnh print() có chức năng"
+   ]
+  },
+  {
+   "qid": "Q04",
+   "query": "Biến là gì trong lập trình Python?",
+   "target_bai": 17,
+   "gold_bai": 17,
+   "gold_pages": [
+    91
+   ],
+   "gold_phrases": [
+    "Biến là tên (định danh) của một vùng nhớ"
+   ]
+  },
+  {
+   "qid": "Q05",
+   "query": "Thứ tự ưu tiên các phép toán luỹ thừa, nhân chia, cộng trừ",
+   "target_bai": 17,
+   "gold_bai": 17,
+   "gold_pages": [
+    94
+   ],
+   "gold_phrases": [
+    "phép luỹ thừa ** có ưu tiên cao nhất"
+   ]
+  },
+  {
+   "qid": "Q06",
+   "query": "Từ khoá của Python là gì, có đặt tên biến trùng từ khoá được không?",
+   "target_bai": 17,
+   "gold_bai": 17,
+   "gold_pages": [
+    95
+   ],
+   "gold_phrases": [
+    "luôn có một tập hợp các từ tiếng Anh"
+   ]
+  },
+  {
+   "qid": "Q07",
+   "query": "Lệnh input() dùng để nhập dữ liệu như thế nào?",
+   "target_bai": 18,
+   "gold_bai": 18,
+   "gold_pages": [
+    97
+   ],
+   "gold_phrases": [
+    "có chức năng nhập dữ liệu"
+   ]
+  },
+  {
+   "qid": "Q08",
+   "query": "Cách chuyển xâu kí tự thành số nguyên bằng lệnh int()",
+   "target_bai": 18,
+   "gold_bai": 18,
+   "gold_pages": [
+    99
+   ],
+   "gold_phrases": [
+    "chuyển đổi số thực hoặc xâu chứa số nguyên"
+   ]
+  },
+  {
+   "qid": "Q09",
+   "query": "Lệnh type() nhận biết kiểu dữ liệu của biến",
+   "target_bai": 18,
+   "gold_bai": 18,
+   "gold_pages": [
+    98
+   ],
+   "gold_phrases": [
+    "dùng để nhận biết kiểu dữ liệu"
+   ]
+  },
+  {
+   "qid": "Q10",
+   "query": "Biểu thức lôgic và các phép toán and, or, not",
+   "target_bai": 19,
+   "gold_bai": 19,
+   "gold_pages": [
+    101,
+    102,
+    104
+   ],
+   "gold_phrases": [
+    "Biểu thức lôgic"
+   ]
+  },
+  {
+   "qid": "Q11",
+   "query": "Cú pháp câu lệnh if dạng đủ có else",
+   "target_bai": 19,
+   "gold_bai": 19,
+   "gold_pages": [
+    103
+   ],
+   "gold_phrases": [
+    "Câu lệnh điều kiện dạng đủ"
+   ]
+  },
+  {
+   "qid": "Q12",
+   "query": "Bài toán tính tiền điện sinh hoạt theo bậc dùng lệnh if",
+   "target_bai": 19,
+   "gold_bai": 19,
+   "gold_pages": [
+    104
+   ],
+   "gold_phrases": [
+    "giá điện sinh hoạt"
+   ]
+  },
+  {
+   "qid": "Q13",
+   "query": "Lệnh range(n) trả lại vùng giá trị nào?",
+   "target_bai": 20,
+   "gold_bai": 20,
+   "gold_pages": [
+    105
+   ],
+   "gold_phrases": [
+    "Lệnh range(n) trả lại vùng giá trị"
+   ]
+  },
+  {
+   "qid": "Q14",
+   "query": "Cú pháp lệnh lặp với số lần biết trước for trong Python",
+   "target_bai": 20,
+   "gold_bai": 20,
+   "gold_pages": [
+    105
+   ],
+   "gold_phrases": [
+    "Cú pháp của lệnh lặp với số lần biết"
+   ]
+  },
+  {
+   "qid": "Q15",
+   "query": "Chương trình in các ước số của n trên một hàng ngang",
+   "target_bai": 20,
+   "gold_bai": 20,
+   "gold_pages": [
+    107
+   ],
+   "gold_phrases": [
+    "dãy các ước số của"
+   ]
+  },
+  {
+   "qid": "Q16",
+   "query": "Lệnh lặp while với số lần không biết trước",
+   "target_bai": 21,
+   "gold_bai": 21,
+   "gold_pages": [
+    108,
+    109,
+    110
+   ],
+   "gold_phrases": [
+    "while"
+   ]
+  },
+  {
+   "qid": "Q17",
+   "query": "Ba cấu trúc lập trình cơ bản: tuần tự, rẽ nhánh, lặp",
+   "target_bai": 21,
+   "gold_bai": 21,
+   "gold_pages": [
+    108,
+    109,
+    110
+   ],
+   "gold_phrases": [
+    "cấu trúc lập trình cơ bản"
+   ]
+  },
+  {
+   "qid": "Q18",
+   "query": "In các số tự nhiên từ 1 đến 100 trên một hàng ngang bằng while",
+   "target_bai": 21,
+   "gold_bai": 21,
+   "gold_pages": [
+    110
+   ],
+   "gold_phrases": [
+    "từ 1 đến 100 trên một hàng ngang"
+   ]
+  },
+  {
+   "qid": "Q19",
+   "query": "Cách khởi tạo danh sách và truy cập phần tử qua chỉ số",
+   "target_bai": 22,
+   "gold_bai": 22,
+   "gold_pages": [
+    112
+   ],
+   "gold_phrases": [
+    "Chỉ số của danh sách bắt đầu từ 0"
+   ]
+  },
+  {
+   "qid": "Q20",
+   "query": "Duyệt các phần tử của danh sách bằng for và range(len(A))",
+   "target_bai": 22,
+   "gold_bai": 22,
+   "gold_pages": [
+    112,
+    113
+   ],
+   "gold_phrases": [
+    "for i in range(len(A))"
+   ]
+  },
+  {
+   "qid": "Q21",
+   "query": "Lệnh append thêm phần tử vào cuối danh sách",
+   "target_bai": 22,
+   "gold_bai": 22,
+   "gold_pages": [
+    113
+   ],
+   "gold_phrases": [
+    "thêm phần tử vào cuối danh sách"
+   ]
+  },
+  {
+   "qid": "Q22",
+   "query": "Toán tử in kiểm tra một giá trị có trong danh sách không",
+   "target_bai": 23,
+   "gold_bai": 23,
+   "gold_pages": [
+    115
+   ],
+   "gold_phrases": [
+    "toán tử in để kiểm tra"
+   ]
+  },
+  {
+   "qid": "Q23",
+   "query": "Lệnh insert chèn phần tử vào danh sách tại vị trí cho trước",
+   "target_bai": 23,
+   "gold_bai": 23,
+   "gold_pages": [
+    116,
+    117
+   ],
+   "gold_phrases": [
+    "insert"
+   ]
+  },
+  {
+   "qid": "Q24",
+   "query": "Lệnh clear() và remove() xoá phần tử danh sách",
+   "target_bai": 23,
+   "gold_bai": 23,
+   "gold_pages": [
+    116,
+    117
+   ],
+   "gold_phrases": [
+    "clear()"
+   ]
+  },
+  {
+   "qid": "Q25",
+   "query": "Xâu kí tự khác danh sách ở điểm nào, có thay đổi từng kí tự được không?",
+   "target_bai": 24,
+   "gold_bai": 24,
+   "gold_pages": [
+    120
+   ],
+   "gold_phrases": [
+    "không cho phép thay đổi từng kí tự"
+   ]
+  },
+  {
+   "qid": "Q26",
+   "query": "Duyệt từng kí tự của xâu bằng lệnh for",
+   "target_bai": 24,
+   "gold_bai": 24,
+   "gold_pages": [
+    120
+   ],
+   "gold_phrases": [
+    "duyệt từng kí tự của xâu"
+   ]
+  },
+  {
+   "qid": "Q27",
+   "query": "Kiểm tra một xâu có là xâu con của xâu khác",
+   "target_bai": 24,
+   "gold_bai": 24,
+   "gold_pages": [
+    121,
+    122
+   ],
+   "gold_phrases": [
+    "xâu con"
+   ]
+  },
+  {
+   "qid": "Q28",
+   "query": "Lệnh find() tìm vị trí xâu con trong xâu mẹ",
+   "target_bai": 25,
+   "gold_bai": 25,
+   "gold_pages": [
+    123,
+    124
+   ],
+   "gold_phrases": [
+    "find("
+   ]
+  },
+  {
+   "qid": "Q29",
+   "query": "Lệnh split() tách xâu thành danh sách các từ",
+   "target_bai": 25,
+   "gold_bai": 25,
+   "gold_pages": [
+    124,
+    125,
+    126
+   ],
+   "gold_phrases": [
+    "split("
+   ]
+  },
+  {
+   "qid": "Q30",
+   "query": "Lệnh join() nối danh sách các xâu thành một xâu",
+   "target_bai": 25,
+   "gold_bai": 25,
+   "gold_pages": [
+    124,
+    125,
+    126
+   ],
+   "gold_phrases": [
+    "join("
+   ]
+  },
+  {
+   "qid": "Q31",
+   "query": "Một số hàm thiết kế sẵn của Python",
+   "target_bai": 26,
+   "gold_bai": 26,
+   "gold_pages": [
+    127,
+    128
+   ],
+   "gold_phrases": [
+    "Bảng 26.1"
+   ]
+  },
+  {
+   "qid": "Q32",
+   "query": "Cách thiết lập hàm tự định nghĩa với def và return",
+   "target_bai": 26,
+   "gold_bai": 26,
+   "gold_pages": [
+    128
+   ],
+   "gold_phrases": [
+    "từ khoá def"
+   ]
+  },
+  {
+   "qid": "Q33",
+   "query": "Hàm không trả lại giá trị viết thế nào?",
+   "target_bai": 26,
+   "gold_bai": 26,
+   "gold_pages": [
+    128,
+    129
+   ],
+   "gold_phrases": [
+    "không trả lại giá trị"
+   ]
+  },
+  {
+   "qid": "Q34",
+   "query": "Phân biệt tham số và đối số của hàm",
+   "target_bai": 27,
+   "gold_bai": 27,
+   "gold_pages": [
+    131,
+    132,
+    134
+   ],
+   "gold_phrases": [
+    "đối số"
+   ]
+  },
+  {
+   "qid": "Q35",
+   "query": "Cách sử dụng chương trình con trong chương trình chính",
+   "target_bai": 27,
+   "gold_bai": 27,
+   "gold_pages": [
+    132
+   ],
+   "gold_phrases": [
+    "CÁCH SỬ DỤNG CHƯƠNG TRÌNH CON"
+   ]
+  },
+  {
+   "qid": "Q36",
+   "query": "Hàm tính tổng các số dương của một dãy",
+   "target_bai": 27,
+   "gold_bai": 27,
+   "gold_pages": [
+    133
+   ],
+   "gold_phrases": [
+    "tongduong"
+   ]
+  },
+  {
+   "qid": "Q37",
+   "query": "Biến khai báo bên trong hàm có phạm vi thế nào?",
+   "target_bai": 28,
+   "gold_bai": 28,
+   "gold_pages": [
+    137
+   ],
+   "gold_phrases": [
+    "tính địa phương"
+   ]
+  },
+  {
+   "qid": "Q38",
+   "query": "Từ khoá global dùng để làm gì?",
+   "target_bai": 28,
+   "gold_bai": 28,
+   "gold_pages": [
+    138
+   ],
+   "gold_phrases": [
+    "global"
+   ]
+  },
+  {
+   "qid": "Q39",
+   "query": "Phạm vi của biến khai báo ngoài hàm",
+   "target_bai": 28,
+   "gold_bai": 28,
+   "gold_pages": [
+    137
+   ],
+   "gold_phrases": [
+    "KHAI BÁO NGOÀI HÀM"
+   ]
+  },
+  {
+   "qid": "Q40",
+   "query": "Phân biệt lỗi cú pháp, lỗi ngoại lệ và lỗi lôgic",
+   "target_bai": 29,
+   "gold_bai": 29,
+   "gold_pages": [
+    142
+   ],
+   "gold_phrases": [
+    "lỗi lôgic"
+   ]
+  },
+  {
+   "qid": "Q41",
+   "query": "Lỗi ZeroDivisionError xảy ra khi nào?",
+   "target_bai": 29,
+   "gold_bai": 29,
+   "gold_pages": [
+    143
+   ],
+   "gold_phrases": [
+    "ZeroDivisionError"
+   ]
+  },
+  {
+   "qid": "Q42",
+   "query": "Một số lỗi ngoại lệ thường gặp như IndexError, NameError",
+   "target_bai": 29,
+   "gold_bai": 29,
+   "gold_pages": [
+    142,
+    143
+   ],
+   "gold_phrases": [
+    "IndexError"
+   ]
+  },
+  {
+   "qid": "Q43",
+   "query": "Nhắc lại cú pháp lệnh for với range",
+   "target_bai": 24,
+   "gold_bai": 20,
+   "gold_pages": [
+    105
+   ],
+   "gold_phrases": [
+    "Cú pháp của lệnh lặp với số lần biết"
+   ]
+  },
+  {
+   "qid": "Q44",
+   "query": "Nhập số nguyên từ bàn phím bằng int(input())",
+   "target_bai": 27,
+   "gold_bai": 18,
+   "gold_pages": [
+    100
+   ],
+   "gold_phrases": [
+    "Nếu cần nhập số nguyên"
+   ]
+  },
+  {
+   "qid": "Q45",
+   "query": "Dùng toán tử in duyệt danh sách",
+   "target_bai": 26,
+   "gold_bai": 23,
+   "gold_pages": [
+    115
+   ],
+   "gold_phrases": [
+    "toán tử in để kiểm tra"
+   ]
+  }
+ ]
+}

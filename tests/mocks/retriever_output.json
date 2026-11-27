@@ -1,0 +1,25 @@
+{
+ "retrieved_chunks": [
+  {
+   "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+   "bai_so": 20,
+   "section_title": "Lặp với số lần biết trước",
+   "page_number": 105,
+   "quoted_text": "Lặp với số lần biết trước"
+  },
+  {
+   "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+   "bai_so": 20,
+   "section_title": "Lệnh range()",
+   "page_number": 106,
+   "quoted_text": "Lệnh range()"
+  },
+  {
+   "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+   "bai_so": 20,
+   "section_title": "Luyện tập",
+   "page_number": 107,
+   "quoted_text": "Luyện tập"
+  }
+ ]
+}

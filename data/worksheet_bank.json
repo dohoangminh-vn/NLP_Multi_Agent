@@ -1,0 +1,1292 @@
+{
+  "meta": {
+    "description": "Ngân hàng phiếu học tập 3 mức (Cơ bản / Đạt chuẩn / Nâng cao) cho SGK Tin học 10 – Kết nối tri thức, Chủ đề F, Bài 16–29. Mỗi solution_code chỉ dùng cú pháp đã học đến bài tương ứng (kiểm bằng SyllabusGuard strict) và đã chạy qua toàn bộ test_cases trong Code Sandbox (input() không có prompt, so khớp từng dòng sau strip).",
+    "note": "Bài tập do nhóm biên soạn bám phạm vi SGK; không trích nguyên văn SGK",
+    "tiers": {
+      "Cơ bản": "Nhớ/Hiểu",
+      "Đạt chuẩn": "Vận dụng",
+      "Nâng cao": "Phân tích/Sáng tạo"
+    },
+    "lessons": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ]
+  },
+  "lessons": {
+    "16": {
+      "title": "Ngôn ngữ lập trình bậc cao và Python",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền phép toán thích hợp vào hai chỗ trống ___ để chương trình in ra thương nguyên và số dư của phép chia 17 cho 5.\nĐầu vào: không có.\nĐầu ra: dòng 1 là thương nguyên (3), dòng 2 là số dư (2).",
+          "starter_code": "print(17 ___ 5)\nprint(17 ___ 5)",
+          "solution_code": "print(17 // 5)\nprint(17 % 5)",
+          "test_cases": [
+            {
+              "stdin_data": "",
+              "expected_stdout": "3\n2",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "3\n2",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "3\n2",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Một bộ phim dài 3725 giây. Chỉ dùng lệnh print() và các phép toán //, %, hãy viết chương trình đổi 3725 giây ra giờ, phút, giây.\nĐầu vào: không có.\nĐầu ra: một dòng dạng: 1 giờ 2 phút 5 giây",
+          "starter_code": "# Gợi ý: 1 giờ = 3600 giây, 1 phút = 60 giây\nprint(...)",
+          "solution_code": "print(3725 // 3600, \"giờ\", 3725 % 3600 // 60, \"phút\", 3725 % 60, \"giây\")",
+          "test_cases": [
+            {
+              "stdin_data": "",
+              "expected_stdout": "1 giờ 2 phút 5 giây",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "1 giờ 2 phút 5 giây",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "1 giờ 2 phút 5 giây",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Chương trình dưới đây có 2 lỗi lôgic do thứ tự ưu tiên phép toán:\n- Dòng 1 muốn in trung bình cộng của 4, 7, 10 (kết quả đúng là 7.0) nhưng in ra 14.333...\n- Dòng 2 muốn in (-2) mũ 2 (kết quả đúng là 4) nhưng in ra -4.\nHãy giải thích nguyên nhân và sửa bằng cách thêm cặp ngoặc tròn.\nĐầu vào: không có. Đầu ra: dòng 1 là 7.0, dòng 2 là 4.",
+          "starter_code": "print(4 + 7 + 10 / 3)\nprint(-2 ** 2)",
+          "solution_code": "print((4 + 7 + 10) / 3)\nprint((-2) ** 2)",
+          "test_cases": [
+            {
+              "stdin_data": "",
+              "expected_stdout": "7.0\n4",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "7.0\n4",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "7.0\n4",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "17": {
+      "title": "Biến và lệnh gán",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền vào chỗ trống ___ một lệnh gán đồng thời để hoán đổi giá trị của hai biến a và b.\nĐầu vào: không có.\nĐầu ra: một dòng: 8 3",
+          "starter_code": "a, b = 3, 8\na, b = ___\nprint(a, b)",
+          "solution_code": "a, b = 3, 8\na, b = b, a\nprint(a, b)",
+          "test_cases": [
+            {
+              "stdin_data": "",
+              "expected_stdout": "8 3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "8 3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "8 3",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Một bạn mua 4 quyển vở, mỗi quyển giá 25000 đồng, được giảm 10000 đồng trên tổng hoá đơn và đưa cho người bán 100000 đồng. Hãy dùng các biến don_gia, so_luong, giam_gia, tien_dua và lệnh gán để tính tổng tiền phải trả và tiền thừa.\nĐầu vào: không có.\nĐầu ra: dòng 1: Tổng tiền: 90000 ; dòng 2: Tiền thừa: 10000",
+          "starter_code": "don_gia = 25000\nso_luong = 4\n# Khai báo tiếp các biến và tính toán",
+          "solution_code": "don_gia = 25000\nso_luong = 4\ngiam_gia = 10000\ntien_dua = 100000\ntong = don_gia * so_luong - giam_gia\ntien_thua = tien_dua - tong\nprint(\"Tổng tiền:\", tong)\nprint(\"Tiền thừa:\", tien_thua)",
+          "test_cases": [
+            {
+              "stdin_data": "",
+              "expected_stdout": "Tổng tiền: 90000\nTiền thừa: 10000",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "Tổng tiền: 90000\nTiền thừa: 10000",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "Tổng tiền: 90000\nTiền thừa: 10000",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Chương trình dưới đây muốn \"xoay vòng\" ba biến: a nhận giá trị của b, b nhận giá trị của c, c nhận giá trị ban đầu của a. Kết quả đúng phải là 2 3 1, nhưng chương trình in ra 2 3 2.\nHãy lần vết giá trị các biến sau mỗi lệnh để tìm lỗi, rồi sửa lại bằng một biến trung gian tg (không dùng lệnh gán đồng thời).\nĐầu vào: không có. Đầu ra: 2 3 1",
+          "starter_code": "a = 1\nb = 2\nc = 3\na = b\nb = c\nc = a\nprint(a, b, c)",
+          "solution_code": "a = 1\nb = 2\nc = 3\ntg = a\na = b\nb = c\nc = tg\nprint(a, b, c)",
+          "test_cases": [
+            {
+              "stdin_data": "",
+              "expected_stdout": "2 3 1",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "2 3 1",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "",
+              "expected_stdout": "2 3 1",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "18": {
+      "title": "Các lệnh vào ra đơn giản",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền vào chỗ trống ___ hàm chuyển đổi kiểu phù hợp để chương trình nhập hai số nguyên a, b rồi in ra tổng a + b (không phải ghép xâu).\nĐầu vào: 2 dòng, mỗi dòng một số nguyên.\nĐầu ra: tổng của hai số.",
+          "starter_code": "a = ___(input())\nb = int(input())\nprint(a + b)",
+          "solution_code": "a = int(input())\nb = int(input())\nprint(a + b)",
+          "test_cases": [
+            {
+              "stdin_data": "3\n4",
+              "expected_stdout": "7",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "100\n250",
+              "expected_stdout": "350",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "-5\n5",
+              "expected_stdout": "0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Viết chương trình nhập chiều dài và chiều rộng của một hình chữ nhật (là số thực), in ra chu vi và diện tích.\nĐầu vào: dòng 1 là chiều dài, dòng 2 là chiều rộng.\nĐầu ra: dòng 1: Chu vi: <giá trị> ; dòng 2: Diện tích: <giá trị> (in trực tiếp số thực).",
+          "starter_code": "# Nhập chiều dài, chiều rộng bằng float(input())",
+          "solution_code": "dai = float(input())\nrong = float(input())\nprint(\"Chu vi:\", (dai + rong) * 2)\nprint(\"Diện tích:\", dai * rong)",
+          "test_cases": [
+            {
+              "stdin_data": "2.5\n4",
+              "expected_stdout": "Chu vi: 13.0\nDiện tích: 10.0",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "3\n1.5",
+              "expected_stdout": "Chu vi: 9.0\nDiện tích: 4.5",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "0\n7",
+              "expected_stdout": "Chu vi: 14.0\nDiện tích: 0.0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Cần nhập một số nguyên dương n có đúng 3 chữ số và in ra tổng các chữ số của n. Chương trình mẫu dưới đây báo lỗi TypeError. Hãy giải thích vì sao (gợi ý: dùng type() để xem kiểu của n) và sửa lại; tách các chữ số bằng phép // và %.\nĐầu vào: một số nguyên có 3 chữ số.\nĐầu ra: tổng các chữ số.",
+          "starter_code": "n = input()\nprint(n // 100 + n // 10 % 10 + n % 10)",
+          "solution_code": "n = int(input())\ntram = n // 100\nchuc = n // 10 % 10\ndon_vi = n % 10\nprint(tram + chuc + don_vi)",
+          "test_cases": [
+            {
+              "stdin_data": "123",
+              "expected_stdout": "6",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "905",
+              "expected_stdout": "14",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "100",
+              "expected_stdout": "1",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "999",
+              "expected_stdout": "27",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "19": {
+      "title": "Câu lệnh rẽ nhánh if",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền phép so sánh vào chỗ trống ___ để chương trình nhập số nguyên n và in ra \"Chẵn\" nếu n chẵn, ngược lại in \"Lẻ\".\nĐầu vào: một số nguyên n.\nĐầu ra: Chẵn hoặc Lẻ.",
+          "starter_code": "n = int(input())\nif n % 2 ___ 0:\n    print(\"Chẵn\")\nelse:\n    print(\"Lẻ\")",
+          "solution_code": "n = int(input())\nif n % 2 == 0:\n    print(\"Chẵn\")\nelse:\n    print(\"Lẻ\")",
+          "test_cases": [
+            {
+              "stdin_data": "4",
+              "expected_stdout": "Chẵn",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "7",
+              "expected_stdout": "Lẻ",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "Chẵn",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "-3",
+              "expected_stdout": "Lẻ",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Năm nhuận là năm chia hết cho 400, hoặc chia hết cho 4 nhưng không chia hết cho 100. Viết chương trình nhập một năm, in \"Năm nhuận\" hoặc \"Không nhuận\" (dùng and/or, không dùng elif).\nĐầu vào: một số nguyên dương.\nĐầu ra: Năm nhuận hoặc Không nhuận.",
+          "starter_code": "nam = int(input())\n# Viết tiếp câu lệnh if-else",
+          "solution_code": "nam = int(input())\nif nam % 400 == 0 or (nam % 4 == 0 and nam % 100 != 0):\n    print(\"Năm nhuận\")\nelse:\n    print(\"Không nhuận\")",
+          "test_cases": [
+            {
+              "stdin_data": "2024",
+              "expected_stdout": "Năm nhuận",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "2023",
+              "expected_stdout": "Không nhuận",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1900",
+              "expected_stdout": "Không nhuận",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "2000",
+              "expected_stdout": "Năm nhuận",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Xếp loại theo điểm d (0 ≤ d ≤ 10): d ≥ 8: Giỏi; 6.5 ≤ d < 8: Khá; 5 ≤ d < 6.5: Trung bình; d < 5: Yếu.\nChương trình mẫu dưới đây xếp loại SAI (ví dụ d = 9 lại in \"Trung bình\"). Hãy phân tích vì sao thứ tự kiểm tra điều kiện gây lỗi và sửa lại bằng if-else lồng nhau (không dùng elif). Kiểm tra kĩ các giá trị biên 8, 6.5, 5.\nĐầu vào: một số thực d.\nĐầu ra: Giỏi / Khá / Trung bình / Yếu.",
+          "starter_code": "d = float(input())\nif d >= 5:\n    print(\"Trung bình\")\nelse:\n    if d >= 6.5:\n        print(\"Khá\")\n    else:\n        if d >= 8:\n            print(\"Giỏi\")\n        else:\n            print(\"Yếu\")",
+          "solution_code": "d = float(input())\nif d >= 8:\n    print(\"Giỏi\")\nelse:\n    if d >= 6.5:\n        print(\"Khá\")\n    else:\n        if d >= 5:\n            print(\"Trung bình\")\n        else:\n            print(\"Yếu\")",
+          "test_cases": [
+            {
+              "stdin_data": "9",
+              "expected_stdout": "Giỏi",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "7",
+              "expected_stdout": "Khá",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "4.9",
+              "expected_stdout": "Yếu",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "8",
+              "expected_stdout": "Giỏi",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "6.5",
+              "expected_stdout": "Khá",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "5",
+              "expected_stdout": "Trung bình",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "20": {
+      "title": "Câu lệnh lặp for",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền giá trị bước nhảy vào chỗ trống ___ trong range() để chương trình in ra các số lẻ từ 1 đến n, mỗi số trên một dòng.\nĐầu vào: một số nguyên n (n ≥ 0).\nĐầu ra: các số lẻ 1, 3, 5, ... không vượt quá n (n = 0 thì không in gì).",
+          "starter_code": "n = int(input())\nfor i in range(1, n + 1, ___):\n    print(i)",
+          "solution_code": "n = int(input())\nfor i in range(1, n + 1, 2):\n    print(i)",
+          "test_cases": [
+            {
+              "stdin_data": "7",
+              "expected_stdout": "1\n3\n5\n7",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "8",
+              "expected_stdout": "1\n3\n5\n7",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1",
+              "expected_stdout": "1",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Viết chương trình nhập số nguyên n (n ≥ 0) và in ra n! = 1 × 2 × ... × n (quy ước 0! = 1), dùng lệnh for.\nĐầu vào: một số nguyên n.\nĐầu ra: giá trị n!.",
+          "starter_code": "n = int(input())\n# Viết tiếp chương trình",
+          "solution_code": "n = int(input())\ngt = 1\nfor i in range(1, n + 1):\n    gt = gt * i\nprint(gt)",
+          "test_cases": [
+            {
+              "stdin_data": "5",
+              "expected_stdout": "120",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "10",
+              "expected_stdout": "3628800",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "1",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "1",
+              "expected_stdout": "1",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Chương trình mẫu kiểm tra số nguyên tố bằng cách đếm các ước trong đoạn [2, n-1]. Nó chạy đúng với n = 7, n = 9 nhưng SAI với n = 0 và n = 1 (in \"Nguyên tố\"). Hãy chạy thử, phân tích nguyên nhân và sửa lại điều kiện để chương trình đúng với mọi n ≥ 0.\nĐầu vào: một số nguyên n (n ≥ 0).\nĐầu ra: Nguyên tố hoặc Không nguyên tố.",
+          "starter_code": "n = int(input())\ndem = 0\nfor i in range(2, n):\n    if n % i == 0:\n        dem = dem + 1\nif dem == 0:\n    print(\"Nguyên tố\")\nelse:\n    print(\"Không nguyên tố\")",
+          "solution_code": "n = int(input())\ndem = 0\nfor i in range(2, n):\n    if n % i == 0:\n        dem = dem + 1\nif n >= 2 and dem == 0:\n    print(\"Nguyên tố\")\nelse:\n    print(\"Không nguyên tố\")",
+          "test_cases": [
+            {
+              "stdin_data": "7",
+              "expected_stdout": "Nguyên tố",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "9",
+              "expected_stdout": "Không nguyên tố",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1",
+              "expected_stdout": "Không nguyên tố",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "Không nguyên tố",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "2",
+              "expected_stdout": "Nguyên tố",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "21": {
+      "title": "Câu lệnh lặp while",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền vào chỗ trống ___ để vòng lặp while tính tổng các chữ số của số nguyên n ≥ 0 (lặp cho đến khi n hết chữ số).\nĐầu vào: một số nguyên n ≥ 0.\nĐầu ra: tổng các chữ số của n.",
+          "starter_code": "n = int(input())\nS = 0\nwhile n > ___:\n    S = S + n % 10\n    n = n // 10\nprint(S)",
+          "solution_code": "n = int(input())\nS = 0\nwhile n > 0:\n    S = S + n % 10\n    n = n // 10\nprint(S)",
+          "test_cases": [
+            {
+              "stdin_data": "1234",
+              "expected_stdout": "10",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "7",
+              "expected_stdout": "7",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1000",
+              "expected_stdout": "1",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Viết chương trình nhập lần lượt các số nguyên, mỗi số trên một dòng; khi gặp số 0 thì dừng (số 0 không được tính). Dùng while True và break.\nĐầu vào: dãy số nguyên kết thúc bằng 0.\nĐầu ra: dòng 1: Tổng: <tổng> ; dòng 2: Số lượng: <số các số đã nhập trước số 0>.",
+          "starter_code": "tong = 0\ndem = 0\n# Dùng while True: ... nhập x, nếu x == 0 thì break",
+          "solution_code": "tong = 0\ndem = 0\nwhile True:\n    x = int(input())\n    if x == 0:\n        break\n    tong = tong + x\n    dem = dem + 1\nprint(\"Tổng:\", tong)\nprint(\"Số lượng:\", dem)",
+          "test_cases": [
+            {
+              "stdin_data": "5\n3\n-2\n0",
+              "expected_stdout": "Tổng: 6\nSố lượng: 3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "10\n0",
+              "expected_stdout": "Tổng: 10\nSố lượng: 1",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "Tổng: 0\nSố lượng: 0",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "-4\n4\n0",
+              "expected_stdout": "Tổng: 0\nSố lượng: 2",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Chương trình mẫu tìm ƯCLN của a và b bằng phép trừ liên tiếp; nó đúng khi a, b > 0 nhưng bị LẶP VÔ HẠN khi một trong hai số bằng 0. Hãy phân tích vì sao, rồi viết lại bằng thuật toán Euclid dùng phép chia lấy dư % (lặp while b != 0) để đúng với mọi a, b ≥ 0 không đồng thời bằng 0.\nĐầu vào: dòng 1 là a, dòng 2 là b.\nĐầu ra: ƯCLN(a, b).",
+          "starter_code": "a = int(input())\nb = int(input())\nwhile a != b:\n    if a > b:\n        a = a - b\n    else:\n        b = b - a\nprint(a)",
+          "solution_code": "a = int(input())\nb = int(input())\nwhile b != 0:\n    r = a % b\n    a = b\n    b = r\nprint(a)",
+          "test_cases": [
+            {
+              "stdin_data": "12\n18",
+              "expected_stdout": "6",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "100\n75",
+              "expected_stdout": "25",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "17\n5",
+              "expected_stdout": "1",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "7\n0",
+              "expected_stdout": "7",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0\n5",
+              "expected_stdout": "5",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "22": {
+      "title": "Kiểu dữ liệu danh sách",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền vào hai chỗ trống ___ để chương trình nhập n số nguyên vào danh sách A rồi tính tổng các phần tử bằng cách duyệt chỉ số.\nĐầu vào: dòng đầu là n (n ≥ 0), n dòng tiếp theo mỗi dòng một số nguyên.\nĐầu ra: tổng các phần tử của A.",
+          "starter_code": "n = int(input())\nA = []\nfor i in range(n):\n    A.___(int(input()))\ntong = 0\nfor i in range(___):\n    tong = tong + A[i]\nprint(tong)",
+          "solution_code": "n = int(input())\nA = []\nfor i in range(n):\n    A.append(int(input()))\ntong = 0\nfor i in range(len(A)):\n    tong = tong + A[i]\nprint(tong)",
+          "test_cases": [
+            {
+              "stdin_data": "3\n4\n5\n6",
+              "expected_stdout": "15",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1\n-7",
+              "expected_stdout": "-7",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Viết chương trình nhập n số nguyên (n ≥ 1) vào danh sách A, in ra giá trị lớn nhất và chỉ số ĐẦU TIÊN của nó trong A (chỉ số bắt đầu từ 0).\nĐầu vào: dòng đầu là n, n dòng tiếp theo mỗi dòng một số nguyên.\nĐầu ra: dòng 1 là giá trị lớn nhất, dòng 2 là chỉ số đầu tiên của nó.",
+          "starter_code": "n = int(input())\nA = []\n# Nhập danh sách rồi tìm giá trị lớn nhất",
+          "solution_code": "n = int(input())\nA = []\nfor i in range(n):\n    A.append(int(input()))\nvt = 0\nfor i in range(len(A)):\n    if A[i] > A[vt]:\n        vt = i\nprint(A[vt])\nprint(vt)",
+          "test_cases": [
+            {
+              "stdin_data": "5\n3\n9\n2\n9\n1",
+              "expected_stdout": "9\n1",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "4\n1\n2\n3\n8",
+              "expected_stdout": "8\n3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1\n-4",
+              "expected_stdout": "-4\n0",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "3\n-1\n-5\n-1",
+              "expected_stdout": "-1\n0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Cần xoá mọi số âm khỏi danh sách A bằng lệnh del rồi in A. Chương trình mẫu bị lỗi IndexError (và có thể bỏ sót số âm đứng liền nhau). Hãy giải thích: sau khi del A[i], độ dài và chỉ số của các phần tử phía sau thay đổi thế nào? Sửa lại bằng vòng lặp while: chỉ tăng i khi không xoá.\nĐầu vào: dòng đầu là n (n ≥ 0), n dòng tiếp theo mỗi dòng một số nguyên.\nĐầu ra: danh sách A sau khi xoá, in bằng print(A).",
+          "starter_code": "n = int(input())\nA = []\nfor i in range(n):\n    A.append(int(input()))\nfor i in range(len(A)):\n    if A[i] < 0:\n        del A[i]\nprint(A)",
+          "solution_code": "n = int(input())\nA = []\nfor i in range(n):\n    A.append(int(input()))\ni = 0\nwhile i < len(A):\n    if A[i] < 0:\n        del A[i]\n    else:\n        i = i + 1\nprint(A)",
+          "test_cases": [
+            {
+              "stdin_data": "4\n3\n-1\n5\n0",
+              "expected_stdout": "[3, 5, 0]",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "5\n4\n-1\n-2\n3\n-4",
+              "expected_stdout": "[4, 3]",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "3\n-1\n-2\n-3",
+              "expected_stdout": "[]",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "[]",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "23": {
+      "title": "Một số lệnh làm việc với dữ liệu danh sách",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Danh sách môn học A cho trước. Điền vào hai chỗ trống ___: dùng toán tử in để kiểm tra môn x có trong A không, nếu có thì xoá x khỏi A bằng lệnh của danh sách.\nĐầu vào: tên một môn học.\nĐầu ra: danh sách A sau khi xử lí, in bằng print(A).",
+          "starter_code": "A = [\"Toán\", \"Văn\", \"Anh\", \"Tin\"]\nx = input()\nif x ___ A:\n    A.___(x)\nprint(A)",
+          "solution_code": "A = [\"Toán\", \"Văn\", \"Anh\", \"Tin\"]\nx = input()\nif x in A:\n    A.remove(x)\nprint(A)",
+          "test_cases": [
+            {
+              "stdin_data": "Văn",
+              "expected_stdout": "['Toán', 'Anh', 'Tin']",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "Tin",
+              "expected_stdout": "['Toán', 'Văn', 'Anh']",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "Sử",
+              "expected_stdout": "['Toán', 'Văn', 'Anh', 'Tin']",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Viết chương trình nhập n số nguyên, tạo danh sách B gồm các giá trị KHÁC NHAU theo thứ tự xuất hiện lần đầu (dùng toán tử not in), rồi in từng phần tử của B trên một dòng bằng lệnh for x in B.\nĐầu vào: dòng đầu là n (n ≥ 0), n dòng tiếp theo mỗi dòng một số nguyên.\nĐầu ra: dòng 1: Số giá trị khác nhau: <k> ; k dòng tiếp theo là các phần tử của B.",
+          "starter_code": "n = int(input())\nB = []\n# Viết tiếp chương trình",
+          "solution_code": "n = int(input())\nB = []\nfor i in range(n):\n    x = int(input())\n    if x not in B:\n        B.append(x)\nprint(\"Số giá trị khác nhau:\", len(B))\nfor x in B:\n    print(x)",
+          "test_cases": [
+            {
+              "stdin_data": "6\n1\n2\n1\n3\n2\n1",
+              "expected_stdout": "Số giá trị khác nhau: 3\n1\n2\n3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1\n5",
+              "expected_stdout": "Số giá trị khác nhau: 1\n5",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "3\n4\n4\n4",
+              "expected_stdout": "Số giá trị khác nhau: 1\n4",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "Số giá trị khác nhau: 0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Cho danh sách A gồm n số nguyên đã sắp xếp tăng dần và một số x. Hãy chèn x vào A bằng lệnh insert() sao cho A vẫn tăng dần (không dùng sort). Gợi ý: tìm vị trí vt đầu tiên mà A[vt] ≥ x. Chú ý các trường hợp x nhỏ hơn mọi phần tử, x lớn hơn mọi phần tử, danh sách rỗng.\nĐầu vào: dòng đầu là n (n ≥ 0), n dòng tiếp theo là các phần tử tăng dần, dòng cuối là x.\nĐầu ra: danh sách A sau khi chèn, in bằng print(A).",
+          "starter_code": "n = int(input())\nA = []\nfor i in range(n):\n    A.append(int(input()))\nx = int(input())\n# Tìm vị trí vt rồi dùng A.insert(vt, x)",
+          "solution_code": "n = int(input())\nA = []\nfor i in range(n):\n    A.append(int(input()))\nx = int(input())\nvt = 0\nwhile vt < len(A) and A[vt] < x:\n    vt = vt + 1\nA.insert(vt, x)\nprint(A)",
+          "test_cases": [
+            {
+              "stdin_data": "4\n1\n3\n7\n9\n5",
+              "expected_stdout": "[1, 3, 5, 7, 9]",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "3\n2\n4\n6\n0",
+              "expected_stdout": "[0, 2, 4, 6]",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "3\n2\n4\n6\n10",
+              "expected_stdout": "[2, 4, 6, 10]",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0\n8",
+              "expected_stdout": "[8]",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "2\n3\n3\n3",
+              "expected_stdout": "[3, 3, 3]",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "24": {
+      "title": "Xâu kí tự",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền phép so sánh vào chỗ trống ___ để chương trình đếm số lần kí tự \"a\" (chữ thường) xuất hiện trong xâu s.\nĐầu vào: một xâu s.\nĐầu ra: số lần xuất hiện của \"a\".",
+          "starter_code": "s = input()\ndem = 0\nfor c in s:\n    if c ___ \"a\":\n        dem = dem + 1\nprint(dem)",
+          "solution_code": "s = input()\ndem = 0\nfor c in s:\n    if c == \"a\":\n        dem = dem + 1\nprint(dem)",
+          "test_cases": [
+            {
+              "stdin_data": "banana",
+              "expected_stdout": "3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "xyz",
+              "expected_stdout": "0",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "AAA",
+              "expected_stdout": "0",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "a",
+              "expected_stdout": "1",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Viết chương trình nhập xâu s và in ra xâu đảo ngược của s (không dùng phép cắt xâu). Gợi ý: duyệt chỉ số i từ len(s) - 1 về 0 và ghép dần từng kí tự s[i] vào xâu kết quả.\nĐầu vào: một xâu s.\nĐầu ra: xâu đảo ngược.",
+          "starter_code": "s = input()\nt = \"\"\n# Viết tiếp chương trình",
+          "solution_code": "s = input()\nt = \"\"\nfor i in range(len(s) - 1, -1, -1):\n    t = t + s[i]\nprint(t)",
+          "test_cases": [
+            {
+              "stdin_data": "python",
+              "expected_stdout": "nohtyp",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "Tin học",
+              "expected_stdout": "cọh niT",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "a",
+              "expected_stdout": "a",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "12321",
+              "expected_stdout": "12321",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Kiểm tra xâu s có đối xứng hay không khi BỎ QUA các dấu cách (ví dụ \"taco cat\" là đối xứng). Chương trình mẫu bị lỗi IndexError và chưa bỏ dấu cách. Hãy tìm lỗi chỉ số (kí tự cuối của xâu có chỉ số bao nhiêu?), sửa lại, và tạo xâu t chỉ gồm các kí tự khác dấu cách trước khi so sánh.\nĐầu vào: một xâu s.\nĐầu ra: Đối xứng hoặc Không đối xứng.",
+          "starter_code": "s = input()\ndx = True\nfor i in range(len(s)):\n    if s[i] != s[len(s) - i]:\n        dx = False\nif dx:\n    print(\"Đối xứng\")\nelse:\n    print(\"Không đối xứng\")",
+          "solution_code": "s = input()\nt = \"\"\nfor c in s:\n    if c != \" \":\n        t = t + c\nn = len(t)\ndx = True\nfor i in range(n // 2):\n    if t[i] != t[n - 1 - i]:\n        dx = False\nif dx:\n    print(\"Đối xứng\")\nelse:\n    print(\"Không đối xứng\")",
+          "test_cases": [
+            {
+              "stdin_data": "abba",
+              "expected_stdout": "Đối xứng",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "abc",
+              "expected_stdout": "Không đối xứng",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "taco cat",
+              "expected_stdout": "Đối xứng",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "a",
+              "expected_stdout": "Đối xứng",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "ab",
+              "expected_stdout": "Không đối xứng",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "25": {
+      "title": "Một số lệnh làm việc với xâu kí tự",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền tên lệnh vào chỗ trống ___ để tách câu s thành danh sách các từ (các từ cách nhau bởi một hoặc nhiều dấu cách) rồi in ra số từ.\nĐầu vào: một câu s.\nĐầu ra: số từ trong câu.",
+          "starter_code": "s = input()\nA = s.___()\nprint(len(A))",
+          "solution_code": "s = input()\nA = s.split()\nprint(len(A))",
+          "test_cases": [
+            {
+              "stdin_data": "Tôi yêu Tin học",
+              "expected_stdout": "4",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "Python",
+              "expected_stdout": "1",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "  nhiều   dấu  cách  ",
+              "expected_stdout": "3",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Chuẩn hoá họ tên: họ tên nhập vào có thể có dấu cách thừa ở đầu, cuối hoặc giữa các từ. Viết chương trình dùng split() và join() để in họ tên với đúng một dấu cách giữa các từ, sau đó in tên (từ cuối cùng).\nĐầu vào: một dòng họ tên.\nĐầu ra: dòng 1 là họ tên đã chuẩn hoá; dòng 2: Tên: <tên>.",
+          "starter_code": "s = input()\n# Dùng s.split() và \" \".join(...)",
+          "solution_code": "s = input()\nA = s.split()\nprint(\" \".join(A))\nprint(\"Tên:\", A[len(A) - 1])",
+          "test_cases": [
+            {
+              "stdin_data": "  Nguyễn   Văn  An ",
+              "expected_stdout": "Nguyễn Văn An\nTên: An",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "Trần Thị Minh Thư",
+              "expected_stdout": "Trần Thị Minh Thư\nTên: Thư",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "Lan",
+              "expected_stdout": "Lan\nTên: Lan",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Tìm TẤT CẢ các vị trí xuất hiện (kể cả chồng lấn) của xâu con p trong xâu s bằng lệnh find(). Chương trình mẫu bị lặp vô hạn. Hãy phân tích vì sao (lần tìm tiếp theo bắt đầu từ đâu?) và sửa lại; dùng join() để in các vị trí.\nĐầu vào: dòng 1 là xâu s, dòng 2 là xâu con p.\nĐầu ra: nếu không có, in Không tìm thấy; ngược lại dòng 1 là số lần xuất hiện, dòng 2 là các vị trí cách nhau một dấu cách.",
+          "starter_code": "s = input()\np = input()\nvt = []\nk = s.find(p)\nwhile k != -1:\n    vt.append(str(k))\n    k = s.find(p, k)\nprint(len(vt))\nprint(\" \".join(vt))",
+          "solution_code": "s = input()\np = input()\nvt = []\nk = s.find(p)\nwhile k != -1:\n    vt.append(str(k))\n    k = s.find(p, k + 1)\nif len(vt) == 0:\n    print(\"Không tìm thấy\")\nelse:\n    print(len(vt))\n    print(\" \".join(vt))",
+          "test_cases": [
+            {
+              "stdin_data": "banana\nan",
+              "expected_stdout": "2\n1 3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "tin hoc tin\ntin",
+              "expected_stdout": "2\n0 8",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "aaaa\naa",
+              "expected_stdout": "3\n0 1 2",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "abc\nx",
+              "expected_stdout": "Không tìm thấy",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "26": {
+      "title": "Hàm trong Python",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Điền từ khoá vào chỗ trống ___ để hàm lap_phuong(x) trả về x³; chương trình nhập n và in lap_phuong(n).\nĐầu vào: một số nguyên n.\nĐầu ra: n³.",
+          "starter_code": "def lap_phuong(x):\n    ___ x * x * x\n\nn = int(input())\nprint(lap_phuong(n))",
+          "solution_code": "def lap_phuong(x):\n    return x * x * x\n\nn = int(input())\nprint(lap_phuong(n))",
+          "test_cases": [
+            {
+              "stdin_data": "3",
+              "expected_stdout": "27",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "10",
+              "expected_stdout": "1000",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "-2",
+              "expected_stdout": "-8",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Số hoàn hảo là số nguyên dương bằng tổng các ước thực sự của nó (các ước nhỏ hơn chính nó), ví dụ 6 = 1 + 2 + 3. Viết hàm tong_uoc(n) trả về tổng các ước thực sự của n, rồi dùng hàm này để kiểm tra số n nhập vào.\nĐầu vào: một số nguyên dương n.\nĐầu ra: dòng 1 là tổng các ước thực sự; dòng 2 là Số hoàn hảo hoặc Không phải số hoàn hảo.",
+          "starter_code": "def tong_uoc(n):\n    S = 0\n    # Viết tiếp thân hàm\n    return S\n\nn = int(input())",
+          "solution_code": "def tong_uoc(n):\n    S = 0\n    for i in range(1, n):\n        if n % i == 0:\n            S = S + i\n    return S\n\nn = int(input())\nt = tong_uoc(n)\nprint(t)\nif t == n:\n    print(\"Số hoàn hảo\")\nelse:\n    print(\"Không phải số hoàn hảo\")",
+          "test_cases": [
+            {
+              "stdin_data": "6",
+              "expected_stdout": "6\nSố hoàn hảo",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "28",
+              "expected_stdout": "28\nSố hoàn hảo",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "12",
+              "expected_stdout": "16\nKhông phải số hoàn hảo",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1",
+              "expected_stdout": "0\nKhông phải số hoàn hảo",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Hàm la_nguyen_to(n) dưới đây có lỗi lôgic: lệnh return nằm sai chỗ nên hàm trả về True với n = 9, và trả về None với n = 2. Hãy phân tích: lệnh return kết thúc hàm khi nào? Sửa hàm (đúng với mọi n ≥ 0), rồi dùng nó để in các số nguyên tố từ 1 đến n.\nĐầu vào: một số nguyên n ≥ 0.\nĐầu ra: các số nguyên tố ≤ n cách nhau một dấu cách; nếu không có, in Không có.",
+          "starter_code": "def la_nguyen_to(n):\n    for i in range(2, n):\n        if n % i == 0:\n            return False\n        else:\n            return True\n\nn = int(input())\n# In các số nguyên tố từ 1 đến n",
+          "solution_code": "def la_nguyen_to(n):\n    if n < 2:\n        return False\n    for i in range(2, n):\n        if n % i == 0:\n            return False\n    return True\n\nn = int(input())\nkq = []\nfor i in range(1, n + 1):\n    if la_nguyen_to(i):\n        kq.append(str(i))\nif len(kq) == 0:\n    print(\"Không có\")\nelse:\n    print(\" \".join(kq))",
+          "test_cases": [
+            {
+              "stdin_data": "10",
+              "expected_stdout": "2 3 5 7",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "20",
+              "expected_stdout": "2 3 5 7 11 13 17 19",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "1",
+              "expected_stdout": "Không có",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "2",
+              "expected_stdout": "2",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "9",
+              "expected_stdout": "2 3 5 7",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "27": {
+      "title": "Tham số của hàm",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Hàm tinh_tien(don_gia, so_luong) có 2 tham số. Điền 2 đối số vào chỗ trống ___ trong lời gọi hàm (đúng thứ tự tham số) để in ra số tiền phải trả.\nĐầu vào: dòng 1 là đơn giá, dòng 2 là số lượng.\nĐầu ra: số tiền phải trả.",
+          "starter_code": "def tinh_tien(don_gia, so_luong):\n    return don_gia * so_luong\n\ngia = int(input())\nsl = int(input())\nprint(tinh_tien(___, ___))",
+          "solution_code": "def tinh_tien(don_gia, so_luong):\n    return don_gia * so_luong\n\ngia = int(input())\nsl = int(input())\nprint(tinh_tien(gia, sl))",
+          "test_cases": [
+            {
+              "stdin_data": "15000\n3",
+              "expected_stdout": "45000",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "12000\n1",
+              "expected_stdout": "12000",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "0\n5",
+              "expected_stdout": "0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Viết hàm ucln(a, b) (thuật toán Euclid) và hàm bcnn(a, b) có gọi lại ucln(a, b) (BCNN = a × b // ƯCLN). Nhập hai số nguyên dương và in kết quả.\nĐầu vào: dòng 1 là a, dòng 2 là b (a, b ≥ 1).\nĐầu ra: dòng 1: UCLN: <giá trị> ; dòng 2: BCNN: <giá trị>.",
+          "starter_code": "def ucln(a, b):\n    # Viết thân hàm (thuật toán Euclid)\n    return a\n\ndef bcnn(a, b):\n    # Gọi lại ucln(a, b)\n    return 0",
+          "solution_code": "def ucln(a, b):\n    while b != 0:\n        r = a % b\n        a = b\n        b = r\n    return a\n\ndef bcnn(a, b):\n    return a * b // ucln(a, b)\n\nx = int(input())\ny = int(input())\nprint(\"UCLN:\", ucln(x, y))\nprint(\"BCNN:\", bcnn(x, y))",
+          "test_cases": [
+            {
+              "stdin_data": "12\n18",
+              "expected_stdout": "UCLN: 6\nBCNN: 36",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "7\n5",
+              "expected_stdout": "UCLN: 1\nBCNN: 35",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "4\n4",
+              "expected_stdout": "UCLN: 4\nBCNN: 4",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "1\n9",
+              "expected_stdout": "UCLN: 1\nBCNN: 9",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Hai hàm dem(s, c) (đếm kí tự c trong xâu s) và thay_the(s, cu, moi) (trả về xâu mới thay mọi kí tự cu bằng moi, không dùng replace) đã viết đúng, nhưng chương trình chính truyền ĐỐI SỐ SAI THỨ TỰ nên kết quả sai. Hãy đối chiếu thứ tự tham số trong định nghĩa với thứ tự đối số trong lời gọi và sửa lại.\nĐầu vào: dòng 1 là xâu s, dòng 2 là kí tự cu, dòng 3 là kí tự moi.\nĐầu ra: dòng 1 là số lần cu xuất hiện trong s; dòng 2 là xâu sau khi thay thế.",
+          "starter_code": "def dem(s, c):\n    d = 0\n    for x in s:\n        if x == c:\n            d = d + 1\n    return d\n\ndef thay_the(s, cu, moi):\n    t = \"\"\n    for x in s:\n        if x == cu:\n            t = t + moi\n        else:\n            t = t + x\n    return t\n\ns = input()\ncu = input()\nmoi = input()\nprint(dem(cu, s))\nprint(thay_the(s, moi, cu))",
+          "solution_code": "def dem(s, c):\n    d = 0\n    for x in s:\n        if x == c:\n            d = d + 1\n    return d\n\ndef thay_the(s, cu, moi):\n    t = \"\"\n    for x in s:\n        if x == cu:\n            t = t + moi\n        else:\n            t = t + x\n    return t\n\ns = input()\ncu = input()\nmoi = input()\nprint(dem(s, cu))\nprint(thay_the(s, cu, moi))",
+          "test_cases": [
+            {
+              "stdin_data": "banana\na\no",
+              "expected_stdout": "3\nbonono",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "Tin hoc\no\nọ",
+              "expected_stdout": "1\nTin học",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "xyz\na\nb",
+              "expected_stdout": "0\nxyz",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "aaa\na\na",
+              "expected_stdout": "3\naaa",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "28": {
+      "title": "Phạm vi của biến",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Hàm tang() cần thay đổi biến toàn cục dem. Điền từ khoá vào chỗ trống ___ để chương trình không bị lỗi và in ra số lần hàm được gọi.\nĐầu vào: một số nguyên n ≥ 0 (số lần gọi hàm).\nĐầu ra: giá trị dem.",
+          "starter_code": "dem = 0\n\ndef tang():\n    ___ dem\n    dem = dem + 1\n\nn = int(input())\nfor i in range(n):\n    tang()\nprint(dem)",
+          "solution_code": "dem = 0\n\ndef tang():\n    global dem\n    dem = dem + 1\n\nn = int(input())\nfor i in range(n):\n    tang()\nprint(dem)",
+          "test_cases": [
+            {
+              "stdin_data": "3",
+              "expected_stdout": "3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "10",
+              "expected_stdout": "10",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Mô phỏng tài khoản tiết kiệm: biến toàn cục so_du ban đầu bằng 0. Viết hàm nap(x) và rut(x) dùng global để thay đổi so_du; nếu rút nhiều hơn số dư thì in Không đủ tiền và không trừ.\nĐầu vào: dòng đầu là n (số giao dịch), n dòng tiếp theo dạng \"N <số tiền>\" (nạp) hoặc \"R <số tiền>\" (rút).\nĐầu ra: các thông báo Không đủ tiền (nếu có) theo thứ tự, dòng cuối: Số dư: <giá trị>.",
+          "starter_code": "so_du = 0\n\ndef nap(x):\n    global so_du\n    # Viết tiếp\n\ndef rut(x):\n    global so_du\n    # Viết tiếp, kiểm tra đủ tiền",
+          "solution_code": "so_du = 0\n\ndef nap(x):\n    global so_du\n    so_du = so_du + x\n\ndef rut(x):\n    global so_du\n    if x <= so_du:\n        so_du = so_du - x\n    else:\n        print(\"Không đủ tiền\")\n\nn = int(input())\nfor i in range(n):\n    A = input().split()\n    tien = int(A[1])\n    if A[0] == \"N\":\n        nap(tien)\n    else:\n        rut(tien)\nprint(\"Số dư:\", so_du)",
+          "test_cases": [
+            {
+              "stdin_data": "3\nN 100\nR 30\nR 100",
+              "expected_stdout": "Không đủ tiền\nSố dư: 70",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "4\nN 50\nN 20\nR 10\nN 5",
+              "expected_stdout": "Số dư: 65",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "2\nN 50\nR 50",
+              "expected_stdout": "Số dư: 0",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "1\nR 1",
+              "expected_stdout": "Không đủ tiền\nSố dư: 0",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0",
+              "expected_stdout": "Số dư: 0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Hàm cap_nhat(x) được gọi với từng số trong dãy để theo dõi số lớn nhất (lon_nhat) và đếm số lần \"kỉ lục\" bị phá (so_lan – số lần lon_nhat được gán giá trị mới, tính cả số đầu tiên). Chương trình mẫu có 2 lỗi: (1) báo UnboundLocalError – vì sao? (2) dù sửa lỗi (1), kết quả vẫn sai khi mọi số đều âm vì lon_nhat khởi tạo bằng 0. Hãy sửa cả hai lỗi (gợi ý: thêm biến toàn cục da_co = False).\nĐầu vào: dòng đầu là n (n ≥ 1), n dòng tiếp theo mỗi dòng một số nguyên.\nĐầu ra: dòng 1: Lớn nhất: <giá trị> ; dòng 2: Số lần đổi kỉ lục: <k>.",
+          "starter_code": "lon_nhat = 0\nso_lan = 0\n\ndef cap_nhat(x):\n    if x > lon_nhat:\n        lon_nhat = x\n        so_lan = so_lan + 1\n\nn = int(input())\nfor i in range(n):\n    cap_nhat(int(input()))\nprint(\"Lớn nhất:\", lon_nhat)\nprint(\"Số lần đổi kỉ lục:\", so_lan)",
+          "solution_code": "lon_nhat = 0\nso_lan = 0\nda_co = False\n\ndef cap_nhat(x):\n    global lon_nhat, so_lan, da_co\n    if not da_co or x > lon_nhat:\n        lon_nhat = x\n        so_lan = so_lan + 1\n        da_co = True\n\nn = int(input())\nfor i in range(n):\n    cap_nhat(int(input()))\nprint(\"Lớn nhất:\", lon_nhat)\nprint(\"Số lần đổi kỉ lục:\", so_lan)",
+          "test_cases": [
+            {
+              "stdin_data": "5\n3\n1\n4\n4\n5",
+              "expected_stdout": "Lớn nhất: 5\nSố lần đổi kỉ lục: 3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "4\n9\n8\n7\n6",
+              "expected_stdout": "Lớn nhất: 9\nSố lần đổi kỉ lục: 1",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "3\n-5\n-2\n-9",
+              "expected_stdout": "Lớn nhất: -2\nSố lần đổi kỉ lục: 2",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "1\n0",
+              "expected_stdout": "Lớn nhất: 0\nSố lần đổi kỉ lục: 1",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    },
+    "29": {
+      "title": "Nhận biết lỗi chương trình",
+      "worksheets": [
+        {
+          "tier": "Cơ bản",
+          "bloom_level": "Nhớ/Hiểu",
+          "prompt_text": "Chương trình chia a cho b sẽ báo lỗi ngoại lệ ZeroDivisionError khi b = 0. Điền phép so sánh vào chỗ trống ___ để chỉ thực hiện phép chia khi hợp lệ (không dùng try/except).\nĐầu vào: dòng 1 là a, dòng 2 là b (số nguyên).\nĐầu ra: Thương: <a // b> ; hoặc Không chia được cho 0 nếu b = 0.",
+          "starter_code": "a = int(input())\nb = int(input())\nif b ___ 0:\n    print(\"Thương:\", a // b)\nelse:\n    print(\"Không chia được cho 0\")",
+          "solution_code": "a = int(input())\nb = int(input())\nif b != 0:\n    print(\"Thương:\", a // b)\nelse:\n    print(\"Không chia được cho 0\")",
+          "test_cases": [
+            {
+              "stdin_data": "7\n2",
+              "expected_stdout": "Thương: 3",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "-6\n3",
+              "expected_stdout": "Thương: -2",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "5\n0",
+              "expected_stdout": "Không chia được cho 0",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "0\n4",
+              "expected_stdout": "Thương: 0",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Đạt chuẩn",
+          "bloom_level": "Vận dụng",
+          "prompt_text": "Nhập một dãy số nguyên trên một dòng (cách nhau bởi dấu cách) và một chỉ số k. Viết chương trình in ra phần tử thứ k (chỉ số từ 0). Nếu k không hợp lệ (k < 0 hoặc k ≥ số phần tử), chương trình sẽ gặp lỗi IndexError hoặc lấy nhầm phần tử – hãy kiểm tra bằng if và in Chỉ số không hợp lệ.\nĐầu vào: dòng 1 là dãy số, dòng 2 là k.\nĐầu ra: giá trị phần tử thứ k, hoặc Chỉ số không hợp lệ.",
+          "starter_code": "A = input().split()\nk = int(input())\n# Kiểm tra k trước khi truy cập A[k]",
+          "solution_code": "A = input().split()\nk = int(input())\nif k >= 0 and k < len(A):\n    print(int(A[k]))\nelse:\n    print(\"Chỉ số không hợp lệ\")",
+          "test_cases": [
+            {
+              "stdin_data": "4 8 15 16\n2",
+              "expected_stdout": "15",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "4 8 15\n0",
+              "expected_stdout": "4",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "4 8 15\n3",
+              "expected_stdout": "Chỉ số không hợp lệ",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "4 8 15\n-1",
+              "expected_stdout": "Chỉ số không hợp lệ",
+              "is_edge_case": true
+            }
+          ]
+        },
+        {
+          "tier": "Nâng cao",
+          "bloom_level": "Phân tích/Sáng tạo",
+          "prompt_text": "Chương trình mẫu tính trung bình cộng các số trên một dòng nhưng gặp lỗi ngoại lệ ValueError khi dòng có từ không phải số nguyên (ví dụ \"abc\"), và ZeroDivisionError khi không có số nào. Không dùng try/except, hãy viết hàm la_so(x) kiểm tra xâu x có phải số nguyên hay không (có thể có dấu - ở đầu; dùng toán tử in với xâu \"0123456789\"), chỉ cộng các số hợp lệ và kiểm tra trước khi chia.\nĐầu vào: một dòng gồm các từ cách nhau bởi dấu cách.\nĐầu ra: nếu không có số hợp lệ, in Không có số hợp lệ; ngược lại dòng 1: Số hợp lệ: <k> ; dòng 2: Trung bình: <tổng / k>.",
+          "starter_code": "A = input().split()\ntong = 0\nfor x in A:\n    tong = tong + int(x)\nprint(\"Trung bình:\", tong / len(A))",
+          "solution_code": "def la_so(x):\n    bat_dau = 0\n    if x[0] == \"-\":\n        bat_dau = 1\n        if len(x) == 1:\n            return False\n    for i in range(bat_dau, len(x)):\n        if x[i] not in \"0123456789\":\n            return False\n    return True\n\nA = input().split()\ntong = 0\ndem = 0\nfor x in A:\n    if la_so(x):\n        tong = tong + int(x)\n        dem = dem + 1\nif dem == 0:\n    print(\"Không có số hợp lệ\")\nelse:\n    print(\"Số hợp lệ:\", dem)\n    print(\"Trung bình:\", tong / dem)",
+          "test_cases": [
+            {
+              "stdin_data": "4 abc 6 -1 x1",
+              "expected_stdout": "Số hợp lệ: 3\nTrung bình: 3.0",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "5 7",
+              "expected_stdout": "Số hợp lệ: 2\nTrung bình: 6.0",
+              "is_edge_case": false
+            },
+            {
+              "stdin_data": "- 10 -",
+              "expected_stdout": "Số hợp lệ: 1\nTrung bình: 10.0",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "a b c",
+              "expected_stdout": "Không có số hợp lệ",
+              "is_edge_case": true
+            },
+            {
+              "stdin_data": "\n",
+              "expected_stdout": "Không có số hợp lệ",
+              "is_edge_case": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

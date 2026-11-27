@@ -1,0 +1,11 @@
+{
+ "target_bai": 20,
+ "topic_name": "Câu lệnh lặp for",
+ "scope_mode": "45m_practice",
+ "target_minutes": 45,
+ "basic_ratio": 0.25,
+ "standard_ratio": 0.5,
+ "advanced_ratio": 0.25,
+ "lab_constraints": "Phòng máy 40 máy",
+ "bypass_hitl": true
+}

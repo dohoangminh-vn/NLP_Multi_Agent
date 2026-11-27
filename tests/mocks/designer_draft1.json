@@ -1,0 +1,180 @@
+{
+ "draft_plan": {
+  "knowledge_goals": "Biết cú pháp và thực hiện được lệnh lặp for với range().",
+  "general_competencies": "Tự chủ và tự học; Giao tiếp và hợp tác; Giải quyết vấn đề và sáng tạo.",
+  "cs_competencies": "NLc: Giải quyết vấn đề với sự trợ giúp của máy tính.",
+  "qualities": "Chăm chỉ, trách nhiệm.",
+  "teaching_materials": "Phòng máy, Python IDLE, SGK/SBT Tin học 10, 3 phiếu học tập.",
+  "activities": [
+   {
+    "activity_name": "Khởi động",
+    "duration_minutes": 5,
+    "goal": "Nhận biết nhu cầu lặp",
+    "content": "Nội dung khởi động (dữ liệu mẫu)",
+    "expected_product": "Câu trả lời/chương trình của HS",
+    "step1_transfer": "GV chuyển giao nhiệm vụ",
+    "step2_execute": "HS thực hiện theo nhóm",
+    "step3_report": "Đại diện nhóm báo cáo, thảo luận",
+    "step4_conclude": "GV kết luận, chốt kiến thức",
+    "citations": [
+     {
+      "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+      "bai_so": 20,
+      "section_title": "Lặp với số lần biết trước",
+      "page_number": 105,
+      "quoted_text": "Lặp với số lần biết trước"
+     }
+    ]
+   },
+   {
+    "activity_name": "Hình thành kiến thức",
+    "duration_minutes": 15,
+    "goal": "Biết cú pháp for và range()",
+    "content": "Nội dung hình thành kiến thức (dữ liệu mẫu)",
+    "expected_product": "Câu trả lời/chương trình của HS",
+    "step1_transfer": "GV chuyển giao nhiệm vụ",
+    "step2_execute": "HS thực hiện theo nhóm",
+    "step3_report": "Đại diện nhóm báo cáo, thảo luận",
+    "step4_conclude": "GV kết luận, chốt kiến thức",
+    "citations": [
+     {
+      "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+      "bai_so": 20,
+      "section_title": "Lệnh for",
+      "page_number": 105,
+      "quoted_text": "Lệnh for"
+     },
+     {
+      "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+      "bai_so": 20,
+      "section_title": "Lệnh range()",
+      "page_number": 106,
+      "quoted_text": "Lệnh range()"
+     }
+    ]
+   },
+   {
+    "activity_name": "Luyện tập",
+    "duration_minutes": 20,
+    "goal": "Viết được chương trình dùng for",
+    "content": "Nội dung luyện tập (dữ liệu mẫu)",
+    "expected_product": "Câu trả lời/chương trình của HS",
+    "step1_transfer": "GV chuyển giao nhiệm vụ",
+    "step2_execute": "HS thực hiện theo nhóm",
+    "step3_report": "Đại diện nhóm báo cáo, thảo luận",
+    "step4_conclude": "GV kết luận, chốt kiến thức",
+    "citations": [
+     {
+      "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+      "bai_so": 20,
+      "section_title": "Luyện tập",
+      "page_number": 107,
+      "quoted_text": "Luyện tập"
+     }
+    ]
+   },
+   {
+    "activity_name": "Vận dụng",
+    "duration_minutes": 10,
+    "goal": "Vận dụng for giải bài toán thực tế",
+    "content": "Nội dung vận dụng (dữ liệu mẫu)",
+    "expected_product": "Câu trả lời/chương trình của HS",
+    "step1_transfer": "GV chuyển giao nhiệm vụ",
+    "step2_execute": "HS thực hiện theo nhóm",
+    "step3_report": "Đại diện nhóm báo cáo, thảo luận",
+    "step4_conclude": "GV kết luận, chốt kiến thức",
+    "citations": [
+     {
+      "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+      "bai_so": 20,
+      "section_title": "Vận dụng",
+      "page_number": 107,
+      "quoted_text": "Vận dụng"
+     },
+     {
+      "doc_name": "SGK Tin học 10 – Kết nối tri thức",
+      "bai_so": 22,
+      "section_title": "Danh sách",
+      "page_number": 112,
+      "quoted_text": "Kiểu danh sách"
+     }
+    ]
+   }
+  ],
+  "worksheets": [
+   {
+    "tier": "Cơ bản",
+    "bloom_level": "Nhớ/Hiểu",
+    "prompt_text": "Điền vào chỗ trống để tính tổng 1 + 2 + ... + n.",
+    "starter_code": "n = int(input())\nS = 0\nfor i in range(1, ___):\n    S = S + i\nprint(S)",
+    "solution_code": "n = int(input())\nS = 0\nfor i in range(1, n):\n    S = S + i\nprint(S)",
+    "test_cases": [
+     {
+      "stdin_data": "5",
+      "expected_stdout": "15",
+      "is_edge_case": false
+     },
+     {
+      "stdin_data": "1",
+      "expected_stdout": "1",
+      "is_edge_case": false
+     },
+     {
+      "stdin_data": "0",
+      "expected_stdout": "0",
+      "is_edge_case": true
+     }
+    ]
+   },
+   {
+    "tier": "Đạt chuẩn",
+    "bloom_level": "Vận dụng",
+    "prompt_text": "Đếm các số từ 1 đến n chia hết cho 3.",
+    "starter_code": "n = int(input())\n# Viết tiếp chương trình\n",
+    "solution_code": "n = int(input())\ndem = 0\nfor i in range(1, n + 1):\n    if i % 3 == 0:\n        dem = dem + 1\nprint(f\"Có {dem} số\")",
+    "test_cases": [
+     {
+      "stdin_data": "10",
+      "expected_stdout": "3",
+      "is_edge_case": false
+     },
+     {
+      "stdin_data": "2",
+      "expected_stdout": "0",
+      "is_edge_case": true
+     },
+     {
+      "stdin_data": "3",
+      "expected_stdout": "1",
+      "is_edge_case": true
+     }
+    ]
+   },
+   {
+    "tier": "Nâng cao",
+    "bloom_level": "Phân tích/Sáng tạo",
+    "prompt_text": "Nhập n rồi n số nguyên, in ra số lớn nhất (không dùng danh sách).",
+    "starter_code": "n = int(input())\n# Viết tiếp chương trình\n",
+    "solution_code": "n = int(input())\nA = [int(input()) for i in range(n)]\nprint(max(A))",
+    "test_cases": [
+     {
+      "stdin_data": "4\n3\n9\n-2\n5",
+      "expected_stdout": "9",
+      "is_edge_case": false
+     },
+     {
+      "stdin_data": "1\n-7",
+      "expected_stdout": "-7",
+      "is_edge_case": true
+     },
+     {
+      "stdin_data": "3\n-5\n-1\n-9",
+      "expected_stdout": "-1",
+      "is_edge_case": true
+     }
+    ]
+   }
+  ]
+ },
+ "iteration": 0
+}

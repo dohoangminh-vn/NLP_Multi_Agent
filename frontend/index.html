@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trợ lý Soạn Giáo án Tin học 10</title>
+  <meta name="description" content="Hệ thống đa tác tử hỗ trợ giáo viên soạn giáo án Tin học 10 (KNTT) chuẩn Công văn 5512, có kiểm định AST + Sandbox và duyệt khung (HITL).">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">
+        <div class="brand__logo" aria-hidden="true">GA</div>
+        <div>
+          <h1 class="brand__title">Trợ lý Soạn Giáo án Tin học 10</h1>
+          <p class="brand__sub">Hệ thống đa tác tử · SGK Kết nối tri thức · Chuẩn Công văn 5512</p>
+        </div>
+      </div>
+      <div class="topbar__status">
+        <span id="health-chip" class="chip chip--muted" title="Trạng thái máy chủ">Đang kiểm tra máy chủ…</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- ============ CỘT TRÁI: CẤU HÌNH (UC-01) ============ -->
+    <aside class="layout__side">
+      <section class="panel" id="config-panel" aria-labelledby="config-title">
+        <div class="panel__head">
+          <h2 class="panel__title" id="config-title">Cấu hình tiết dạy</h2>
+          <span class="panel__hint">UC-01</span>
+        </div>
+
+        <form id="config-form" class="form" novalidate>
+          <div class="field">
+            <label class="field__label" for="lesson-select">Bài học (SGK Tin học 10)</label>
+            <select id="lesson-select" class="input" required></select>
+            <p class="field__note" id="meta-note" hidden></p>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="scope-select">Chế độ thời lượng</label>
+            <select id="scope-select" class="input" required></select>
+            <p class="field__note">Thời lượng mục tiêu: <strong id="target-minutes-label">45 phút</strong></p>
+          </div>
+
+          <fieldset class="field fieldset">
+            <legend class="field__label">Tỉ lệ phân hoá học sinh</legend>
+            <div class="ratio-bar" aria-hidden="true">
+              <span class="ratio-bar__seg ratio-bar__seg--basic" id="ratio-bar-basic"></span>
+              <span class="ratio-bar__seg ratio-bar__seg--standard" id="ratio-bar-standard"></span>
+              <span class="ratio-bar__seg ratio-bar__seg--advanced" id="ratio-bar-advanced"></span>
+            </div>
+
+            <div class="slider">
+              <div class="slider__row">
+                <label for="ratio-basic" class="slider__label"><span class="dot dot--basic"></span>Cơ bản</label>
+                <output id="ratio-basic-out" for="ratio-basic" class="slider__value">30%</output>
+              </div>
+              <input type="range" id="ratio-basic" class="range range--basic" min="0" max="100" step="1" value="30" data-key="basic">
+            </div>
+            <div class="slider">
+              <div class="slider__row">
+                <label for="ratio-standard" class="slider__label"><span class="dot dot--standard"></span>Đạt chuẩn</label>
+                <output id="ratio-standard-out" for="ratio-standard" class="slider__value">50%</output>
+              </div>
+              <input type="range" id="ratio-standard" class="range range--standard" min="0" max="100" step="1" value="50" data-key="standard">
+            </div>
+            <div class="slider">
+              <div class="slider__row">
+                <label for="ratio-advanced" class="slider__label"><span class="dot dot--advanced"></span>Nâng cao</label>
+                <output id="ratio-advanced-out" for="ratio-advanced" class="slider__value">20%</output>
+              </div>
+              <input type="range" id="ratio-advanced" class="range range--advanced" min="0" max="100" step="1" value="20" data-key="advanced">
+            </div>
+            <p class="field__note">Kéo một thanh, hai thanh còn lại tự cân bằng để tổng luôn là 100%.
+              Tổng hiện tại: <strong id="ratio-total">100%</strong></p>
+            <p class="field__error" id="ratio-error" role="alert" hidden></p>
+          </fieldset>
+
+          <div class="field">
+            <label class="field__label" for="lab-constraints">Điều kiện phòng máy / ghi chú lớp học</label>
+            <textarea id="lab-constraints" class="input textarea" rows="3"
+              placeholder="Ví dụ: 20 máy cho 40 HS (2 HS/máy), chỉ có Python IDLE, không có Internet…"></textarea>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="bypass-hitl">
+            <span>Bỏ qua bước duyệt khung (bypass HITL)</span>
+          </label>
+
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary btn--block" id="start-btn">Bắt đầu soạn giáo án</button>
+            <p class="field__error" id="start-error" hidden></p>
+            <button type="button" class="btn btn--ghost btn--block" id="demo-btn">Demo offline (mock)</button>
+            <button type="button" class="btn btn--danger-ghost btn--block" id="cancel-btn" hidden>Dừng phiên</button>
+          </div>
+        </form>
+      </section>
+    </aside>
+
+    <!-- ============ CỘT PHẢI: TIẾN TRÌNH + DUYỆT + KẾT QUẢ ============ -->
+    <div class="layout__main">
+      <div id="alerts" class="alerts" aria-live="assertive"></div>
+
+      <section class="panel" id="empty-state">
+        <div class="empty">
+          <h2 class="empty__title">Chưa có phiên soạn giáo án</h2>
+          <p class="empty__text">Chọn bài học, chế độ thời lượng và tỉ lệ phân hoá ở cột bên trái rồi bấm
+            <strong>Bắt đầu soạn giáo án</strong>. Không có kết nối LLM? Bấm <strong>Demo offline (mock)</strong>
+            để xem lại một phiên chạy mẫu Bài 20.</p>
+        </div>
+      </section>
+
+      <!-- Live Execution Trace (UC-02) -->
+      <section class="panel" id="trace-section" hidden aria-labelledby="trace-title">
+        <div class="panel__head">
+          <div>
+            <h2 class="panel__title" id="trace-title">Tiến trình thực thi (Live Trace)</h2>
+            <p class="panel__meta">
+              <span id="session-mode" class="chip chip--muted">—</span>
+              <span id="session-thread" class="mono muted"></span>
+            </p>
+          </div>
+          <span id="run-status" class="pill pill--muted">—</span>
+        </div>
+        <div id="critic-progress" class="progress-strip" hidden>
+          <span class="progress-strip__label">Vòng kiểm định:</span>
+          <div id="critic-progress-items" class="progress-strip__items"></div>
+        </div>
+        <ol id="trace-list" class="trace"></ol>
+      </section>
+
+      <!-- HITL review (UC-03) -->
+      <section class="panel panel--accent" id="hitl-section" hidden aria-labelledby="hitl-title">
+        <div class="panel__head">
+          <div>
+            <h2 class="panel__title" id="hitl-title">Duyệt khung hoạt động</h2>
+            <p class="panel__meta">Hệ thống đang tạm dừng trước bước thiết kế chi tiết. Thầy/cô có thể sửa tên hoạt động,
+              thời lượng và mục tiêu phiếu học tập.</p>
+          </div>
+          <span id="hitl-state" class="pill pill--waiting">Chờ duyệt</span>
+        </div>
+
+        <p class="note note--info" id="hitl-demo-note" hidden>Chế độ demo: nội dung sau bước duyệt là dữ liệu ghi sẵn,
+          phần chỉnh sửa chỉ để minh hoạ thao tác.</p>
+
+        <div class="field">
+          <label class="field__label" for="hitl-objective">Tóm tắt mục tiêu bài học</label>
+          <textarea id="hitl-objective" class="input textarea" rows="2"></textarea>
+        </div>
+
+        <div class="field">
+          <span class="field__label">Các hoạt động và thời lượng</span>
+          <div class="hitl-table" role="table" aria-label="Khung hoạt động">
+            <div class="hitl-table__head" role="row">
+              <span role="columnheader">#</span>
+              <span role="columnheader">Tên hoạt động</span>
+              <span role="columnheader">Phút</span>
+            </div>
+            <div id="hitl-activities"></div>
+            <div class="hitl-table__foot" role="row">
+              <span></span>
+              <span>Tổng thời lượng</span>
+              <span id="hitl-total" class="hitl-total">0 / 45</span>
+            </div>
+          </div>
+          <p class="note note--warn" id="hitl-warning" role="alert" hidden></p>
+        </div>
+
+        <div class="field">
+          <span class="field__label">Mục tiêu 3 phiếu học tập phân hoá</span>
+          <div id="hitl-goals" class="hitl-goals"></div>
+        </div>
+
+        <div class="actions-row">
+          <button type="button" class="btn btn--ghost" id="hitl-reset">Khôi phục đề xuất</button>
+          <button type="button" class="btn btn--primary" id="hitl-confirm">Xác nhận &amp; Sinh chi tiết</button>
+        </div>
+      </section>
+
+      <!-- Plan viewer (UC-04, UC-05) -->
+      <section class="panel" id="plan-section" hidden aria-labelledby="plan-title">
+        <div class="panel__head panel__head--wrap">
+          <div>
+            <h2 class="panel__title" id="plan-title">Giáo án</h2>
+            <p class="panel__meta" id="plan-subtitle"></p>
+          </div>
+          <button type="button" class="btn btn--primary" id="download-btn">Tải giáo án Word (.docx)</button>
+        </div>
+        <div id="plan-stats" class="stats"></div>
+        <div class="tabs" role="tablist" id="plan-tabs" aria-label="Nội dung giáo án"></div>
+        <div id="plan-panels"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">Giao diện giáo viên · Dữ liệu từ máy chủ được hiển thị dạng văn bản thuần (không thực thi HTML).</footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

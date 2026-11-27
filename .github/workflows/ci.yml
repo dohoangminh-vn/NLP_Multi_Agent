@@ -1,0 +1,21 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Dựng corpus SGK (sửa font, chunk, YCCĐ)
+        run: python -m src.rag.ingest
+      - name: Kiểm tra mock khớp schema hiện hành
+        run: python scripts/build_mocks.py && git diff --exit-code -- tests/mocks || (echo "tests/mocks lệch schema – chạy scripts/build_mocks.py" && exit 1)
+      - name: Pytest (Schema, AST Guard, Sandbox, Critic, RAG, Graph, API, Eval)
+        run: pytest -q

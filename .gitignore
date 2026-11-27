@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+mlruns/
+data/raw_pdfs/*.pdf
+data/checkpoints.sqlite

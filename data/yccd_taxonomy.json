@@ -1,0 +1,174 @@
+{
+ "_meta": {
+  "source": "Trích tự động từ mục 'Sau bài này em sẽ' của SGK (src/rag/ingest.py)",
+  "note": "Cần đối chiếu YCCĐ Thông tư 32/2018 (Chủ đề F lớp 10) khi có PDF Chương trình."
+ },
+ "F10.B16.YC1": {
+  "bai_so": 16,
+  "ten_bai": "Ngôn ngữ lập trình bậc cao và Python",
+  "text": "Biết khái niệm ngôn ngữ lập trình bậc cao và ngôn ngữ lập trình bậc cao Python.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 16, mục 'Sau bài này em sẽ', tr.86"
+ },
+ "F10.B16.YC2": {
+  "bai_so": 16,
+  "ten_bai": "Ngôn ngữ lập trình bậc cao và Python",
+  "text": "Phân biệt được chế độ gõ lệnh trực tiếp và chế độ soạn thảo chương trình trong môi trường lập trình Python.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 16, mục 'Sau bài này em sẽ', tr.86"
+ },
+ "F10.B16.YC3": {
+  "bai_so": 16,
+  "ten_bai": "Ngôn ngữ lập trình bậc cao và Python",
+  "text": "Biết cách tạo và thực hiện một chương trình Python.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 16, mục 'Sau bài này em sẽ', tr.86"
+ },
+ "F10.B17.YC1": {
+  "bai_so": 17,
+  "ten_bai": "Biến và lệnh gán",
+  "text": "Biết cách thiết lập biến. Phân biệt được biến và từ khoá.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 17, mục 'Sau bài này em sẽ', tr.91"
+ },
+ "F10.B17.YC2": {
+  "bai_so": 17,
+  "ten_bai": "Biến và lệnh gán",
+  "text": "Biết sử dụng lệnh gán và thực hiện một số phép toán trên kiểu số nguyên, số thực và xâu kí tự.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 17, mục 'Sau bài này em sẽ', tr.91"
+ },
+ "F10.B18.YC1": {
+  "bai_so": 18,
+  "ten_bai": "Các lệnh vào ra đơn giản",
+  "text": "Biết và thực hiện được một số lệnh vào, ra đơn giản.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 18, mục 'Sau bài này em sẽ', tr.97"
+ },
+ "F10.B18.YC2": {
+  "bai_so": 18,
+  "ten_bai": "Các lệnh vào ra đơn giản",
+  "text": "Thực hiện được một số chuyển đổi dữ liệu giữa các kiểu dữ liệu cơ bản.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 18, mục 'Sau bài này em sẽ', tr.97"
+ },
+ "F10.B19.YC1": {
+  "bai_so": 19,
+  "ten_bai": "Câu lệnh rẽ nhánh if",
+  "text": "Biết và trình bày được các phép toán với kiểu dữ liệu lôgic.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 19, mục 'Sau bài này em sẽ', tr.101"
+ },
+ "F10.B19.YC2": {
+  "bai_so": 19,
+  "ten_bai": "Câu lệnh rẽ nhánh if",
+  "text": "Sử dụng được lệnh rẽ nhánh if trong lập trình.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 19, mục 'Sau bài này em sẽ', tr.101"
+ },
+ "F10.B20.YC1": {
+  "bai_so": 20,
+  "ten_bai": "Câu lệnh lặp for",
+  "text": "Biết được ý nghĩa của vùng giá trị tạo bởi lệnh range().",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 20, mục 'Sau bài này em sẽ', tr.105"
+ },
+ "F10.B20.YC2": {
+  "bai_so": 20,
+  "ten_bai": "Câu lệnh lặp for",
+  "text": "Biết được chức năng của lệnh lặp for và cách dùng trong Python.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 20, mục 'Sau bài này em sẽ', tr.105"
+ },
+ "F10.B21.YC1": {
+  "bai_so": 21,
+  "ten_bai": "Câu lệnh lặp while",
+  "text": "Biết và thực hành giải các bài toán sử dụng lệnh lặp while với số lần không biết trước.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 21, mục 'Sau bài này em sẽ', tr.108"
+ },
+ "F10.B21.YC2": {
+  "bai_so": 21,
+  "ten_bai": "Câu lệnh lặp while",
+  "text": "Biết ba cấu trúc lập trình cơ bản: tuần tự, rẽ nhánh, lặp.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 21, mục 'Sau bài này em sẽ', tr.108"
+ },
+ "F10.B22.YC1": {
+  "bai_so": 22,
+  "ten_bai": "Kiểu dữ liệu danh sách",
+  "text": "Biết được kiểu dữ liệu danh sách (list), cách khởi tạo và truy cập từng phần tử của danh sách.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 22, mục 'Sau bài này em sẽ', tr.111"
+ },
+ "F10.B22.YC2": {
+  "bai_so": 22,
+  "ten_bai": "Kiểu dữ liệu danh sách",
+  "text": "Biết và thực hiện được cách duyệt các phần tử của danh sách bằng lệnh for.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 22, mục 'Sau bài này em sẽ', tr.111"
+ },
+ "F10.B22.YC3": {
+  "bai_so": 22,
+  "ten_bai": "Kiểu dữ liệu danh sách",
+  "text": "Thực hành được một số phương thức đơn giản trên dữ liệu danh sách.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 22, mục 'Sau bài này em sẽ', tr.111"
+ },
+ "F10.B23.YC1": {
+  "bai_so": 23,
+  "ten_bai": "Một số lệnh làm việc với dữ liệu danh sách",
+  "text": "Biết cách duyệt danh sách bằng toán tử in.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 23, mục 'Sau bài này em sẽ', tr.115"
+ },
+ "F10.B23.YC2": {
+  "bai_so": 23,
+  "ten_bai": "Một số lệnh làm việc với dữ liệu danh sách",
+  "text": "Biết và thực hiện được một số phương thức thường dùng với danh sách.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 23, mục 'Sau bài này em sẽ', tr.115"
+ },
+ "F10.B24.YC1": {
+  "bai_so": 24,
+  "ten_bai": "Xâu kí tự",
+  "text": "Hiểu được xâu kí tự là kiểu dữ liệu cơ bản của Python.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 24, mục 'Sau bài này em sẽ', tr.119"
+ },
+ "F10.B24.YC2": {
+  "bai_so": 24,
+  "ten_bai": "Xâu kí tự",
+  "text": "Biết và thực hiện được lệnh for để xử lí xâu kí tự.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 24, mục 'Sau bài này em sẽ', tr.119"
+ },
+ "F10.B25.YC1": {
+  "bai_so": 25,
+  "ten_bai": "Một số lệnh làm việc với xâu kí tự",
+  "text": "Biết và thực hiện được một số lệnh thường dùng với xâu kí tự.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 25, mục 'Sau bài này em sẽ', tr.123"
+ },
+ "F10.B26.YC1": {
+  "bai_so": 26,
+  "ten_bai": "Hàm trong Python",
+  "text": "Biết được chương trình con là hàm.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 26, mục 'Sau bài này em sẽ', tr.127"
+ },
+ "F10.B26.YC2": {
+  "bai_so": 26,
+  "ten_bai": "Hàm trong Python",
+  "text": "Biết cách tạo hàm.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 26, mục 'Sau bài này em sẽ', tr.127"
+ },
+ "F10.B27.YC1": {
+  "bai_so": 27,
+  "ten_bai": "Tham số của hàm",
+  "text": "Biết cách thiết lập các tham số của hàm. Hiểu được cách truyền giá trị thông qua đối số hàm.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 27, mục 'Sau bài này em sẽ', tr.131"
+ },
+ "F10.B27.YC2": {
+  "bai_so": 27,
+  "ten_bai": "Tham số của hàm",
+  "text": "Biết viết chương trình có sử dụng chương trình con.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 27, mục 'Sau bài này em sẽ', tr.131"
+ },
+ "F10.B28.YC1": {
+  "bai_so": 28,
+  "ten_bai": "Phạm vi của biến",
+  "text": "Biết và trình bày được ý nghĩa của phạm vi hoạt động của biến trong chương trình và hàm.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 28, mục 'Sau bài này em sẽ', tr.136"
+ },
+ "F10.B29.YC1": {
+  "bai_so": 29,
+  "ten_bai": "Nhận biết lỗi chương trình",
+  "text": "Biết và phân loại được một số loại lỗi chương trình.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 29, mục 'Sau bài này em sẽ', tr.141"
+ },
+ "F10.B29.YC2": {
+  "bai_so": 29,
+  "ten_bai": "Nhận biết lỗi chương trình",
+  "text": "Biết được một vài lỗi ngoại lệ thường gặp.",
+  "source": "SGK Tin học 10 – Kết nối tri thức, Bài 29, mục 'Sau bài này em sẽ', tr.141"
+ }
+}

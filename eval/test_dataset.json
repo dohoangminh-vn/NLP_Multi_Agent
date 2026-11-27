@@ -1,0 +1,689 @@
+{
+ "meta": {
+  "version": "1.0.0",
+  "owner": "TV4 + TV2",
+  "description": "14 bài (16–29) × 2 hồ sơ lớp = 28 ca; mỗi bài có 1 ca 45 phút (xen kẽ lý thuyết/thực hành) và 1 ca 90 phút.",
+  "gold": "sgk_pages = dải TRANG IN của bài mục tiêu trong SGK (khớp data/syllabus_rules.json). TV2 có thể bổ sung 'reference_chunk_ids'.",
+  "fairness": "Chạy cả 4 cấu hình trên CÙNG file này, cùng base LLM, temperature=0, bypass_hitl=True."
+ },
+ "cases": [
+  {
+   "case_id": "B16_DT_45mLT",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 16,
+    "topic_name": "Ngôn ngữ lập trình bậc cao và Python",
+    "scope_mode": "45m_theory",
+    "target_minutes": 45,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     86,
+     87,
+     88,
+     89,
+     90
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B16_YEU_90",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 16,
+    "topic_name": "Ngôn ngữ lập trình bậc cao và Python",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     86,
+     87,
+     88,
+     89,
+     90
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B17_YEU_45mTH",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 17,
+    "topic_name": "Biến và lệnh gán",
+    "scope_mode": "45m_practice",
+    "target_minutes": 45,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     91,
+     92,
+     93,
+     94,
+     95,
+     96
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B17_KHA_90",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 17,
+    "topic_name": "Biến và lệnh gán",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     91,
+     92,
+     93,
+     94,
+     95,
+     96
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B18_KHA_45mLT",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 18,
+    "topic_name": "Các lệnh vào ra đơn giản",
+    "scope_mode": "45m_theory",
+    "target_minutes": 45,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     97,
+     98,
+     99,
+     100
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B18_DT_90",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 18,
+    "topic_name": "Các lệnh vào ra đơn giản",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     97,
+     98,
+     99,
+     100
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B19_DT_45mTH",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 19,
+    "topic_name": "Câu lệnh rẽ nhánh if",
+    "scope_mode": "45m_practice",
+    "target_minutes": 45,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     101,
+     102,
+     103,
+     104
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B19_YEU_90",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 19,
+    "topic_name": "Câu lệnh rẽ nhánh if",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     101,
+     102,
+     103,
+     104
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B20_YEU_45mLT",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 20,
+    "topic_name": "Câu lệnh lặp for",
+    "scope_mode": "45m_theory",
+    "target_minutes": 45,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     105,
+     106,
+     107
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B20_KHA_90",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 20,
+    "topic_name": "Câu lệnh lặp for",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     105,
+     106,
+     107
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B21_KHA_45mTH",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 21,
+    "topic_name": "Câu lệnh lặp while",
+    "scope_mode": "45m_practice",
+    "target_minutes": 45,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     108,
+     109,
+     110
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B21_DT_90",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 21,
+    "topic_name": "Câu lệnh lặp while",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     108,
+     109,
+     110
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B22_DT_45mLT",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 22,
+    "topic_name": "Kiểu dữ liệu danh sách",
+    "scope_mode": "45m_theory",
+    "target_minutes": 45,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     111,
+     112,
+     113,
+     114
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B22_YEU_90",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 22,
+    "topic_name": "Kiểu dữ liệu danh sách",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     111,
+     112,
+     113,
+     114
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B23_YEU_45mTH",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 23,
+    "topic_name": "Một số lệnh làm việc với dữ liệu danh sách",
+    "scope_mode": "45m_practice",
+    "target_minutes": 45,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     115,
+     116,
+     117,
+     118
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B23_KHA_90",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 23,
+    "topic_name": "Một số lệnh làm việc với dữ liệu danh sách",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     115,
+     116,
+     117,
+     118
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B24_KHA_45mLT",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 24,
+    "topic_name": "Xâu kí tự",
+    "scope_mode": "45m_theory",
+    "target_minutes": 45,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     119,
+     120,
+     121,
+     122
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B24_DT_90",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 24,
+    "topic_name": "Xâu kí tự",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     119,
+     120,
+     121,
+     122
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B25_DT_45mTH",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 25,
+    "topic_name": "Một số lệnh làm việc với xâu kí tự",
+    "scope_mode": "45m_practice",
+    "target_minutes": 45,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     123,
+     124,
+     125,
+     126
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B25_YEU_90",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 25,
+    "topic_name": "Một số lệnh làm việc với xâu kí tự",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     123,
+     124,
+     125,
+     126
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B26_YEU_45mLT",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 26,
+    "topic_name": "Hàm trong Python",
+    "scope_mode": "45m_theory",
+    "target_minutes": 45,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     127,
+     128,
+     129,
+     130
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B26_KHA_90",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 26,
+    "topic_name": "Hàm trong Python",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     127,
+     128,
+     129,
+     130
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B27_KHA_45mTH",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 27,
+    "topic_name": "Tham số của hàm",
+    "scope_mode": "45m_practice",
+    "target_minutes": 45,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     131,
+     132,
+     133,
+     134,
+     135
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B27_DT_90",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 27,
+    "topic_name": "Tham số của hàm",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     131,
+     132,
+     133,
+     134,
+     135
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B28_DT_45mLT",
+   "class_profile": "Lớp đại trà",
+   "request": {
+    "target_bai": 28,
+    "topic_name": "Phạm vi của biến",
+    "scope_mode": "45m_theory",
+    "target_minutes": 45,
+    "basic_ratio": 0.3,
+    "standard_ratio": 0.5,
+    "advanced_ratio": 0.2,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, có máy chiếu",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     136,
+     137,
+     138,
+     139,
+     140
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B28_YEU_90",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 28,
+    "topic_name": "Phạm vi của biến",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     136,
+     137,
+     138,
+     139,
+     140
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B29_YEU_45mTH",
+   "class_profile": "Lớp nhiều HS yếu",
+   "request": {
+    "target_bai": 29,
+    "topic_name": "Nhận biết lỗi chương trình",
+    "scope_mode": "45m_practice",
+    "target_minutes": 45,
+    "basic_ratio": 0.5,
+    "standard_ratio": 0.4,
+    "advanced_ratio": 0.1,
+    "lab_constraints": "Phòng máy 2 HS/1 máy",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     141,
+     142,
+     143,
+     144
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  },
+  {
+   "case_id": "B29_KHA_90",
+   "class_profile": "Lớp chọn/khá giỏi",
+   "request": {
+    "target_bai": 29,
+    "topic_name": "Nhận biết lỗi chương trình",
+    "scope_mode": "90m_full",
+    "target_minutes": 90,
+    "basic_ratio": 0.15,
+    "standard_ratio": 0.45,
+    "advanced_ratio": 0.4,
+    "lab_constraints": "Phòng máy 1 HS/1 máy, HS có laptop riêng",
+    "bypass_hitl": true
+   },
+   "gold": {
+    "sgk_pages": [
+     141,
+     142,
+     143,
+     144
+    ],
+    "doc_name": "SGK Tin học 10 – Kết nối tri thức"
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "outline": {
+  "objective_summary": "Bài 20 – Câu lệnh lặp for: Biết được ý nghĩa của vùng giá trị tạo bởi lệnh range(); Biết được chức năng của lệnh lặp for và cách dùng trong Python",
+  "activity_titles": [
+   "Khởi động: Tình huống/bài toán gợi nhu cầu học câu lệnh lặp for",
+   "Hình thành kiến thức: Tìm hiểu câu lệnh lặp for qua ví dụ SGK",
+   "Luyện tập: Luyện tập câu lệnh lặp for với 3 phiếu phân hoá",
+   "Vận dụng: Vận dụng câu lệnh lặp for giải bài toán thực tế"
+  ],
+  "activity_minutes": [
+   5,
+   10,
+   20,
+   10
+  ],
+  "worksheet_goals": [
+   "Cơ bản (Nhớ/Hiểu): đọc hiểu, trace và điền khuyết code về câu lệnh lặp for",
+   "Đạt chuẩn (Vận dụng): tự viết chương trình chuẩn SGK dùng câu lệnh lặp for",
+   "Nâng cao (Phân tích/Sáng tạo): xử lí trường hợp biên / sửa lỗi lôgic với câu lệnh lặp for"
+  ],
+  "is_approved": false
+ }
+}
