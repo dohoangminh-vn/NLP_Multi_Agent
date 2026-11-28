@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 from pathlib import Path
@@ -13,6 +14,8 @@ from src.rag.config import RAGConfig
 from src.rag.exceptions import ParsingError
 from src.rag.models import DocType, ParsedPage
 from src.rag.parsers.markdown_postprocessor import MarkdownPostProcessor
+from src.rag.parsers.textbook_layout import textbook_markdown
+from src.rag.taxonomy import TaxonomyProvider
 
 logger = logging.getLogger(__name__)
 
@@ -37,10 +40,15 @@ class DoclingDocumentParser:
         config: RAGConfig | None = None,
         post_processor: MarkdownPostProcessor | None = None,
         use_docling_native: bool = True,
+        taxonomy: TaxonomyProvider | None = None,
     ) -> None:
         self.config = config or RAGConfig()
         self.post_processor = post_processor or MarkdownPostProcessor()
         self.use_docling_native = use_docling_native
+        self.taxonomy = taxonomy
+        self._textbook_layout = None
+        if taxonomy is not None:
+            self._textbook_layout = json.loads(self.config.textbook_layout_file.read_text(encoding="utf-8"))
         self._docling_converter: Any = None
         if self.use_docling_native:
             self._init_docling_converter()
@@ -50,7 +58,17 @@ class DoclingDocumentParser:
         try:
             from docling.document_converter import DocumentConverter
 
-            self._docling_converter = DocumentConverter()
+            if self.taxonomy:
+                from docling.datamodel.base_models import InputFormat
+                from docling.datamodel.pipeline_options import PdfPipelineOptions
+                from docling.document_converter import PdfFormatOption
+
+                options = PdfPipelineOptions(do_ocr=False)
+                self._docling_converter = DocumentConverter(format_options={
+                    InputFormat.PDF: PdfFormatOption(pipeline_options=options)
+                })
+            else:
+                self._docling_converter = DocumentConverter()
             logger.info("Docling DocumentConverter initialized successfully.")
         except ImportError:
             logger.warning("Docling is not installed; falling back to layout-aware pypdf engine.")
@@ -70,6 +88,11 @@ class DoclingDocumentParser:
             raise FileNotFoundError(f"PDF file not found: {file_path}")
 
         doc_type, doc_name = _detect_doc_type(file_path.name)
+        if doc_type == "sgk" and self._textbook_layout is not None:
+            with file_path.open("rb") as stream:
+                digest = hashlib.file_digest(stream, "sha256").hexdigest()
+            if digest != self._textbook_layout["sha256"]:
+                raise ParsingError("Textbook edition does not match the reviewed Unicode PDF")
 
         try:
             reader = PdfReader(str(file_path))
@@ -85,25 +108,42 @@ class DoclingDocumentParser:
         # Try docling native conversion if available and configured
         if self._docling_converter is not None:
             try:
-                return self._parse_with_docling(
-                    file_path=file_path,
-                    doc_type=doc_type,
-                    doc_name=doc_name,
-                    start_page=s_page,
-                    end_page=e_page,
-                    reader=reader,
-                )
+                pages = []
+                for start in range(s_page, e_page + 1, self.config.parser_batch_pages):
+                    pages.extend(self._parse_with_docling(
+                        file_path=file_path, doc_type=doc_type, doc_name=doc_name,
+                        start_page=start, end_page=min(e_page, start + self.config.parser_batch_pages - 1),
+                        reader=reader,
+                    ))
+                return self._assign_textbook_lessons(pages)
             except Exception as exc:  # noqa: BLE001
+                if self.taxonomy and doc_type == "sgk":
+                    raise ParsingError(f"SGK layout extraction failed for {file_path.name}: {exc}") from exc
                 logger.warning("Docling conversion failed (%s); falling back to pypdf layout engine.", exc)
 
+        if self.taxonomy and doc_type == "sgk" and self.use_docling_native:
+            raise ParsingError("SGK ingestion requires the Docling layout engine")
         # Fallback layout-aware extraction
-        return self._parse_with_fallback(
+        pages = self._parse_with_fallback(
             doc_type=doc_type,
             doc_name=doc_name,
             start_page=s_page,
             end_page=e_page,
             reader=reader,
         )
+        return self._assign_textbook_lessons(pages)
+
+    def _assign_textbook_lessons(self, pages: list[ParsedPage]) -> list[ParsedPage]:
+        if self.taxonomy and pages and pages[0].doc_type == "sgk":
+            by_page = {
+                number: lesson for lesson in self.taxonomy.get_lessons_up_to(self.config.max_lesson)
+                for number in range(lesson.sgk_page_start, lesson.sgk_page_end + 1)
+            }
+            for page in pages:
+                lesson = by_page.get(page.page_number)
+                if lesson:
+                    page.bai_so, page.ten_bai = lesson.bai_so, lesson.ten_bai
+        return pages
 
     def _parse_with_docling(
         self,
@@ -115,7 +155,9 @@ class DoclingDocumentParser:
         reader: PdfReader,
     ) -> list[ParsedPage]:
         """Parse using Docling DocumentConverter."""
-        conv_res = self._docling_converter.convert(str(file_path))
+        conv_res = self._docling_converter.convert(
+            str(file_path), page_range=(start_page, end_page)
+        )
         doc = conv_res.document
 
         pages: list[ParsedPage] = []
@@ -130,7 +172,11 @@ class DoclingDocumentParser:
             except Exception:  # noqa: BLE001
                 raw_md = reader.pages[pno - 1].extract_text() or ""
 
+            if self._textbook_layout is not None and doc_type == "sgk":
+                raw_md = textbook_markdown(reader.pages[pno - 1], pno, raw_md, self._textbook_layout)
             res = self.post_processor.process(raw_md)
+            if self.taxonomy and doc_type == "sgk" and not res.cleaned_markdown.replace("<!-- image -->", "").strip():
+                raise ParsingError(f"No source text on SGK page {pno}")
             pages.append(
                 ParsedPage(
                     doc_type=doc_type,

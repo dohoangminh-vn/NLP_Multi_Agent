@@ -112,3 +112,7 @@ class VectorIndexRepository(Protocol):
     def count(self) -> int:
         """Return total number of vectors in collection."""
         ...
+
+    def clear(self) -> None:
+        """Remove existing vectors before an explicitly requested rebuild."""
+        ...

@@ -40,9 +40,22 @@ class RAGConfig(BaseSettings):
         / "manifest.json"
     )
 
+    workbook_review_dir: Path = Field(
+        default_factory=lambda: Path(__file__).resolve().parents[2] / "data" / "review" / "sbt"
+    )
+    curriculum_mapping_file: Path = Field(
+        default_factory=lambda: Path(__file__).resolve().parents[2]
+        / "data"
+        / "ct2018_lesson_mapping.json"
+    )
+
     # Chunking parameters
     default_chunk_size: int = 500
     default_chunk_overlap: int = 50
+    parser_batch_pages: int = Field(default=6, ge=1)
+    textbook_layout_file: Path = Field(
+        default_factory=lambda: Path(__file__).resolve().parents[2] / "data" / "review" / "sgk_layout.json"
+    )
 
     # Index parameters
     bm25_index_dir: Path = Field(

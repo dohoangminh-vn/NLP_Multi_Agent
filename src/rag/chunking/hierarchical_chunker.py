@@ -122,7 +122,7 @@ class HierarchicalCurriculumChunker(DocumentChunker):
             return []
 
         chunks: list[DocumentChunk] = []
-        current_muc = inherited_muc or "Nội dung chung"
+        current_muc = (inherited_muc if inherited_bai_so == bai_so else "") or "Nội dung chung"
         accumulator: list[str] = []
         current_len = 0
         current_chunk_type: ContentType | None = None
@@ -250,7 +250,7 @@ class HierarchicalCurriculumChunker(DocumentChunker):
                     ten_bai = match.group(2).strip()
 
         # Fallback to taxonomy provider by page number if available
-        if bai_so is None and self._taxonomy_provider is not None:
+        if bai_so is None and page.doc_type == "sgk" and self._taxonomy_provider is not None:
             for candidate in range(16, 30):
                 try:
                     lesson = self._taxonomy_provider.get_lesson(candidate)
@@ -286,7 +286,7 @@ class HierarchicalCurriculumChunker(DocumentChunker):
 
     def _parse_blocks(self, text: str) -> list[_MarkdownBlock]:
         """Split markdown text into atomic blocks without breaking code or tables."""
-        lines = text.splitlines()
+        lines = [line for line in text.splitlines() if line.strip() != "<!-- image -->"]
         blocks: list[_MarkdownBlock] = []
 
         i = 0
