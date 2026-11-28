@@ -1,7 +1,6 @@
 """Tầng dữ liệu & Hybrid RAG (TV2)."""
 
 import json
-from pathlib import Path
 
 import pytest
 
@@ -74,5 +73,5 @@ def test_curriculum_retriever_grades_and_filters():
 
 
 def test_font_map_committed():
-    m = json.loads((ROOT / "data" / "font_maps" / "sgk-tin-hoc-10-kntt.json").read_text(encoding="utf-8"))
+    m = json.loads((ROOT / "data" / "processed" / "font_maps" / "sgk-tin-hoc-10-kntt.json").read_text(encoding="utf-8"))
     assert m["ArialMT"]["55"] == "T"  # GID 55 = 'T' (Arial)

@@ -20,6 +20,6 @@ langchain>=0.3
 # Tuỳ chọn
 # mlflow>=2.10                 # log Ablation
 # sentence-transformers>=3.0   # dense nơ-ron + cross-encoder reranker (python -m eval.retrieval_eval --neural)
-# fonttools>=4.50              # chỉ cần khi dựng lại data/font_maps (src/rag/pdf_unicode_fix.py build-maps)
+# fonttools>=4.50              # chỉ cần khi dựng lại data/processed/font_maps (python -m src.rag.ingest build-font-maps)
 # docling>=2.0                 # python -m src.rag.ingest --engine docling
 # python-pptx>=0.6             # verify_report_metrics đọc slide

@@ -85,7 +85,6 @@ def _route_after_outline(state) -> str:
 def _make_critic_node(critic: Callable, max_iterations: int):
     def node(state):
         update = dict(critic(state))
-        rep = update.get("critic_report")
         hist = getattr(critic, "history", None)
         if hist:
             update["trace"] = [{**hist[-1].to_trace_event(), "iteration": update.get("iteration", 0)}]

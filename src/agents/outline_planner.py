@@ -13,7 +13,7 @@ from src.agents.profiler import ACTIVITIES, build_profile
 from src.prompts import load_prompt
 from src.schemas import LessonOutline, LessonRequest
 from src.tools.ast_guard import SyllabusRules, _get
-from src.tools.pedagogy_checks import load_yccd
+from src.rag.ingest import load_yccd
 from src.utils.llm import LLMClient, extract_json
 
 _ACT_FOCUS = {

@@ -11,7 +11,7 @@ from docx.shared import Cm, Pt  # noqa: E402
 from src.schemas import LessonPlan5512, LessonRequest  # noqa: E402
 from src.utils.docx_exporter import export_lesson_docx, save_lesson_docx  # noqa: E402
 
-FIX = Path(__file__).parent / "fixtures"
+FIX = Path(__file__).parent / "mocks"
 ANSWER_HEADING = "ĐÁP ÁN VÀ HƯỚNG DẪN CHẤM (dành cho GV)"
 
 

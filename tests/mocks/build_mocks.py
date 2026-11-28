@@ -1,6 +1,6 @@
 """Sinh tests/mocks/ (TV1) từ fixture + code thật → mock luôn khớp schema hiện hành.
 
-    python scripts/build_mocks.py
+    python tests/mocks/build_mocks.py
 
 Gồm mock đầu ra từng node và 1 luồng SSE mẫu Bài 20 (vòng 1 thẻ đỏ AST/Sandbox → vòng 2 thẻ xanh)
 để TV5 dựng UI khi chưa có backend thật. Đây là DỮ LIỆU MOCK, không phải kết quả chạy LLM.
@@ -12,17 +12,17 @@ import json
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 
 from src.agents.critic import CriticAgent, CriticConfig  # noqa: E402
 from src.agents.outline_planner import OutlinePlanner  # noqa: E402
 from src.agents.profiler import build_profile  # noqa: E402
-from src.api.verification import verify_plan  # noqa: E402
 from src.schemas import LessonPlan5512, LessonRequest, SourceCitation  # noqa: E402
+from src.tools.code_sandbox import verify_plan  # noqa: E402
 
-FIX = ROOT / "tests" / "fixtures"
 MOCKS = ROOT / "tests" / "mocks"
+FIX = MOCKS  # giáo án mẫu đầu vào (plan_bai20_*.json, request_bai20.json, chunks_bai20.json)
 
 
 def load(name):

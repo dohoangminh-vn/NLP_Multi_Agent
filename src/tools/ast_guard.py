@@ -451,6 +451,21 @@ def _get(obj, key, default=None):
 # ----------------------------------------------------------------------------
 
 
+def scope_summary(target_bai: int, rules: Optional[SyllabusRules] = None) -> str:
+    rules = rules or SyllabusRules.load()
+    scope = rules.scope(target_bai)
+    structural = sorted(n for n in scope.ast_nodes if n not in rules.always_nodes)
+    names = [f"{n}" + (f" ({rules.display(n)})" if rules.display(n) else "") for n in structural]
+    lines = [
+        f"Phạm vi cú pháp tích luỹ đến Bài {scope.target_bai} (SGK Tin học 10 KNTT):",
+        "- Cấu trúc được phép: " + ", ".join(names),
+        "- Hàm dựng sẵn được phép: " + ", ".join(sorted(scope.builtins)),
+        "- Phương thức được phép: " + (", ".join("." + m + "()" for m in sorted(scope.methods)) or "(chưa có)"),
+        "- Mọi cấu trúc/hàm/phương thức khác đều VƯỢT CHƯƠNG TRÌNH; cấm mọi import.",
+    ]
+    return "\n".join(lines)
+
+
 def check_worksheets(worksheets: Iterable, target_bai: int, strict: bool = False) -> List[GuardResult]:
     return SyllabusGuard.from_file(strict=strict).check_worksheets(worksheets, target_bai)
 

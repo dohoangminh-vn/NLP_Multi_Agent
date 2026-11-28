@@ -16,6 +16,6 @@ jobs:
       - name: Dựng corpus SGK (sửa font, chunk, YCCĐ)
         run: python -m src.rag.ingest
       - name: Kiểm tra mock khớp schema hiện hành
-        run: python scripts/build_mocks.py && git diff --exit-code -- tests/mocks || (echo "tests/mocks lệch schema – chạy scripts/build_mocks.py" && exit 1)
+        run: python tests/mocks/build_mocks.py && git diff --exit-code -- tests/mocks || (echo "tests/mocks lệch schema – chạy python tests/mocks/build_mocks.py" && exit 1)
       - name: Pytest (Schema, AST Guard, Sandbox, Critic, RAG, Graph, API, Eval)
         run: pytest -q

@@ -1,4 +1,4 @@
-"""Kiểm định ngân hàng phiếu học tập `data/worksheet_bank.json` (Bài 16–29, 3 phiếu/bài).
+"""Kiểm định ngân hàng phiếu học tập `src/prompts/worksheet_bank.json` (Bài 16–29, 3 phiếu/bài).
 
 Mỗi phiếu phải:
 1. `solution_code` qua SyllabusGuard strict cho ĐÚNG bài của nó: 0 lỗi, 0 cảnh báo.
@@ -18,7 +18,7 @@ from src.tools.ast_guard import SyllabusGuard, worksheet_label
 from src.tools.code_sandbox import verify_worksheet
 
 ROOT = Path(__file__).resolve().parents[1]
-BANK_PATH = ROOT / "data" / "worksheet_bank.json"
+BANK_PATH = ROOT / "src" / "prompts" / "worksheet_bank.json"
 RULES_PATH = ROOT / "data" / "syllabus_rules.json"
 
 TIERS = ["Cơ bản", "Đạt chuẩn", "Nâng cao"]

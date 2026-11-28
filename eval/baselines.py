@@ -26,8 +26,7 @@ from typing import Callable, List, Optional, Protocol, Sequence
 
 from src.agents.critic import CriticAgent, CriticConfig
 from src.schemas import LessonPlan5512, LessonRequest, SourceCitation
-from src.tools.ast_guard import _get
-from src.tools.pedagogy_checks import scope_summary
+from src.tools.ast_guard import _get, scope_summary
 from src.utils.llm import LLMClient, extract_json
 
 MAX_ITERATIONS = 3

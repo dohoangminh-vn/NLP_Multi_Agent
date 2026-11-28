@@ -11,7 +11,7 @@ from src.agents.critic import CriticAgent, CriticConfig  # noqa: E402
 from src.graph.workflow import build_graph, resume_with_outline, thread_config  # noqa: E402
 from src.schemas import LessonPlan5512, LessonRequest  # noqa: E402
 
-FIX = Path(__file__).parent / "fixtures"
+FIX = Path(__file__).parent / "mocks"
 
 
 def req(bai=20, mode="45m_practice", bypass=False):
@@ -85,7 +85,7 @@ def test_offline_pipeline_every_lesson(bai):
 def test_benchmark_multiagent_system_uses_real_graph():
     """eval.baselines.MultiAgentSystem (B3/B4) chạy trên build_graph thật: B3 sót lỗi, B4 bắt & sửa."""
     from eval.baselines import MultiAgentSystem
-    from eval.evaluator import Evaluator
+    from eval.run_benchmark import Evaluator
     from src.prompts import load_prompt
     from src.utils.llm import LLMResponse
 

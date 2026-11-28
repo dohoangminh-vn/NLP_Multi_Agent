@@ -15,7 +15,7 @@ from src.tools.code_sandbox import (
     verify_worksheets,
 )
 
-FIX = Path(__file__).parent / "fixtures"
+FIX = Path(__file__).parent / "mocks"
 
 
 def ws(code, tests, tier="Đạt chuẩn"):

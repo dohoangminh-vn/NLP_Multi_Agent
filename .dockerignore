@@ -1,6 +1,7 @@
 .git
+.venv
 **/__pycache__
 .pytest_cache
 mlruns
 eval/results
-data/raw_pdfs
+data/raw_pdfs/*_unicode.pdf

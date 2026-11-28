@@ -11,7 +11,7 @@ services:
       OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
     volumes:
       - ./eval/results:/app/eval/results
-      - ./data/demo_cache:/app/data/demo_cache
+      - ./tests/mocks/demo_cache:/app/tests/mocks/demo_cache
   mlflow:
     image: ghcr.io/mlflow/mlflow:v2.14.1
     profiles: ["eval"]

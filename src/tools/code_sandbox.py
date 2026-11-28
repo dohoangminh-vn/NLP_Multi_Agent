@@ -24,7 +24,7 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Iterable, List, Optional
 
-from src.tools.ast_guard import worksheet_label
+from src.tools.ast_guard import SyllabusGuard, worksheet_label
 
 DEFAULT_TIMEOUT_S = 2.0
 MAX_OUTPUT_BYTES = 256 * 1024
@@ -406,6 +406,41 @@ def failure_messages(results: Iterable[WorksheetSandboxResult]) -> List[str]:
     out: List[str] = []
     for r in results:
         out.extend(r.failure_messages())
+    return out
+
+
+# ----------------------------------------------------------------------------
+# Tổng hợp AST + Sandbox theo phiếu (badge AST PASS / Sandbox n/total trên UI)
+
+def verify_plan(plan, target_bai: int) -> List[dict]:
+    guard = SyllabusGuard.from_file()
+    out = []
+    for i, ws in enumerate(plan.worksheets):
+        g = guard.check_code(ws.solution_code, target_bai, worksheet_label(ws.tier, i))
+        s = verify_worksheet(ws, i)
+        out.append(
+            {
+                "tier": ws.tier,
+                "worksheet": g.worksheet,
+                "ast_pass": g.passed,
+                "ast_messages": g.messages(),
+                "ast_warnings": [v.message for v in g.warnings],
+                "sandbox_pass": s.passed,
+                "n_passed": s.n_passed,
+                "total": s.total,
+                "cases": [
+                    {
+                        "index": c.index,
+                        "status": c.status,
+                        "stdin": ws.test_cases[c.index].stdin_data,
+                        "expected": c.expected,
+                        "actual": c.actual,
+                        "is_edge_case": c.is_edge_case,
+                    }
+                    for c in s.cases
+                ],
+            }
+        )
     return out
 
 

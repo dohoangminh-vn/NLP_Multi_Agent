@@ -1,6 +1,6 @@
 /* Giao diện giáo viên – Hệ thống đa tác tử soạn giáo án Tin học 10.
  *
- * Vanilla JS, không cần build. Hợp đồng API/SSE: docs/api_contract.md.
+ * Vanilla JS, không cần build. Hợp đồng API/SSE: README.md, mục "Hợp đồng API & SSE".
  * Nguyên tắc an toàn: mọi dữ liệu từ máy chủ đều được đưa vào DOM bằng
  * textContent / createTextNode (không dùng innerHTML với dữ liệu).
  */

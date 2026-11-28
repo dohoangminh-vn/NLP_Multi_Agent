@@ -8,7 +8,7 @@ import pytest
 from src.schemas import LessonPlan5512
 from src.tools.ast_guard import SyllabusGuard, SyllabusRules, canonical_tier, worksheet_label
 
-FIX = Path(__file__).parent / "fixtures"
+FIX = Path(__file__).parent / "mocks"
 
 
 @pytest.fixture(scope="module")

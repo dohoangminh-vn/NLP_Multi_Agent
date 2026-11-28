@@ -6,15 +6,17 @@ from pathlib import Path
 
 import pytest
 
-from eval import human_eval, verify_report_metrics
+from eval import run_benchmark as human_eval  # Human Eval nằm trong run_benchmark.py
+from eval import verify_report_metrics
 from eval.baselines import GEN_SYSTEM, FunctionRetriever, build_systems
-from eval.evaluator import Evaluator
-from eval.metrics import cohen_kappa, recall_at_k, reciprocal_rank, spearman_rho
+from eval.run_benchmark import Evaluator
+from eval.retrieval_eval import recall_at_k, reciprocal_rank
+from eval.run_benchmark import cohen_kappa, spearman_rho
 from eval.run_benchmark import render_table, run_benchmark, write_outputs
 from src.schemas import SourceCitation
 from src.utils.llm import UsageTracker
 
-FIX = Path(__file__).parent / "fixtures"
+FIX = Path(__file__).parent / "mocks"
 
 
 def load(name):
@@ -74,7 +76,7 @@ def code_violation_plan():
 
 @pytest.fixture
 def bench(tmp_path, monkeypatch):
-    monkeypatch.setattr("src.tools.pedagogy_checks.YCCD_PATH", tmp_path / "none.json")
+    monkeypatch.setattr("src.rag.ingest.YCCD_PATH", tmp_path / "none.json")
     dataset = [{"case_id": "B20_DT_45mTH", "request": load("request_bai20.json")}]
     chunks = [SourceCitation.model_validate(c) for c in load("chunks_bai20.json")]
     retriever = FunctionRetriever(lambda req: chunks)

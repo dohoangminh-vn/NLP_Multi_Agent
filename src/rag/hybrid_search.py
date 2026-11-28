@@ -1,7 +1,7 @@
-"""Vietnamese Hybrid Search (TV2): VN-BM25 + Dense + lọc `bai_so <= k` + RRF + Reranker.
+"""Vietnamese Hybrid Search (TV2): VN-BM25 + Dense + lọc `bai_so <= k` + RRF + Cross-Encoder Reranker.
 
-* Tách từ tiếng Việt: `pyvi` (nếu có) → "câu_lệnh lặp for", giữ nguyên token code (range, append...).
-  Không có pyvi: dùng âm tiết + bigram âm tiết (xấp xỉ từ ghép).
+* Nạp index do `src/rag/ingest.py` dựng (token đã tách từ tiếng Việt bằng pyvi + vector); nếu index
+  không khớp tập chunk hiện tại thì tự dựng lại trong bộ nhớ.
 * BM25 Okapi viết tay (k1=1.5, b=0.75).
 * Dense: `SentenceTransformerEmbedder` (vd `bkai-foundation-models/vietnamese-bi-encoder`,
   `intfloat/multilingual-e5-small`) nếu cài sentence-transformers; nếu không dùng
@@ -13,54 +13,22 @@
 from __future__ import annotations
 
 import math
-import re
-import zlib
-import unicodedata
 from collections import Counter
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Protocol, Sequence
+from typing import Dict, List, Optional, Sequence
 
 import numpy as np
 
-from src.rag.ingest import Chunk, load_chunks
-
-_WORD_RE = re.compile(r"[\wÀ-ỹ]+(?:\(\))?", re.UNICODE)
-_STOP = set("và là của các có được cho một những trong với để khi thì này đó ra vào từ theo như em hãy sau đây sẽ ta".split())
-
-
-def _nfc(t: str) -> str:
-    return unicodedata.normalize("NFC", t or "").lower()
-
-
-class VnTokenizer:
-    def __init__(self, use_pyvi: Optional[bool] = None):
-        self._pyvi = None
-        if use_pyvi is not False:
-            try:
-                from pyvi import ViTokenizer  # type: ignore
-
-                self._pyvi = ViTokenizer
-            except Exception:
-                if use_pyvi:
-                    raise
-        self.name = "pyvi" if self._pyvi else "syllable+bigram"
-
-    def __call__(self, text: str) -> List[str]:
-        text = _nfc(text).replace("()", " ")
-        if self._pyvi is not None:
-            toks = self._pyvi.tokenize(text).split()
-            return [t for t in toks if _WORD_RE.fullmatch(t) and t not in _STOP]
-        syl = [t for t in _WORD_RE.findall(text) if t not in _STOP]
-        return syl + [f"{a}_{b}" for a, b in zip(syl, syl[1:])]
-
-
-class PlainTokenizer:
-    """Baseline KHÔNG tách từ (để chứng minh lợi ích VN segmentation trong retrieval_eval)."""
-
-    name = "whitespace"
-
-    def __call__(self, text: str) -> List[str]:
-        return [t for t in _WORD_RE.findall(_nfc(text)) if t not in _STOP]
+from src.rag.ingest import (  # tách từ VN + vector được dựng ở bước ingest
+    CharNgramEmbedder,
+    Chunk,
+    Embedder,
+    SentenceTransformerEmbedder,
+    VnTokenizer,
+    index_text,
+    load_chunks,
+    load_index,
+)
 
 
 class BM25:
@@ -84,59 +52,6 @@ class BM25:
             if s > 0:
                 out[i] = s
         return out
-
-
-class Embedder(Protocol):
-    name: str
-
-    def encode(self, texts: Sequence[str], is_query: bool = False) -> np.ndarray: ...
-
-
-class CharNgramEmbedder:
-    """TF-IDF n-gram kí tự (3–5) băm vào 2^16 chiều, chuẩn hoá L2. Nhẹ, không cần tải mô hình."""
-
-    name = "char-ngram-tfidf"
-
-    def __init__(self, dim: int = 1 << 16, n_range=(3, 5)):
-        self.dim, self.n_range = dim, n_range
-        self.idf: Optional[np.ndarray] = None
-
-    def _grams(self, text: str):
-        t = f" {' '.join(_WORD_RE.findall(_nfc(text)))} "
-        for n in range(self.n_range[0], self.n_range[1] + 1):
-            for i in range(len(t) - n + 1):
-                yield zlib.crc32(t[i : i + n].encode()) % self.dim  # băm ổn định giữa các lần chạy
-
-    def _tf(self, texts):
-        m = np.zeros((len(texts), self.dim), dtype=np.float32)
-        for r, t in enumerate(texts):
-            for g, c in Counter(self._grams(t)).items():
-                m[r, g] = 1 + math.log(c)
-        return m
-
-    def fit(self, texts: Sequence[str]) -> "CharNgramEmbedder":
-        tf = self._tf(texts)
-        df = (tf > 0).sum(axis=0)
-        self.idf = np.log((1 + len(texts)) / (1 + df)).astype(np.float32) + 1
-        return self
-
-    def encode(self, texts, is_query=False):
-        m = self._tf(list(texts)) * (self.idf if self.idf is not None else 1)
-        return m / (np.linalg.norm(m, axis=1, keepdims=True) + 1e-9)
-
-
-class SentenceTransformerEmbedder:  # pragma: no cover - cần tải mô hình
-    def __init__(self, model_name: str = "intfloat/multilingual-e5-small"):
-        from sentence_transformers import SentenceTransformer
-
-        self.model = SentenceTransformer(model_name)
-        self.name = model_name
-        self.e5 = "e5" in model_name
-
-    def encode(self, texts, is_query=False):
-        if self.e5:
-            texts = [("query: " if is_query else "passage: ") + t for t in texts]
-        return np.asarray(self.model.encode(list(texts), normalize_embeddings=True), dtype=np.float32)
 
 
 class LexicalReranker:
@@ -186,9 +101,12 @@ class HybridSearcher:
                  reranker=None, rrf_k: int = 60):
         self.chunks = chunks if chunks is not None else load_chunks()
         self.tok = tokenizer or VnTokenizer()
-        self.texts = [f"{c.ten_bai}. {c.muc}. {c.text}" for c in self.chunks]
-        self.bm25 = BM25([self.tok(t) for t in self.texts])
-        self.embedder = embedder or CharNgramEmbedder().fit(self.texts)
+        self.texts = [index_text(c) for c in self.chunks]
+        cached = load_index(self.chunks, self.tok.name) if embedder is None else None
+        tokens, idx_emb = cached if cached else ([self.tok(t) for t in self.texts], None)
+        self.index_loaded = cached is not None
+        self.bm25 = BM25(tokens)
+        self.embedder = embedder or idx_emb or CharNgramEmbedder().fit(self.texts)
         self.emb = self.embedder.encode(self.texts)
         self.reranker = reranker if reranker is not None else LexicalReranker(self.tok)
         self.rrf_k = rrf_k

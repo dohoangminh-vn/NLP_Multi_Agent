@@ -7,7 +7,7 @@ from src.agents.critic import CriticAgent, CriticConfig, parse_llm_scores
 from src.schemas import AgentState, LessonPlan5512, LessonRequest, SourceCitation
 from src.utils.llm import ScriptedLLM
 
-FIX = Path(__file__).parent / "fixtures"
+FIX = Path(__file__).parent / "mocks"
 
 
 def load(name):

@@ -15,7 +15,7 @@ from typing import Dict, List, Optional
 from src.rag.hybrid_search import HybridSearcher, SearchHit
 from src.schemas import LessonRequest, SourceCitation
 from src.tools.ast_guard import SyllabusRules, _get
-from src.tools.pedagogy_checks import load_yccd
+from src.rag.ingest import load_yccd
 from src.utils.llm import LLMClient, extract_json
 
 MAX_REWRITES = 2

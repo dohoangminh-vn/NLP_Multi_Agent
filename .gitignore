@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+.venv/
 mlruns/
-data/raw_pdfs/*.pdf
+data/raw_pdfs/*_unicode.pdf
 data/checkpoints.sqlite

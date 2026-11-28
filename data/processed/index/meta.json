@@ -1,0 +1,6 @@
+{
+ "fingerprint": "cadb9d9923596306",
+ "n_chunks": 179,
+ "tokenizer": "pyvi",
+ "embedder": "char-ngram-tfidf"
+}

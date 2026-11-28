@@ -1,6 +1,6 @@
 """Detail & Worksheet Designer (TV3) – sinh chi tiết CV 5512 + 3 phiếu + Revision Mode.
 
-* Có LLM: prompt `src/prompts/designer_*.md` + few-shot từ `data/worksheet_bank.json`.
+* Có LLM: prompt `src/prompts/designer_*.md` + few-shot từ `src/prompts/worksheet_bank.json`.
   Revision Mode: gửi bản nháp trước + `critic_report.revision_instructions`, chỉ sửa phần lỗi.
 * Không có LLM (chế độ offline/demo): dựng giáo án tất định từ khung đã duyệt, chunk SGK đã truy hồi
   và ngân hàng phiếu đã kiểm định. KHÔNG dùng chế độ này để báo cáo số liệu benchmark.
@@ -12,17 +12,16 @@ from __future__ import annotations
 
 import json
 from functools import lru_cache
-from pathlib import Path
 from typing import Dict, List, Optional
 
 from src.agents.profiler import ACTIVITIES, build_profile
 from src.prompts import load_prompt
 from src.schemas import Activity5512, LessonOutline, LessonPlan5512, LessonRequest, SourceCitation, WorksheetItem
-from src.tools.ast_guard import ROOT, _get
-from src.tools.pedagogy_checks import load_yccd, scope_summary
+from src.tools.ast_guard import ROOT, _get, scope_summary
+from src.rag.ingest import load_yccd
 from src.utils.llm import LLMClient, extract_json
 
-BANK_PATH = ROOT / "data" / "worksheet_bank.json"
+BANK_PATH = ROOT / "src" / "prompts" / "worksheet_bank.json"  # few-shot đã kiểm định AST + Sandbox
 
 PLAN_SKELETON = {
     "knowledge_goals": "...", "general_competencies": "...", "cs_competencies": "NLa/NLc: ...", "qualities": "...",

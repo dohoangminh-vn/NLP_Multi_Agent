@@ -5,7 +5,7 @@ import json
 import pytest
 from pydantic import ValidationError
 
-from src.agents.detail_designer import DetailDesigner, bank_worksheets, enforce_outline
+from src.agents.detail_designer import DetailDesigner, bank_worksheets
 from src.agents.outline_planner import OutlinePlanner
 from src.agents.profiler import ClassProfiler, allocate_minutes, build_profile
 from src.schemas import AgentState, LessonOutline, LessonPlan5512, LessonRequest
