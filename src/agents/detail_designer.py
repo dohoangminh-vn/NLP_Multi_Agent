@@ -8,7 +8,7 @@ import json
 import logging
 from src.agents.profiler import build_profile
 from src.utils.pedagogy_validator import PedagogyValidationError
-from src.utils.prompt_builder import build_detail_prompt, get, dump, TIERS
+from src.utils.prompt_builder import build_detail_prompt, get, dump, TIERS, select_examples
 from src.utils.yccd_adapter import load_yccd
 from src.utils.revision_engine import parse_instruction, apply_patch
 
@@ -66,6 +66,18 @@ def as_plan(data):
             raise
         return data
     return LessonPlan5512.model_validate(data)
+
+
+def bank_worksheets(bai):
+    """Legacy public reader retained for TV4 tests and consumers; same selected bank."""
+    rows = copy.deepcopy(select_examples(bai))
+    try:
+        from src.schemas import WorksheetItem
+    except ModuleNotFoundError as exc:
+        if exc.name != 'src.schemas':
+            raise
+        return rows
+    return [WorksheetItem.model_validate(row) for row in rows]
 
 
 def offline_draft(payload):
@@ -141,6 +153,10 @@ class DetailDesigner:
                 LOG.warning('Detail output invalid: %s',type(exc).__name__)
                 feedback='\nKết quả trước sai cấu trúc hoặc ràng buộc. Kiểm tra lại toàn bộ hợp đồng; chỉ trả JSON.'
         raise PedagogyValidationError('LLM không trả giáo án hợp lệ sau số lần thử cho phép')
+
+    def offline_plan(self,req,outline,profile,chunks):
+        """Legacy entry point; retains the same approval and source validation."""
+        return DetailDesigner(None,yccd_loader=self.yccd_loader,scope_loader=self.scope_loader).design(req,outline,profile,chunks)
 
     def __call__(self,state):
         req=get(state,'request')

@@ -24,6 +24,8 @@ def select_examples(bai, root=PROMPTS):
     local = root / 'few_shot' / 'lesson_20.json'
     if bank.exists():
         entry = json.loads(bank.read_text(encoding='utf-8-sig'))['lessons'].get(str(bai))
+    elif (root / 'few_shot' / 'tv3_worksheet_bank.json').exists():
+        entry = json.loads((root / 'few_shot' / 'tv3_worksheet_bank.json').read_text(encoding='utf-8-sig'))['lessons'].get(str(bai))
     elif bai == 20 and local.exists():
         entry = json.loads(local.read_text(encoding='utf-8-sig'))
     else:

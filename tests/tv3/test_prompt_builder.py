@@ -41,8 +41,8 @@ def test_budget():
     assert ground_context([dict(CHUNK,quoted_text='a'*5000),CHUNK],20,300)==[CHUNK]
 
 
-def test_examples():
-    assert select_examples(19)==[]
+def test_examples(tmp_path):
+    assert select_examples(19, tmp_path)==[]
     assert all(x['solution_code'] and x['test_cases'] for x in select_examples(20))
 
 
