@@ -1,7 +1,6 @@
 """TV3 detail generation, validated against the approved outline and sent evidence.
 
-Offline plans are demonstration drafts, not evidence of LLM quality. Revision is
-intentionally fail-closed until the team agrees on machine-readable patch targets.
+Offline plans are demonstration drafts. Revision requires explicit patch targets.
 """
 from __future__ import annotations
 import copy
@@ -11,6 +10,7 @@ from src.agents.profiler import build_profile
 from src.utils.pedagogy_validator import PedagogyValidationError
 from src.utils.prompt_builder import build_detail_prompt, get, dump, TIERS
 from src.utils.yccd_adapter import load_yccd
+from src.utils.revision_engine import parse_instruction, apply_patch
 
 LOG = logging.getLogger(__name__)
 HEADINGS = ('knowledge_goals', 'general_competencies', 'cs_competencies', 'qualities', 'teaching_materials')
@@ -101,13 +101,31 @@ class DetailDesigner:
         self.scope_loader=scope_loader
 
     def design(self,req,outline,profile,chunks,previous=None,revision='',iteration=0):
-        if previous is not None and revision:
-            raise PedagogyValidationError('Revision Mode chưa tích hợp; cần cơ chế patch có mục tiêu rõ ràng')
+        if revision:
+            require(previous is not None, 'Revision: thiếu bản nháp trước đó')
+            instruction = parse_instruction(revision)
+            require(self.llm is not None, 'Revision: cần LLM')
+        elif previous is not None:
+            raise PedagogyValidationError('Revision: thiếu mục tiêu sửa có cấu trúc')
         bai=get(req,'target_bai')
         scope=self.scope_loader(bai) if self.scope_loader else None
         system,user=build_detail_prompt(req,outline,profile,chunks,self.yccd_loader(bai),scope_rules=scope)
         system += '\nBắt buộc knowledge_goals bằng nguyên văn objective_summary; activity_name bằng nguyên văn từng activity_titles. Mỗi hoạt động có ít nhất một citation đúng nguồn; mỗi phiếu có ít nhất hai test case. Dùng đúng nhãn Bloom Nhớ/Hiểu, Vận dụng, Phân tích/Sáng tạo.'
         payload=json.loads(user)
+        if revision:
+            prior = dump(previous)
+            system += '\nREVISION: chỉ trả JSON {"replacements": {"đường_dẫn": giá_trị_mới}}. Chỉ sửa các đường dẫn được cấp quyền. Không sửa test để che lỗi chương trình.'
+            revision_user = json.dumps({'context':payload,'previous':prior,'revision':instruction},ensure_ascii=False)
+            for _ in range(self.max_json_retries+1):
+                try:
+                    raw = self.llm.complete(system,revision_user).text.strip()
+                    if raw.startswith('```json') and raw.endswith('```'):
+                        raw = raw[7:-3].strip()
+                    plan = apply_patch(prior,instruction['targets'],json.loads(raw))
+                    return as_plan(validate_plan(plan,payload))
+                except (ValueError,TypeError,AttributeError,KeyError,IndexError) as exc:
+                    LOG.warning('Revision invalid: %s',type(exc).__name__)
+            raise PedagogyValidationError('Revision: không có bản sửa hợp lệ')
         if self.llm is None:
             LOG.warning('Detail Designer offline: draft demonstration only')
             return as_plan(validate_plan(offline_draft(payload),payload))
