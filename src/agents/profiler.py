@@ -5,7 +5,7 @@ import json
 import re
 import unicodedata
 from collections.abc import Mapping
-from pathlib import Path
+from src.utils.yccd_adapter import DEFAULT_TAXONOMY, read_yccd
 
 from src.utils.pedagogy_validator import (
     ACTIVITIES as PHASES, SCOPE_MINUTES, PedagogyValidationError,
@@ -25,7 +25,6 @@ CS_COMPETENCIES = {
     "NLd": "Ứng dụng công nghệ thông tin và truyền thông trong học và tự học",
     "NLe": "Hợp tác trong môi trường số",
 }
-DEFAULT_TAXONOMY = Path(__file__).resolve().parents[2] / "data" / "yccd_taxonomy.json"
 TIERS = (
     ("Cơ bản", ("Nhớ", "Hiểu"), ("Đọc hiểu code", "Lập bảng trace", "Điền khuyết 1–2 dòng"), "Có ví dụ mẫu, gợi ý từng bước và bảng trace."),
     ("Đạt chuẩn", ("Vận dụng",), ("Tự viết chương trình theo đặc tả", "Kiểm tra kết quả với ví dụ"), "Có đặc tả đầu vào/đầu ra và một ví dụ."),
@@ -66,25 +65,7 @@ def allocate_minutes(request):
 
 
 def _curriculum(bai, taxonomy_path):
-    """Read only TV2's hierarchical format; never invent official mappings."""
-    if taxonomy_path is None or not Path(taxonomy_path).is_file():
-        return [], "missing_taxonomy"
-    data = json.loads(Path(taxonomy_path).read_text(encoding="utf-8-sig"))
-    if not isinstance(data, dict) or not isinstance(data.get("lessons"), list):
-        return [], "unsupported_taxonomy"
-    matches = [x for x in data["lessons"] if x.get("bai_so") == bai]
-    if len(matches) != 1:
-        return [], "lesson_not_unique_or_missing"
-    items = matches[0].get("yccd_items", [])
-    if not items:
-        return [], "missing_yccd"
-    result = []
-    for item in items:
-        codes = item.get("competency_codes", [])
-        if not item.get("yccd_id") or not item.get("description") or not codes or any(c not in CS_COMPETENCIES for c in codes):
-            raise PedagogyValidationError("YCCĐ hoặc mã năng lực không hợp lệ")
-        result.append({"yccd_id": item["yccd_id"], "description": item["description"], "competency_codes": list(codes), "bloom_levels": list(item.get("bloom_levels", []))})
-    return result, "mapped_from_tv2"
+    return read_yccd(bai, taxonomy_path)
 
 
 def _lab_notes(text):
