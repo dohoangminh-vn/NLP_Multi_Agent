@@ -1,0 +1,98 @@
+{
+  "title": "Câu lệnh lặp for",
+  "worksheets": [
+    {
+      "tier": "Cơ bản",
+      "bloom_level": "Nhớ/Hiểu",
+      "prompt_text": "Điền giá trị bước nhảy vào chỗ trống ___ trong range() để chương trình in ra các số lẻ từ 1 đến n, mỗi số trên một dòng.\nĐầu vào: một số nguyên n (n ≥ 0).\nĐầu ra: các số lẻ 1, 3, 5, ... không vượt quá n (n = 0 thì không in gì).",
+      "starter_code": "n = int(input())\nfor i in range(1, n + 1, ___):\n    print(i)",
+      "solution_code": "n = int(input())\nfor i in range(1, n + 1, 2):\n    print(i)",
+      "test_cases": [
+        {
+          "stdin_data": "7",
+          "expected_stdout": "1\n3\n5\n7",
+          "is_edge_case": false
+        },
+        {
+          "stdin_data": "8",
+          "expected_stdout": "1\n3\n5\n7",
+          "is_edge_case": false
+        },
+        {
+          "stdin_data": "1",
+          "expected_stdout": "1",
+          "is_edge_case": true
+        },
+        {
+          "stdin_data": "0",
+          "expected_stdout": "",
+          "is_edge_case": true
+        }
+      ]
+    },
+    {
+      "tier": "Đạt chuẩn",
+      "bloom_level": "Vận dụng",
+      "prompt_text": "Viết chương trình nhập số nguyên n (n ≥ 0) và in ra n! = 1 × 2 × ... × n (quy ước 0! = 1), dùng lệnh for.\nĐầu vào: một số nguyên n.\nĐầu ra: giá trị n!.",
+      "starter_code": "n = int(input())\n# Viết tiếp chương trình",
+      "solution_code": "n = int(input())\ngt = 1\nfor i in range(1, n + 1):\n    gt = gt * i\nprint(gt)",
+      "test_cases": [
+        {
+          "stdin_data": "5",
+          "expected_stdout": "120",
+          "is_edge_case": false
+        },
+        {
+          "stdin_data": "10",
+          "expected_stdout": "3628800",
+          "is_edge_case": false
+        },
+        {
+          "stdin_data": "0",
+          "expected_stdout": "1",
+          "is_edge_case": true
+        },
+        {
+          "stdin_data": "1",
+          "expected_stdout": "1",
+          "is_edge_case": true
+        }
+      ]
+    },
+    {
+      "tier": "Nâng cao",
+      "bloom_level": "Phân tích/Sáng tạo",
+      "prompt_text": "Chương trình mẫu kiểm tra số nguyên tố bằng cách đếm các ước trong đoạn [2, n-1]. Nó chạy đúng với n = 7, n = 9 nhưng SAI với n = 0 và n = 1 (in \"Nguyên tố\"). Hãy chạy thử, phân tích nguyên nhân và sửa lại điều kiện để chương trình đúng với mọi n ≥ 0.\nĐầu vào: một số nguyên n (n ≥ 0).\nĐầu ra: Nguyên tố hoặc Không nguyên tố.",
+      "starter_code": "n = int(input())\ndem = 0\nfor i in range(2, n):\n    if n % i == 0:\n        dem = dem + 1\nif dem == 0:\n    print(\"Nguyên tố\")\nelse:\n    print(\"Không nguyên tố\")",
+      "solution_code": "n = int(input())\ndem = 0\nfor i in range(2, n):\n    if n % i == 0:\n        dem = dem + 1\nif n >= 2 and dem == 0:\n    print(\"Nguyên tố\")\nelse:\n    print(\"Không nguyên tố\")",
+      "test_cases": [
+        {
+          "stdin_data": "7",
+          "expected_stdout": "Nguyên tố",
+          "is_edge_case": false
+        },
+        {
+          "stdin_data": "9",
+          "expected_stdout": "Không nguyên tố",
+          "is_edge_case": false
+        },
+        {
+          "stdin_data": "1",
+          "expected_stdout": "Không nguyên tố",
+          "is_edge_case": true
+        },
+        {
+          "stdin_data": "0",
+          "expected_stdout": "Không nguyên tố",
+          "is_edge_case": true
+        },
+        {
+          "stdin_data": "2",
+          "expected_stdout": "Nguyên tố",
+          "is_edge_case": true
+        }
+      ]
+    }
+  ],
+  "provenance": "Trích ngân hàng bài tập do nhóm biên soạn, branch khanh (khanh_review.zip); không phải trích SGK."
+}
