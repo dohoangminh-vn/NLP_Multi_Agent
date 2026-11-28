@@ -1,0 +1,300 @@
+{
+  "status": "approved_by_tv3",
+  "source": {
+    "doc_id": "ct2018_tin_hoc_10",
+    "sha256": "cd59f67d72fceb17902be95000e9c49f00a2c389d4ba617264bbb27db2472013",
+    "pdf_page": 983,
+    "printed_page": 45,
+    "section": "Lớp 10 / Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính / Lập trình cơ bản",
+    "yccd_column_bbox_pdf_points": [
+      83,
+      149,
+      625,
+      398
+    ],
+    "bbox_origin": "bottom-left",
+    "basic_programming_context": "Viết và thực hiện được một vài chương trình có sử dụng: hằng, biến, các cấu trúc điều khiển, các toán tử, các kiểu dữ liệu chuẩn và mảng, các câu lệnh vào – ra."
+  },
+  "rules": [
+    "Chọn đúng phần lớp 10 và bảng Chủ đề F ở trang PDF 983. Cột trái chứa các YCCĐ. Tiêu đề nội dung ở cột phải chỉ dùng làm ngữ cảnh. Trang 947 mô tả năng lực chung, phần còn lại của dải 939–994 được loại khỏi tập YCCĐ theo bài.",
+    "Với mỗi liên kết đã được TV3 duyệt, lấy đúng đoạn nguồn trong anchors, gắn doc_type=ct2018, bai_so của bài liên kết, muc của bảng và page_number=983 theo cách đánh số PDF của parser. Trang in để giáo viên đối chiếu là 45. Chỉ gắn loai_noi_dung=yccd cho đoạn ở cột YCCĐ. Dùng tiêu đề nội dung làm metadata cho Bài 16 và lấy minh chứng hai YC cụ thể từ SGK.",
+    "Một YCCĐ có thể hỗ trợ nhiều bài. Nhóm các yccd_id chung một đoạn trong cùng bài thành một chunk. Với bài khác, giữ bai_so và ID chunk riêng. Chỉ đưa đoạn liên quan vào nội dung truy hồi và kiểm tra bai_so <= target_bai khi đọc ở cả hai chỉ mục.",
+    "YCCD ở taxonomy là mục tiêu theo bài do nhóm diễn giải. Khi trích nguyên văn CT, dùng quote đã so với trang nguồn. Từ khoá Python, tên phương thức và ví dụ cụ thể lấy từ SGK. Đoạn liên môn cần minh chứng bài tập trước khi gắn bài."
+  ],
+  "anchors": {
+    "môi_trường": {
+      "column": "Nội dung",
+      "quote": "Môi trường và các yếu tố cơ bản của một ngôn ngữ lập trình bậc cao"
+    },
+    "biến": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "biến"
+    },
+    "toán_tử": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "các toán tử"
+    },
+    "điều_khiển": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "các cấu trúc điều khiển"
+    },
+    "kiểu": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "các kiểu dữ liệu chuẩn"
+    },
+    "mảng": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "mảng"
+    },
+    "vào_ra": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "các câu lệnh vào – ra"
+    },
+    "thư_viện": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "Viết được chương trình có sử dụng chương trình con trong thư viện chuẩn."
+    },
+    "chương_trình_con": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "Viết được chương trình con biểu diễn một thuật toán đơn giản và viết được chương trình có sử dụng chương trình con này."
+    },
+    "đọc_hiểu": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "Đọc hiểu được chương trình đơn giản."
+    },
+    "gỡ_lỗi": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "Kiểm thử và gỡ lỗi được chương trình."
+    },
+    "liên_môn": {
+      "column": "Yêu cầu cần đạt",
+      "quote": "Viết và thực hiện được chương trình giải quyết bài toán đơn giản có vận dụng kiến thức liên môn."
+    }
+  },
+  "lessons": [
+    {
+      "bai_so": 16,
+      "links": [
+        {
+          "yccd_id": "F10.B16.YC1",
+          "anchor": "môi_trường",
+          "relation": "tiêu_đề"
+        },
+        {
+          "yccd_id": "F10.B16.YC2",
+          "anchor": "môi_trường",
+          "relation": "tiêu_đề"
+        }
+      ],
+      "reason": "Môi trường Python và hai chế độ làm việc cụ thể hoá tiêu đề nội dung của CT. Trích SGK cho các thao tác và đặc điểm riêng của Python."
+    },
+    {
+      "bai_so": 17,
+      "links": [
+        {
+          "yccd_id": "F10.B17.YC1",
+          "anchor": "biến",
+          "relation": "thành_phần"
+        },
+        {
+          "yccd_id": "F10.B17.YC2",
+          "anchor": "toán_tử",
+          "relation": "thành_phần"
+        }
+      ],
+      "reason": "Gắn lệnh gán với biến, biểu thức số học với toán tử."
+    },
+    {
+      "bai_so": 18,
+      "links": [
+        {
+          "yccd_id": "F10.B18.YC1",
+          "anchor": "vào_ra",
+          "relation": "thành_phần"
+        },
+        {
+          "yccd_id": "F10.B18.YC2",
+          "anchor": "kiểu",
+          "relation": "thành_phần"
+        }
+      ],
+      "reason": "Gắn thao tác nhập/xuất với vào – ra, chuyển kiểu với các kiểu dữ liệu chuẩn."
+    },
+    {
+      "bai_so": 19,
+      "links": [
+        {
+          "yccd_id": "F10.B19.YC1",
+          "anchor": "toán_tử",
+          "relation": "thành_phần"
+        },
+        {
+          "yccd_id": "F10.B19.YC2",
+          "anchor": "điều_khiển",
+          "relation": "thành_phần"
+        }
+      ],
+      "reason": "Bài cụ thể hoá phép so sánh, logic và rẽ nhánh if."
+    },
+    {
+      "bai_so": 20,
+      "links": [
+        {
+          "yccd_id": "F10.B20.YC1",
+          "anchor": "điều_khiển",
+          "relation": "thành_phần"
+        },
+        {
+          "yccd_id": "F10.B20.YC2",
+          "anchor": "điều_khiển",
+          "relation": "thành_phần"
+        }
+      ],
+      "reason": "Bài cụ thể hoá lặp for với số lần biết trước."
+    },
+    {
+      "bai_so": 21,
+      "links": [
+        {
+          "yccd_id": "F10.B21.YC1",
+          "anchor": "điều_khiển",
+          "relation": "thành_phần"
+        },
+        {
+          "yccd_id": "F10.B21.YC2",
+          "anchor": "điều_khiển",
+          "relation": "thành_phần"
+        }
+      ],
+      "reason": "Bài cụ thể hoá lặp theo điều kiện while."
+    },
+    {
+      "bai_so": 22,
+      "links": [
+        {
+          "yccd_id": "F10.B22.YC1",
+          "anchor": "mảng",
+          "relation": "vận_dụng"
+        },
+        {
+          "yccd_id": "F10.B22.YC2",
+          "anchor": "mảng",
+          "relation": "vận_dụng"
+        }
+      ],
+      "reason": "SGK dùng list để học lưu trữ, truy cập và duyệt dãy. Mảng là thuật ngữ trong CT."
+    },
+    {
+      "bai_so": 23,
+      "links": [
+        {
+          "yccd_id": "F10.B23.YC1",
+          "anchor": "mảng",
+          "relation": "vận_dụng"
+        },
+        {
+          "yccd_id": "F10.B23.YC2",
+          "anchor": "mảng",
+          "relation": "vận_dụng"
+        }
+      ],
+      "reason": "Các thao tác với list và bài toán trên dãy là nội dung triển khai của SGK."
+    },
+    {
+      "bai_so": 24,
+      "links": [
+        {
+          "yccd_id": "F10.B24.YC1",
+          "anchor": "kiểu",
+          "relation": "vận_dụng"
+        },
+        {
+          "yccd_id": "F10.B24.YC2",
+          "anchor": "kiểu",
+          "relation": "vận_dụng"
+        }
+      ],
+      "reason": "SGK triển khai kiểu str, chỉ số và duyệt xâu."
+    },
+    {
+      "bai_so": 25,
+      "links": [
+        {
+          "yccd_id": "F10.B25.YC1",
+          "anchor": "kiểu",
+          "relation": "vận_dụng"
+        },
+        {
+          "yccd_id": "F10.B25.YC2",
+          "anchor": "kiểu",
+          "relation": "vận_dụng"
+        }
+      ],
+      "reason": "Các phương thức tách, ghép và tìm kiếm trên xâu thuộc ví dụ cụ thể của SGK."
+    },
+    {
+      "bai_so": 26,
+      "links": [
+        {
+          "yccd_id": "F10.B26.YC1",
+          "anchor": "thư_viện",
+          "relation": "trực_tiếp"
+        },
+        {
+          "yccd_id": "F10.B26.YC2",
+          "anchor": "chương_trình_con",
+          "relation": "trực_tiếp"
+        }
+      ],
+      "reason": "Phân biệt sử dụng chương trình con có sẵn và tự định nghĩa rồi gọi hàm."
+    },
+    {
+      "bai_so": 27,
+      "links": [
+        {
+          "yccd_id": "F10.B27.YC1",
+          "anchor": "chương_trình_con",
+          "relation": "thành_phần"
+        },
+        {
+          "yccd_id": "F10.B27.YC2",
+          "anchor": "chương_trình_con",
+          "relation": "trực_tiếp"
+        }
+      ],
+      "reason": "Tham số và đối số cụ thể hoá việc định nghĩa và gọi chương trình con."
+    },
+    {
+      "bai_so": 28,
+      "links": [
+        {
+          "yccd_id": "F10.B28.YC1",
+          "anchor": "chương_trình_con",
+          "relation": "thành_phần"
+        },
+        {
+          "yccd_id": "F10.B28.YC2",
+          "anchor": "đọc_hiểu",
+          "relation": "vận_dụng"
+        }
+      ],
+      "reason": "Phạm vi biến là chi tiết trong SGK. YC2 dùng thêm hoạt động đọc hiểu chương trình có hàm."
+    },
+    {
+      "bai_so": 29,
+      "links": [
+        {
+          "yccd_id": "F10.B29.YC1",
+          "anchor": "gỡ_lỗi",
+          "relation": "thành_phần"
+        },
+        {
+          "yccd_id": "F10.B29.YC2",
+          "anchor": "gỡ_lỗi",
+          "relation": "thành_phần"
+        }
+      ],
+      "reason": "Ghi nhận phần nhận biết và phân tích lỗi của Bài 29. Yêu cầu kiểm thử và gỡ lỗi của CT còn được phát triển sau giới hạn MVP."
+    }
+  ]
+}

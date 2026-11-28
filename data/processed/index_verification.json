@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "chunk_count": 860,
+  "counts_by_source": {
+    "ct2018": 18,
+    "sgk": 499,
+    "sbt": 343
+  },
+  "embedding_model": "bkai-foundation-models/vietnamese-bi-encoder",
+  "embedding_dimension": 768,
+  "source_pages": 118,
+  "workbook_exercises": 162,
+  "workbook_answers": 162,
+  "persisted_payloads_match_jsonl": true,
+  "idempotent_upsert_and_reopen": true,
+  "scope_checks": [
+    {
+      "target_bai": 16,
+      "dense_hits": 59,
+      "bm25_hits": 29
+    },
+    {
+      "target_bai": 17,
+      "dense_hits": 145,
+      "bm25_hits": 63
+    },
+    {
+      "target_bai": 18,
+      "dense_hits": 207,
+      "bm25_hits": 88
+    },
+    {
+      "target_bai": 19,
+      "dense_hits": 273,
+      "bm25_hits": 115
+    },
+    {
+      "target_bai": 20,
+      "dense_hits": 327,
+      "bm25_hits": 143
+    },
+    {
+      "target_bai": 21,
+      "dense_hits": 385,
+      "bm25_hits": 176
+    },
+    {
+      "target_bai": 22,
+      "dense_hits": 447,
+      "bm25_hits": 207
+    },
+    {
+      "target_bai": 23,
+      "dense_hits": 508,
+      "bm25_hits": 226
+    },
+    {
+      "target_bai": 24,
+      "dense_hits": 560,
+      "bm25_hits": 245
+    },
+    {
+      "target_bai": 25,
+      "dense_hits": 626,
+      "bm25_hits": 261
+    },
+    {
+      "target_bai": 26,
+      "dense_hits": 686,
+      "bm25_hits": 292
+    },
+    {
+      "target_bai": 27,
+      "dense_hits": 739,
+      "bm25_hits": 311
+    },
+    {
+      "target_bai": 28,
+      "dense_hits": 803,
+      "bm25_hits": 341
+    },
+    {
+      "target_bai": 29,
+      "dense_hits": 860,
+      "bm25_hits": 361
+    }
+  ]
+}

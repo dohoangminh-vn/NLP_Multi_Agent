@@ -4,254 +4,47 @@
 **Phạm vi MVP (Phiên bản chuẩn 10 điểm):** **Chủ đề F – Giải quyết vấn đề với sự trợ giúp của máy tính** (Lập trình Python – Bộ học liệu *Chương trình GDPT 2018 + SGK + SBT/SGV Tin học 10 Kết nối tri thức với cuộc sống*, gồm 14 bài lập trình cốt lõi từ **Bài 16 đến Bài 29**), xuất kế hoạch bài dạy chuẩn **Phụ lục IV – Công văn 5512/BGDĐT-GDTrH** kèm **trích dẫn nguồn chính xác đến từng trang/mục SGK** và **3 Phiếu học tập phân hóa theo thang đo Bloom**. Hỗ trợ linh hoạt chế độ **1 tiết (45 phút – Tiết Lý thuyết hoặc Tiết Thực hành)** và **Trọn bài 2 tiết (90 phút)** đúng Phân phối chương trình THPT.  
 **Thời gian thực hiện:** **4 tuần** (tổ chức phát triển song song theo mô hình *Mock-Driven + Contract-First* để triệt tiêu thời gian chờ phụ thuộc giữa 5 thành viên).
 
-> **Lưu ý quản trị đầu dự án:** Trước khi chốt triển khai Tuần 1, Nhóm trưởng (TV1) xác nhận chính thức với Giảng viên môn Xử lý ngôn ngữ tự nhiên (NLP) về quy định sĩ số nhóm (5 thành viên) và minh bạch **bảng tỷ lệ % đóng góp (tổng = 100%)** giữa các thành viên trong hồ sơ nộp cuối kỳ.
+> **Lưu ý quản trị đầu dự án:** Trước khi chốt triển khai Tuần 1, Nhóm trưởng (TV1) xác nhận chính thức với Giảng viên môn Xử lý ngôn ngữ tự nhiên (NLP) về quy định sĩ số nhóm (5 thành viên) và minh bạch **bảng tỷ lệ % đóng góp (tổng = 100%)** giữa các thành viên trong hồ sơ nộp cuối kỳ.  
+> 📌 **Tài liệu Thiết kế Kỹ thuật & Biểu đồ tách riêng:** Toàn bộ sơ đồ thiết kế chi tiết (Use Case, Kiến trúc LangGraph 6 node, Tuần tự E2E, Hợp đồng Pydantic Class Diagram) được lưu trữ tại file: **[Tài liệu Thiết kế Hệ thống (thietke.md)](./thietke.md)**.
 
 ---
 
-## **1. Đặc tả Use Case & Luồng Nghiệp vụ Hệ thống**
+## **1. Tổng quan Nghiệp vụ & Ca sử dụng (Use Cases)**
 
-### **1.1. Biểu đồ Use Case Tổng thể**
+> 📘 **Xem biểu đồ Use Case trực quan:** Xem sơ đồ Mermaid và tương tác tác nhân chi tiết tại [Mục 1.1 - thietke.md](./thietke.md#11-biểu-đồ-use-case-tổng-thể).
 
-```mermaid
-flowchart LR
-    GV(["Giáo viên Tin học THPT"])
-    EVAL(["Nhóm Nghiên cứu / Evaluator"])
-    JUDGE(["Giáo viên / Chuyên gia chấm mù"])
+Hệ thống phục vụ 3 nhóm tác nhân chính: **Giáo viên Tin học THPT** (người dùng cuối tạo giáo án và phiếu học tập), **Nhóm Nghiên cứu / Evaluator** (quản lý ingest dữ liệu và chạy benchmark ablation tự động), và **Giáo viên / Chuyên gia chấm mù** (đánh giá Human Evaluation).
 
-    subgraph System["Hệ thống Multi-Agent Thiết kế Giáo án Tin học 10"]
-        UC01["UC-01: Cấu hình lớp học phân hóa và chế độ 45p hoặc 90p"]
-        UC02["UC-02: Khởi chạy sinh giáo án và theo dõi Live Trace"]
-        UC03["UC-03: Duyệt và chỉnh sửa khung hoạt động HITL"]
-        UC04["UC-04: Đối chiếu trích dẫn SGK, YCCĐ và 3 Phiếu học tập"]
-        UC05["UC-05: Xuất giáo án chuẩn Công văn 5512 ra file DOCX"]
-        UC06["UC-06: Ingest học liệu PDF và chuẩn hóa Taxonomy YCCĐ"]
-        UC07["UC-07: Chạy Benchmark 4 mức Ablation và log MLflow"]
-        UC08["UC-08: Đánh giá mù Human Eval và đối sánh LLM-as-a-Judge"]
-    end
+### **Bảng tóm tắt 8 Use Case cốt lõi**
 
-    GV --> UC01
-    GV --> UC02
-    GV --> UC03
-    GV --> UC04
-    GV --> UC05
-
-    EVAL --> UC06
-    EVAL --> UC07
-    JUDGE --> UC08
-
-    UC02 -. "include" .-> UC01
-    UC02 -. "include" .-> UC04
-    UC03 -. "extend" .-> UC02
-    UC05 -. "include" .-> UC04
-    UC07 -. "include" .-> UC06
-    UC08 -. "extend" .-> UC07
-```
-
-### **1.2. Bảng đặc tả chi tiết 8 Use Case**
-
-| Mã UC | Tên Use Case | Tác nhân | Đầu vào (Input) | Luồng xử lý chính & Xử lý ngoại lệ / Tự sửa lỗi | Đầu ra nghiệm thu (Output) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **UC-01** | Cấu hình lớp học phân hóa & thời lượng | Giáo viên | Chọn Bài (16–29), `scope_mode` (`45p Lý thuyết` / `45p Thực hành` / `90p Trọn bài`), tỷ lệ 3 nhóm (tổng = 100%), cấu hình phòng máy | UI tự cân bằng 3 thanh trượt về 100%, kiểm tra hợp lệ chỉ số bài và ghi chú ngữ cảnh lớp học trước khi gửi API. Nếu tổng khác 100%, nút khởi chạy bị khóa. | `LessonRequest` JSON hợp lệ |
-| **UC-02** | Khởi chạy sinh giáo án & theo dõi Live Trace | Giáo viên | `LessonRequest`, `bypass_hitl = False` | Backend mở luồng SSE, chạy song song `Curriculum Retriever` + `Class Profiler`, hội tụ vào `Outline Planner` rồi tạm dừng trước `Detail Designer`. Sau khi nhận duyệt HITL, vòng lặp `Detail Designer <-> Critic` chạy tối đa 3 vòng; nếu AST/Sandbox/Critic báo lỗi, hiển thị thẻ đỏ kèm dòng lỗi và tự động chuyển sang Revision Mode. | Dòng sự kiện SSE thời gian thực & bản nháp hoàn chỉnh |
-| **UC-03** | Duyệt & chỉnh sửa khung hoạt động (HITL) | Giáo viên | Khung 4 hoạt động + phân bổ phút đề xuất từ `Outline Planner` | Đồ thị dừng tại Checkpointer (`interrupt_before`); GV sửa trực tiếp tên hoạt động, phân bổ thời lượng hoặc ghi chú sư phạm rồi bấm *"Xác nhận & Sinh chi tiết"*. Nếu GV chỉnh tổng phút lệch chuẩn 45p/90p, UI cảnh báo cân đối lại. | Payload `POST /resume` cập nhật `AgentState` và tiếp tục luồng |
-| **UC-04** | Đối chiếu trích dẫn SGK, YCCĐ & 3 Phiếu học tập | Giáo viên | `LessonPlan5512` đã qua kiểm định | Giao diện hiển thị giáo án chuẩn 5512 kèm **Badge trích dẫn nguồn** (`Tên tài liệu, Bài, Mục, Trang`) trên từng hoạt động và 3 tab Phiếu học tập phân hóa (*Cơ bản – Đạt chuẩn – Nâng cao*) với trạng thái `AST PASS` & `Sandbox PASS`. | Giáo án minh bạch nguồn gốc, 0% vượt chương trình |
-| **UC-05** | Xuất giáo án `.docx` chuẩn Công văn 5512 | Giáo viên | `thread_id` đã hoàn tất | Gọi `GET /api/lesson/{thread_id}/export`, `docx_exporter.py` đổ dữ liệu vào template chuẩn hành chính Việt Nam (Phần I Mục tiêu 3 thành phần, Phần II Học liệu, Phần III bảng 2 cột đủ 4 bước CV 5512, Phụ lục 3 Phiếu học tập + code monospace). | File `.docx` tải về không lỗi font tiếng Việt & bảng biểu |
-| **UC-06** | Ingest học liệu PDF & chuẩn hóa Taxonomy YCCĐ | Nhóm Nghiên cứu | PDF CT GDPT 2018 (TT 32), SGK + SBT/SGV Tin học 10 KNTT | Docling parse giữ bảng biểu & code Python; tách từ tiếng Việt (`pyvi`/`underthesea`) cho BM25, tạo Vector index kèm metadata `bai_so`, xây dựng `data/yccd_taxonomy.json` và đánh giá `Recall@5`, `MRR` trên 30–50 câu truy vấn chuẩn. | Kho chunk sạch, index Hybrid RAG & báo cáo Retrieval |
-| **UC-07** | Chạy Benchmark 4 mức Ablation & log MLflow | Nhóm Nghiên cứu | `eval/test_dataset.json` (10–15 bài × nhiều hồ sơ lớp), `bypass_hitl = True` | Chạy tuần tự 4 cấu hình (`B1` Zero-shot, `B2` Single+RAG, `B3` Multi-Agent+LLM Critic thuần, `B4` Full System) trên cùng 1 base LLM (`temperature=0`), log đầy đủ metric & chi phí lên MLflow, chạy `verify_report_metrics.py` đối soát 100%. | Bảng & biểu đồ Ablation chuẩn trên MLflow |
-| **UC-08** | Đánh giá mù Human Eval & đối sánh LLM-as-a-Judge | Chuyên gia / GV | 5–6 bộ giáo án mẫu ẩn danh nguồn sinh (`B2` vs `B4`) | 1–2 giáo viên/sinh viên sư phạm Tin học chấm mù theo rubric 5512 & phân hóa Bloom; hệ thống tính hệ số đồng thuận **Cohen's κ / Spearman ρ** giữa người chấm và LLM-as-a-Judge. | Minh chứng độ tin cậy thang đo & phân tích lỗi (Error Analysis) |
+| Mã UC | Tên Use Case | Tác nhân chính | Đầu vào (Input) | Đầu ra nghiệm thu (Output) |
+| :--- | :--- | :--- | :--- | :--- |
+| **UC-01** | Cấu hình lớp học phân hóa & thời lượng | Giáo viên | Chọn Bài (16–29), `scope_mode` (45p/90p), tỷ lệ 3 nhóm (tổng 100%), phòng máy | `LessonRequest` JSON hợp lệ |
+| **UC-02** | Khởi chạy sinh giáo án & theo dõi Live Trace | Giáo viên | `LessonRequest`, `bypass_hitl = False` | Dòng sự kiện SSE real-time & bản nháp hoàn chỉnh |
+| **UC-03** | Duyệt & chỉnh sửa khung hoạt động (HITL) | Giáo viên | Khung 4 hoạt động đề xuất từ `Outline Planner` | Payload `POST /resume` cập nhật `AgentState` |
+| **UC-04** | Đối chiếu trích dẫn SGK & 3 Phiếu học tập | Giáo viên | `LessonPlan5512` đã qua kiểm định | Giáo án minh bạch nguồn gốc (trang/mục), 0% out-of-scope |
+| **UC-05** | Xuất giáo án `.docx` chuẩn Công văn 5512 | Giáo viên | `thread_id` đã hoàn tất | File `.docx` chuẩn mẫu hành chính, không lỗi font/bảng |
+| **UC-06** | Ingest học liệu PDF & Taxonomy YCCĐ | Nhóm Nghiên cứu | PDF CT GDPT 2018, SGK + SBT Tin học 10 KNTT | Kho chunk sạch, index Hybrid RAG & báo cáo Recall/MRR |
+| **UC-07** | Chạy Benchmark 4 mức Ablation & MLflow | Nhóm Nghiên cứu | `test_dataset.json`, `bypass_hitl = True` | Bảng & biểu đồ Ablation đối sánh 4 cấu hình trên MLflow |
+| **UC-08** | Đánh giá mù Human Eval & LLM-as-a-Judge | Chuyên gia / GV | 5–6 bộ giáo án mẫu ẩn danh nguồn sinh (B2 vs B4) | Hệ số đồng thuận Cohen's κ / Spearman ρ & Error Analysis |
 
 ---
 
-## **2. Kiến trúc Hệ thống, Luồng Tuần tự & Hợp đồng Dữ liệu**
+## **2. Tổng quan Kiến trúc Hệ thống Multi-Agent**
 
-### **2.1. Biểu đồ Kiến trúc LangGraph Multi-Agent + Hybrid RAG + HITL + Guardrails**
+> 📘 **Xem biểu đồ Kiến trúc, Tuần tự & Lớp chi tiết:**  
+> - **Biểu đồ Kiến trúc LangGraph 6 node:** Xem tại [Mục 2.1 - thietke.md](./thietke.md#21-biểu-đồ-kiến-trúc-langgraph--hybrid-rag--hitl--guardrails)  
+> - **Biểu đồ Tuần tự Kịch bản Demo E2E:** Xem tại [Mục 3.1 - thietke.md](./thietke.md#31-biểu-đồ-tuần-tự-kịch-bản-e2e-ví-dụ-bài-20-câu-lệnh-lặp-for)  
+> - **Biểu đồ Hợp đồng Dữ liệu Pydantic:** Xem tại [Mục 4.1 - thietke.md](./thietke.md#41-biểu-đồ-hợp-đồng-dữ-liệu-pydantic-srcschemaspy)
 
-```mermaid
-flowchart TD
-    REQ["Đầu vào: LessonRequest (Bài 16-29, scope_mode 45p hoặc 90p, tỷ lệ 3 nhóm)"] --> PAR_START(("Khởi chạy song song"))
-
-    subgraph RAG_PIPE["Nhánh 1: Curriculum Retriever (TV2)"]
-        KB[("Kho PDF: CT GDPT 2018 + SGK + SBT Tin 10")] --> HYB["Hybrid Search: VN-BM25 + Dense + Lọc bai_so <= k"]
-        HYB --> RERANK["Cross-Encoder Reranker"]
-        RERANK --> GRADE{"Đủ YCCĐ và ngữ cảnh?"}
-        GRADE -- "Thiếu" --> REWRITE["Query Rewriter"]
-        REWRITE --> HYB
-    end
-
-    subgraph PROF_PIPE["Nhánh 2: Class Profiler (TV3)"]
-        PROF["Ánh xạ phân hóa lớp: Thang Bloom + Năng lực NLa-NLc + Khung phút"]
-    end
-
-    PAR_START --> KB
-    PAR_START --> PROF
-
-    GRADE -- "Đạt" --> OUTLINE["Outline Planner: Sinh khung 4 hoạt động và phân bổ phút"]
-    PROF --> OUTLINE
-
-    OUTLINE --> BYPASS{"bypass_hitl == True?"}
-    BYPASS -- "False (Chế độ GV)" --> HITL["HITL Checkpointer: Tạm dừng interrupt_before chờ GV sửa hoặc duyệt"]
-    HITL --> DESIGNER["Detail & Worksheet Designer: 4 bước CV 5512 + Citations + 3 Phiếu"]
-    BYPASS -- "True (Chạy Benchmark)" --> DESIGNER
-
-    DESIGNER --> CRITIC_HUB
-
-    subgraph CRITIC_HUB["Cụm Kiểm định & Phản biện (TV4)"]
-        AST["AST Syllabus Guard: 3 tầng AST Nodes, Built-ins, Methods trên solution_code"]
-        SBX["Code Sandbox: Subprocess cô lập, timeout 2s, UTF-8, input() rỗng"]
-        LLM_C["Pedagogy & Grounding Critic: Faithfulness, Citation, YCCĐ, 45p/90p, Bloom"]
-    end
-
-    CRITIC_HUB --> PASS_GATE{"Đạt tất cả tiêu chí?"}
-    PASS_GATE -- "Chưa đạt và iteration < 3" --> REV["Revision Mode: Trả danh sách lỗi theo dòng"]
-    REV --> DESIGNER
-    PASS_GATE -- "Đạt hoặc iteration == 3" --> EXPORT["DOCX Exporter (CV 5512) + Giao diện Web GV"]
-```
-
-### **2.2. Biểu đồ Tuần tự Kịch bản Demo E2E (Ví dụ Bài 20: Câu lệnh lặp `for`)**
-
-```mermaid
-sequenceDiagram
-    actor GV as Giao vien THPT
-    participant UI as Web UI
-    participant API as FastAPI SSE
-    participant LG as LangGraph Workflow
-    participant RAG as Hybrid RAG + Profiler
-    participant DES as Outline & Detail Designer
-    participant VER as AST + Sandbox + Critic
-    participant EXP as DOCX Exporter
-
-    GV->>UI: Chon Bai 20 (for), 90p, ty le 25/50/25
-    UI->>API: POST /api/lesson/start
-    API->>LG: Khoi tao StateGraph (thread_id)
-    LG->>RAG: Chay song song Retriever (bai_so <= 20) va Profiler
-    RAG-->>LG: Tra YCCD, trich dan SGK trang 105-107, Bloom Matrix
-    LG->>DES: Outline Planner sinh khung 4 hoat dong (90 phut)
-    DES-->>API: SSE stream khung hoat dong
-    API-->>UI: Hien thi man hinh duyet HITL (tam dung)
-
-    GV->>UI: Sua thoi luong HD3 va bam Xac nhan
-    UI->>API: POST /api/lesson/resume
-    API->>LG: Cap nhat AgentState va chay tiep Detail Designer
-    LG->>DES: Sinh chi tiet 4 buoc 5512 + 3 Phieu (Draft 1)
-    DES->>VER: Gui ban nhap kiem dinh
-
-    Note over VER: Vong 1: AST Guard phat hien ListComp hoac .append() vuot Bai 20
-    VER-->>API: SSE The Do (Out-of-Scope tai Dong 4 Phieu Nang cao)
-    API-->>UI: Hien thi canh bao loi Live Trace
-    VER->>DES: Kich hoat Revision Mode (iteration = 1)
-
-    DES->>VER: Sua lai dung vong for thuan va gui lai (Draft 2)
-    Note over VER: Vong 2: AST PASS + Sandbox 100% Test Case PASS + Critic PASS
-    VER-->>API: SSE The Xanh (Tat ca kiem dinh dat chuan)
-    API-->>UI: Hien thi Giao an 5512, Badge trich dan va 3 Phieu
-
-    GV->>UI: Bam Tai file Word
-    UI->>API: GET /api/lesson/{thread_id}/export
-    API->>EXP: Render mau hanh chinh CV 5512
-    EXP-->>UI: Tra ve file .docx hoan chinh
-```
-
-### **2.3. Biểu đồ Hợp đồng Dữ liệu Pydantic (`src/schemas.py`)**
-
-```mermaid
-classDiagram
-    class LessonRequest {
-        +int target_bai
-        +str topic_name
-        +str scope_mode
-        +int target_minutes
-        +float basic_ratio
-        +float standard_ratio
-        +float advanced_ratio
-        +str lab_constraints
-        +bool bypass_hitl
-    }
-
-    class SourceCitation {
-        +str doc_name
-        +int bai_so
-        +str section_title
-        +int page_number
-        +str quoted_text
-    }
-
-    class LessonOutline {
-        +str objective_summary
-        +List~str~ activity_titles
-        +List~int~ activity_minutes
-        +List~str~ worksheet_goals
-        +bool is_approved
-    }
-
-    class Activity5512 {
-        +str activity_name
-        +int duration_minutes
-        +str goal
-        +str content
-        +str expected_product
-        +str step1_transfer
-        +str step2_execute
-        +str step3_report
-        +str step4_conclude
-        +List~SourceCitation~ citations
-    }
-
-    class TestCase {
-        +str stdin_data
-        +str expected_stdout
-        +bool is_edge_case
-    }
-
-    class WorksheetItem {
-        +str tier
-        +str bloom_level
-        +str prompt_text
-        +str starter_code
-        +str solution_code
-        +List~TestCase~ test_cases
-    }
-
-    class LessonPlan5512 {
-        +str knowledge_goals
-        +str general_competencies
-        +str cs_competencies
-        +str qualities
-        +str teaching_materials
-        +List~Activity5512~ activities
-        +List~WorksheetItem~ worksheets
-    }
-
-    class CriticReport {
-        +bool is_passed
-        +List~str~ ast_violations
-        +List~str~ sandbox_failures
-        +float faithfulness_score
-        +float citation_precision
-        +float yccd_coverage
-        +float differentiation_score
-        +int total_minutes_checked
-        +str revision_instructions
-    }
-
-    class AgentState {
-        +LessonRequest request
-        +List~SourceCitation~ retrieved_chunks
-        +str bloom_matrix_json
-        +LessonOutline outline
-        +LessonPlan5512 draft_plan
-        +CriticReport critic_report
-        +int iteration
-    }
-
-    AgentState *-- LessonRequest
-    AgentState *-- LessonOutline
-    AgentState *-- LessonPlan5512
-    AgentState *-- CriticReport
-    LessonPlan5512 *-- Activity5512
-    LessonPlan5512 *-- WorksheetItem
-    Activity5512 o-- SourceCitation
-    WorksheetItem *-- TestCase
-```
+### **Nguyên lý Hoạt động Cốt lõi của Hệ thống:**
+1. **Song song hóa Đầu vào (Parallel Input):** Khởi chạy đồng thời `Curriculum Retriever` (truy xuất học liệu qua Vietnamese Hybrid RAG với bộ lọc `bai_so <= k`) và `Class Profiler` (ánh xạ phân hóa theo thang Bloom, năng lực `NLa–NLc` và quỹ thời gian).
+2. **Điểm dừng Thẩm định Người dùng (HITL Checkpointer):** `Outline Planner` tạo khung 4 hoạt động và dừng tại `interrupt_before` để giáo viên xem xét, điều chỉnh thời lượng trước khi tiêu tốn token sinh chi tiết (có cờ `bypass_hitl` cho chế độ benchmark tự động).
+3. **Bộ đôi Sinh nội dung & Phản biện (Reflection Loop):** `Detail & Worksheet Designer` kết hợp chặt chẽ với cụm `Critic Hub` gồm:
+   - **AST Syllabus Guard (Tất định):** Quét cây cú pháp 3 tầng cấm tuyệt đối kiến thức vượt bài học.
+   - **Code Sandbox (Tất định):** Thực thi code với test case trong môi trường cô lập, kiểm soát timeout 2s và I/O.
+   - **Pedagogy & Grounding Critic (LLM):** Đánh giá độ trung thực, độ phủ YCCĐ và chuẩn 5512.
+4. **Vòng lặp Sửa đổi (Revision Mode):** Tự động lặp tối đa 3 vòng để hoàn thiện trước khi xuất file `.docx`.
 
 ---
 

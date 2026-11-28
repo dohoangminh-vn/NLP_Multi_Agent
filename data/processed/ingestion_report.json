@@ -1,0 +1,29 @@
+{
+  "total_pages_parsed": 118,
+  "total_chunks_created": 860,
+  "chunks_by_lesson": {
+    "16": 59,
+    "17": 86,
+    "18": 62,
+    "19": 66,
+    "20": 54,
+    "21": 58,
+    "22": 62,
+    "23": 61,
+    "24": 52,
+    "25": 66,
+    "26": 60,
+    "27": 53,
+    "28": 64,
+    "29": 57
+  },
+  "chunks_by_type": {
+    "yccd": 18,
+    "ly_thuyet": 297,
+    "vi_du": 110,
+    "bai_tap": 435
+  },
+  "bm25_indexed": true,
+  "vector_indexed": true,
+  "warnings": []
+}

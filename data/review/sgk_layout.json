@@ -1,0 +1,19 @@
+{
+  "sha256": "c9784688e87f2f8b6118d188452e61193fee1921a4d3dfa0a4abddfe8ba97901",
+  "figures": {"87": {"caption": "Hình 16.1", "first_line": "01101101 01101001 01101110 00100000"}},
+  "text_corrections": {
+    "92": {"(a + b)2 = a2 + 2ab + b2": "(a + b)² = a² + 2ab + b²"},
+    "96": {"(1 + 2 + 3 + ... + 10)3": "(1 + 2 + 3 + ... + 10)³", "(x2 + y2 – 1)": "(x² + y² – 1)"},
+    "110": {"12 + 22 +... + k2": "1² + 2² +... + k²", "điều kiện k2 < 100": "điều kiện k² < 100"},
+    "145": {"Đ ể tính giá trị trung bình": "Để tính giá trị trung bình"}
+  },
+  "tables": {
+  "96": ["False break else", "and def for is raise elif nonlocal try"],
+  "102": ["< nhỏ hơn", "<= nhỏ hơn hoặc bằng"],
+  "103": ["Phép toán and Phép toán or Phép toán not", "False False False False False False"],
+  "109": ["A B", "thùng nước."],
+  "118": ["A.append(x) Bổ sung", "A.remove(x) Xoá phần tử"],
+  "128": ["abs() len() range()", "str() divmod() int() print() type()"],
+  "144": ["Mã lỗi ngoại lệ Mô tả lỗi", "SyntaxError Lỗi cú pháp."]
+  }
+}

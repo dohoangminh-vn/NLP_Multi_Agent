@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "scope": "Chủ đề F - Giải quyết vấn đề với sự trợ giúp của máy tính (Lập trình Python, Bài 16-29, Tin học 10 KNTT)",
+  "documents": [
+    {
+      "doc_id": "ct2018_tin_hoc_10",
+      "doc_type": "ct2018",
+      "doc_name": "Chương trình GDPT 2018 môn Tin học (Thông tư 32/2018/TT-BGDĐT)",
+      "filename": "Thông-tư-32-2018-TT-BGDĐT.pdf",
+      "page_range": {
+        "start_page": 983,
+        "end_page": 983
+      },
+      "notes": "Trang PDF 983 (trang in 45) chứa bảng YCCĐ lớp 10 Chủ đề F giữa Chủ đề E và G. TV3 đã duyệt liên kết bài trong data/ct2018_lesson_mapping.json."
+    },
+    {
+      "doc_id": "sgk_tin10_kntt",
+      "doc_type": "sgk",
+      "doc_name": "SGK Tin học 10 - Kết nối tri thức với cuộc sống",
+      "filename": "sgk-tin-hoc-10-kntt-unicode.pdf",
+      "page_range": {
+        "start_page": 87,
+        "end_page": 145
+      },
+      "notes": "Bản khôi phục lớp chữ Unicode từ sgk-tin-hoc-10-kntt.pdf. Bài 16–29 ở trang PDF 87–145 (trang in 86–144). Trang PDF 146 mở đầu Bài 30. Mẫu kiểm tra code Hình 16.1 nằm trong data/review/sgk_b16_hinh_16_1.py."
+    },
+    {
+      "doc_id": "sbt_tin10_kntt",
+      "doc_type": "sbt",
+      "doc_name": "SBT Tin học 10 - Kết nối tri thức với cuộc sống",
+      "filename": "SBT Tin học 10 - Kết Nối Tri Thức.pdf",
+      "page_range": {
+        "start_page": 35,
+        "end_page": 131
+      },
+      "notes": "Bản chép đã đối chiếu ảnh trong data/review/sbt. Đề Bài 16–29 ở trang PDF 35–62, đáp án ở trang PDF 102–131. Trang in bằng trang PDF trừ 1."
+    }
+  ]
+}
